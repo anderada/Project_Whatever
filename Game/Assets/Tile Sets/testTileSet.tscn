@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxumbmrempqsb"]
+
+[ext_resource type="PackedScene" uid="uid://ptrsw2hvw637" path="res://Assets/Prefabs/magenta_box.tscn" id="1_0m5h7"]
+[ext_resource type="PackedScene" uid="uid://0rfvlqpvr622" path="res://Assets/Prefabs/cyan_box.tscn" id="2_2xmy0"]
+
+[node name="Tile Set" type="Node3D"]
+
+[node name="CyanBox" parent="." instance=ExtResource("2_2xmy0")]
+
+[node name="MagentaBox" parent="." instance=ExtResource("1_0m5h7")]

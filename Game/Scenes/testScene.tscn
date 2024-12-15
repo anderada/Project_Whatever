@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnntgybm4ualm"]
+
+[ext_resource type="MeshLibrary" uid="uid://b4jksivxct48v" path="res://Assets/Tile Sets/testTileset.tres" id="1_timmm"]
+
+[node name="Test Scene" type="Node3D"]
+
+[node name="Camera&Lights" type="Node" parent="."]
+
+[node name="Camera" type="Camera3D" parent="Camera&Lights"]
+transform = Transform3D(0.999332, -0.0086666, -0.0354965, 0.0176052, 0.965471, 0.259914, 0.0320183, -0.260366, 0.964979, 1.09105, 3.02698, 2.83287)
+fov = 78.75
+
+[node name="Sun" type="DirectionalLight3D" parent="Camera&Lights"]
+transform = Transform3D(0.593255, -0.46854, 0.654614, -0.221585, 0.686715, 0.692331, -0.773918, -0.555782, 0.303576, 0, 0, 0)
+
+[node name="Global Reflection" type="DirectionalLight3D" parent="Camera&Lights"]
+transform = Transform3D(0.54384, 0.704651, -0.455748, 0.12721, -0.606028, -0.785205, -0.82949, 0.369051, -0.419222, 0, 0, 0)
+light_color = Color(0.388739, 0.292407, 0.134756, 1)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_timmm")
+data = {
+"cells": PackedInt32Array(65535, 65535, 0, 0, 65535, 0, 0, 0, 0, 65535, 0, 0, 1, 65534, 1, 0, 65534, 1, 65535, 65534, 1, 65534, 65534, 1, 65534, 65535, 1, 65534, 0, 1, 65534, 1, 1, 65535, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 65535, 1, 65537, 65533, 0, 65538, 65535, 0, 65538, 1, 0, 65536, 2, 0, 131070, 2, 0, 131069, 0, 0, 131069, 65534, 0, 131071, 65533, 0, 65536, 65533, 1, 65538, 65534, 1, 65538, 0, 1, 65537, 2, 1, 131071, 2, 1, 131069, 1, 1, 131069, 65535, 1, 131070, 65533, 1)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
