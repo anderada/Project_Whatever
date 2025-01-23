@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxumbmrempqsb"]
+[gd_scene load_steps=5 format=3 uid="uid://cxumbmrempqsb"]
 
 [ext_resource type="PackedScene" uid="uid://dnak032cwbtnx" path="res://Assets/Prefabs/ice.tscn" id="1_b5amb"]
 [ext_resource type="PackedScene" uid="uid://bd12svvlhti5o" path="res://Assets/Prefabs/floor.tscn" id="2_1jqhe"]
 [ext_resource type="PackedScene" uid="uid://ccj0rtrnq6rny" path="res://Assets/Prefabs/wall.tscn" id="3_wi5yb"]
+[ext_resource type="PackedScene" uid="uid://b58x36f7w8pir" path="res://Assets/Prefabs/stairs.tscn" id="4_qhdov"]
 
 [node name="Tile Set" type="Node3D"]
 
@@ -11,3 +12,5 @@
 [node name="Ice" parent="." instance=ExtResource("1_b5amb")]
 
 [node name="Wall" parent="." instance=ExtResource("3_wi5yb")]
+
+[node name="Stairs" parent="." instance=ExtResource("4_qhdov")]

@@ -1,10 +1,14 @@
 extends Node3D
 
 @export var moveTime : float
-@export var moveCurve : Curve
+@export var walkCurve : Curve
+@export var slideInCurve : Curve
+@export var slideCurve : Curve
+@export var slideOutCurve : Curve
 @export var rotationTime : float
 @export var rotationCurve : Curve
 @export var mazeRef : GridMap
+var moveCurve : Curve
 var forward : Vector2
 var nextSpace : Vector2
 var targetPosition : Vector3
@@ -23,6 +27,7 @@ func _ready() -> void:
 	previousPosition = position
 	targetRotation = rotation_degrees.y
 	previousRotation = rotation_degrees.y
+	moveCurve = walkCurve
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -73,6 +78,7 @@ func _process(delta: float) -> void:
 		targetPosition.z += nextSpace.y
 		moveClock = moveTime
 		lastMove = nextSpace
+		setMoveCurve()
 	#backwards
 	if(playerInput.x == -1 && moveClock <= 0 && !sliding):
 		previousPosition = position
@@ -81,6 +87,7 @@ func _process(delta: float) -> void:
 		targetPosition.z -= nextSpace.y
 		moveClock = moveTime
 		lastMove = -nextSpace
+		setMoveCurve()
 	#turn right
 	if(playerInput.y == 1 && rotationClock <= 0):
 		previousRotation = rotation_degrees.y
@@ -117,6 +124,7 @@ func _process(delta: float) -> void:
 			targetPosition.z += lastMove.y
 			moveClock = moveTime
 			sliding = true
+			setMoveCurve()
 
 
 	#rotate player
@@ -135,3 +143,17 @@ func stopPlayer() -> void:
 	previousPosition = position
 	sliding = false
 	moveClock = -1
+
+func setMoveCurve() -> void:
+	var blockPos = mazeRef.local_to_map(position)
+	var blockAtFeet = mazeRef.get_cell_item(blockPos)
+	blockPos = mazeRef.local_to_map(targetPosition)
+	var blockInFront = mazeRef.get_cell_item(blockPos)
+	print(blockAtFeet)
+	print(blockInFront)
+	if(blockAtFeet != 1 && blockInFront == 1):
+		moveCurve = slideInCurve
+	if(blockAtFeet == 1 && blockInFront == 1):
+		moveCurve = slideCurve
+	if(blockAtFeet == 1 && blockInFront != 1):
+		moveCurve = slideOutCurve

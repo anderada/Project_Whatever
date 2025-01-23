@@ -1,11 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnntgybm4ualm"]
+[gd_scene load_steps=9 format=3 uid="uid://dnntgybm4ualm"]
 
 [ext_resource type="MeshLibrary" uid="uid://c7s504naygtsq" path="res://Assets/Tile Sets/testTileSet.tres" id="1_rvkmo"]
 [ext_resource type="Script" path="res://Scripts/playerMovement.gd" id="2_6b51s"]
 [ext_resource type="Script" path="res://Scripts/cameraMovement.gd" id="3_iyvod"]
 
-[sub_resource type="Curve" id="Curve_5xky0"]
-_data = [Vector2(0, 0), 0.0, 0.28215, 0, 0, Vector2(1, 1), 0.291337, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_x6p1d"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_mdgxm"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_u7dom"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_kf3x4"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_ou3iv"]
@@ -22,11 +34,11 @@ light_energy = 1.2
 
 [node name="Ambient" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(0.0338856, 0.415214, -0.909093, -0.110372, -0.902497, -0.416315, -0.993312, 0.114445, 0.0152457, 0, 0, 0)
-light_color = Color(0.878586, 0.691476, 0.650441, 1)
+light_color = Color(0.778177, 0.523443, 0.469085, 1)
 
 [node name="Ambient2" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(0.0427507, -0.835257, -0.548196, -0.932506, 0.163593, -0.321978, 0.358615, 0.52496, -0.771889, 0, 0, 0)
-light_color = Color(0.783836, 0.63647, 0.8469, 1)
+light_color = Color(0.369307, 0.513619, 0.809253, 1)
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_rvkmo")
@@ -45,7 +57,10 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 3)
 script = ExtResource("2_6b51s")
 moveTime = 0.3
-moveCurve = SubResource("Curve_5xky0")
+walkCurve = SubResource("Curve_x6p1d")
+slideInCurve = SubResource("Curve_mdgxm")
+slideCurve = SubResource("Curve_u7dom")
+slideOutCurve = SubResource("Curve_kf3x4")
 rotationTime = 0.3
 rotationCurve = SubResource("Curve_ou3iv")
 mazeRef = NodePath("../GridMap")
