@@ -102,12 +102,27 @@ func _process(delta: float) -> void:
 	
 	#check collision
 	if(targetPosition != previousPosition):
+		#check head collision
 		var headPosition = targetPosition
 		headPosition.y += 1
 		var blockPos = mazeRef.local_to_map(headPosition)
 		var block = mazeRef.get_cell_item(blockPos)
-		if(block != -1):
+		if(block != -1 && block != 3):
 			stopPlayer()
+		if(block == 3):
+			targetPosition.x += lastMove.x
+			targetPosition.y += 1
+			targetPosition.z += lastMove.y
+	
+		#check feet collision
+		blockPos = mazeRef.local_to_map(targetPosition)
+		block = mazeRef.get_cell_item(blockPos)
+		if(block == -1):
+			stopPlayer()
+		if(block == 3):
+			targetPosition.x += lastMove.x
+			targetPosition.y -= 1
+			targetPosition.z += lastMove.y
 	
 	#move player
 	if(moveClock >= 0):
