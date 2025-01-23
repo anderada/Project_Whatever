@@ -1,25 +1,62 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnntgybm4ualm"]
+[gd_scene load_steps=7 format=3 uid="uid://dnntgybm4ualm"]
 
-[ext_resource type="MeshLibrary" uid="uid://b4jksivxct48v" path="res://Assets/Tile Sets/testTileset.tres" id="1_timmm"]
+[ext_resource type="MeshLibrary" uid="uid://c7s504naygtsq" path="res://Assets/Tile Sets/testTileSet.tres" id="1_rvkmo"]
+[ext_resource type="Script" path="res://Scripts/playerMovement.gd" id="2_6b51s"]
+[ext_resource type="Script" path="res://Scripts/cameraMovement.gd" id="3_iyvod"]
+
+[sub_resource type="Curve" id="Curve_5xky0"]
+_data = [Vector2(0, 0), 0.0, 0.28215, 0, 0, Vector2(1, 1), 0.291337, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_ou3iv"]
+_data = [Vector2(0, 0), 0.0, -0.245637, 0, 0, Vector2(0.321053, 0), 0.368455, 0.368455, 0, 0, Vector2(0.705263, 0.945055), 1.25275, 1.25275, 0, 0, Vector2(0.921053, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o5y5o"]
 
 [node name="Test Scene" type="Node3D"]
 
-[node name="Camera&Lights" type="Node" parent="."]
+[node name="Lights" type="Node" parent="."]
 
-[node name="Camera" type="Camera3D" parent="Camera&Lights"]
-transform = Transform3D(0.999332, -0.0086666, -0.0354965, 0.0176052, 0.965471, 0.259914, 0.0320183, -0.260366, 0.964979, 1.09105, 3.02698, 2.83287)
-fov = 78.75
-
-[node name="Sun" type="DirectionalLight3D" parent="Camera&Lights"]
+[node name="Sun" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(0.593255, -0.46854, 0.654614, -0.221585, 0.686715, 0.692331, -0.773918, -0.555782, 0.303576, 0, 0, 0)
+light_energy = 1.2
 
-[node name="Global Reflection" type="DirectionalLight3D" parent="Camera&Lights"]
-transform = Transform3D(0.54384, 0.704651, -0.455748, 0.12721, -0.606028, -0.785205, -0.82949, 0.369051, -0.419222, 0, 0, 0)
-light_color = Color(0.388739, 0.292407, 0.134756, 1)
+[node name="Ambient" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.0338856, 0.415214, -0.909093, -0.110372, -0.902497, -0.416315, -0.993312, 0.114445, 0.0152457, 0, 0, 0)
+light_color = Color(0.878586, 0.691476, 0.650441, 1)
+
+[node name="Ambient2" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.0427507, -0.835257, -0.548196, -0.932506, 0.163593, -0.321978, 0.358615, 0.52496, -0.771889, 0, 0, 0)
+light_color = Color(0.783836, 0.63647, 0.8469, 1)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("1_timmm")
+mesh_library = ExtResource("1_rvkmo")
+cell_size = Vector3(1, 1, 1)
+cell_octant_size = 32
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+cell_scale = 0.5
 data = {
-"cells": PackedInt32Array(65535, 65535, 0, 0, 65535, 0, 0, 0, 0, 65535, 0, 0, 1, 65534, 1, 0, 65534, 1, 65535, 65534, 1, 65534, 65534, 1, 65534, 65535, 1, 65534, 0, 1, 65534, 1, 1, 65535, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 65535, 1, 65537, 65533, 0, 65538, 65535, 0, 65538, 1, 0, 65536, 2, 0, 131070, 2, 0, 131069, 0, 0, 131069, 65534, 0, 131071, 65533, 0, 65536, 65533, 1, 65538, 65534, 1, 65538, 0, 1, 65537, 2, 1, 131071, 2, 1, 131069, 1, 1, 131069, 65535, 1, 131070, 65533, 1)
+"cells": PackedInt32Array(148, 65532, 2, 147, 65532, 2, 145, 65533, 2, 144, 65533, 2, 142, 65533, 2, 141, 65533, 2, 140, 65533, 2, 139, 65533, 2, 0, 0, 0, 0, 65535, 0, 0, 65534, 0, 0, 65533, 0, 1, 65533, 0, 2, 65533, 0, 3, 65533, 0, 2, 65534, 0, 2, 65535, 0, 2, 0, 0, 3, 65534, 0, 3, 65535, 0, 3, 0, 0, 0, 65532, 0, 0, 65531, 0, 0, 65530, 0, 1, 65530, 0, 2, 65530, 0, 3, 65530, 0, 65535, 65530, 0, 65534, 65530, 0, 65533, 65530, 0, 65533, 65531, 0, 65533, 65532, 0, 65533, 65533, 0, 65533, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65533, 1, 0, 65535, 1, 0, 2, 3, 0, 2, 4, 0, 2, 5, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 1, 7, 0, 2, 7, 0, 65535, 5, 0, 65534, 5, 0, 65533, 5, 0, 65533, 4, 0, 65533, 3, 0, 65534, 3, 0, 65534, 4, 0, 4, 65530, 0, 5, 65530, 0, 5, 65531, 0, 5, 65532, 0, 5, 65533, 0, 5, 65534, 0, 5, 65535, 0, 5, 0, 0, 5, 1, 0, 5, 2, 0, 5, 3, 0, 4, 3, 0, 3, 3, 0, 3, 4, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 5, 4, 0, 4, 4, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 65535, 65531, 1, 65535, 65532, 1, 65535, 65533, 1, 65535, 65534, 1, 65535, 65535, 1, 65535, 0, 1, 65534, 65535, 1, 65534, 65534, 1, 65534, 65533, 1, 65534, 65532, 1, 65534, 65531, 1, 65537, 65534, 2, 65537, 65535, 2, 65537, 0, 2, 65537, 1, 2, 65537, 2, 2, 65538, 1, 2, 65539, 1, 2, 65540, 1, 2, 65540, 2, 2, 65539, 2, 2, 65538, 2, 2, 65540, 0, 2, 65540, 65535, 2, 65540, 65534, 2, 65540, 65533, 2, 65540, 65532, 2, 65539, 65532, 2, 65539, 65531, 2, 65540, 65531, 2, 65538, 65531, 2, 65537, 65531, 2, 65537, 65532, 2, 65538, 65532, 2, 65537, 4, 2, 65537, 5, 2, 65537, 6, 2, 65538, 6, 2, 65539, 6, 2, 65540, 6, 2, 65541, 6, 2, 65542, 6, 2, 65542, 5, 2, 65542, 4, 2, 65542, 3, 2, 65542, 2, 2, 65542, 1, 2, 65542, 0, 2, 65542, 65535, 2, 65542, 65534, 2, 65542, 65533, 2, 65542, 65532, 2, 65542, 65531, 2, 65542, 65530, 2, 65542, 65529, 2, 65541, 65529, 2, 65540, 65529, 2, 65539, 65529, 2, 65538, 65529, 2, 65537, 65529, 2, 65536, 65529, 2, 131071, 65529, 2, 131070, 65529, 2, 131069, 65529, 2, 131068, 65529, 2, 131068, 65530, 2, 131068, 65531, 2, 131068, 65532, 2, 131068, 65533, 2, 131068, 65534, 2, 131068, 65535, 2, 131068, 0, 2, 131068, 1, 2, 131068, 2, 2, 131069, 2, 2, 131070, 2, 2, 131071, 2, 2, 131071, 3, 2, 131071, 4, 2, 131068, 3, 2, 131068, 4, 2, 131068, 5, 2, 131068, 6, 2, 131069, 6, 2, 131070, 6, 2, 131071, 6, 2, 131071, 7, 2, 131071, 8, 2, 65536, 8, 2, 65537, 8, 2, 65538, 8, 2, 65539, 8, 2, 65540, 8, 2, 65541, 8, 2, 65542, 8, 2, 65542, 7, 2, 1, 3, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 65534, 1, 0, 65534, 0, 1)
 }
-metadata/_editor_floor_ = Vector3(0, 1, 0)
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Player" type="Node3D" parent="."]
+script = ExtResource("2_6b51s")
+moveTime = 0.3
+moveCurve = SubResource("Curve_5xky0")
+rotationTime = 0.3
+rotationCurve = SubResource("Curve_ou3iv")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+fov = 81.3299
+script = ExtResource("3_iyvod")
+
+[node name="Ground Collider" type="Area3D" parent="Player"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Ground Collider"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_o5y5o")

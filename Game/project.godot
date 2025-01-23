@@ -14,3 +14,11 @@ config/name="whatever-maze"
 run/main_scene="res://Scenes/testScene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+mouse_cursor/custom_image="res://Assets/Textures/cursor.png"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

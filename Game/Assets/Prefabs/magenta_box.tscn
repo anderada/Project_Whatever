@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://ptrsw2hvw637"]
-
-[ext_resource type="PackedScene" uid="uid://dyn5t4vbn38ts" path="res://Assets/Meshes/MagentaBox.glb" id="1_div2m"]
-[ext_resource type="Material" uid="uid://n28xm835j0ss" path="res://Assets/Materials/testMaterial.tres" id="2_q85bx"]
-
-[node name="MagentaBox" instance=ExtResource("1_div2m")]
-
-[node name="Magenta" parent="." index="0"]
-surface_material_override/0 = ExtResource("2_q85bx")
