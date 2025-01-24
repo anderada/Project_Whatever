@@ -174,7 +174,7 @@ func startStairs(offset : int) -> void:
 	targetPosition.z += lastMove.y
 	moveClock = moveTime * 2
 	goingUpStairs = true
-	%Camera3D.startShake(moveTime, 0)
+	%Camera3D.startShake(moveTime/2, 4)
 
 func setMoveCurve() -> void:
 	var blockPos = mazeRef.local_to_map(position)
