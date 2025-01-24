@@ -71,7 +71,7 @@ func _process(delta: float) -> void:
 		
 	#set target position and rotation
 	#forward
-	if(playerInput.x == 1 && moveClock <= 0 && !sliding):
+	if(playerInput.x == 1 && moveClock <= -1 && !sliding):
 		previousPosition = position
 		targetPosition = position
 		targetPosition.x += nextSpace.x
@@ -79,8 +79,9 @@ func _process(delta: float) -> void:
 		moveClock = moveTime
 		lastMove = nextSpace
 		setMoveCurve()
+		print("foreward")
 	#backwards
-	if(playerInput.x == -1 && moveClock <= 0 && !sliding):
+	if(playerInput.x == -1 && moveClock <= -1 && !sliding):
 		previousPosition = position
 		targetPosition = position
 		targetPosition.x -= nextSpace.x
@@ -89,12 +90,12 @@ func _process(delta: float) -> void:
 		lastMove = -nextSpace
 		setMoveCurve()
 	#turn right
-	if(playerInput.y == 1 && rotationClock <= 0):
+	if(playerInput.y == 1 && rotationClock <= -1):
 		previousRotation = rotation_degrees.y
 		targetRotation = rotation_degrees.y + 90
 		rotationClock = rotationTime
 	#turn left
-	if(playerInput.y == -1 && rotationClock <= 0):
+	if(playerInput.y == -1 && rotationClock <= -1):
 		previousRotation = rotation_degrees.y
 		targetRotation = rotation_degrees.y - 90
 		rotationClock = rotationTime
@@ -132,6 +133,8 @@ func _process(delta: float) -> void:
 	elif(moveClock >= -0.5):
 		moveClock = -1
 		stopPlayer()
+		print("stop")
+		print(position)
 		#check ice
 		var blockPos = mazeRef.local_to_map(position)
 		var block = mazeRef.get_cell_item(blockPos)
