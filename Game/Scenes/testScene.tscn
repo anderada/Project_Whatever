@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnntgybm4ualm"]
+[gd_scene load_steps=12 format=3 uid="uid://dnntgybm4ualm"]
 
 [ext_resource type="MeshLibrary" uid="uid://bpfi5ouqj5dsb" path="res://Assets/Tile Sets/testTileSet3.tres" id="1_q6x3h"]
 [ext_resource type="Script" path="res://Scripts/playerMovement.gd" id="2_6b51s"]
@@ -21,8 +21,8 @@ _data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_ou3iv"]
-_data = [Vector2(0, 0), 0.0, -0.245637, 0, 0, Vector2(0.321053, 0), 0.368455, 0.368455, 0, 0, Vector2(0.705263, 0.945055), 1.25275, 1.25275, 0, 0, Vector2(0.921053, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 5
+_data = [Vector2(0, 0), 0.0, -0.245637, 0, 0, Vector2(0.321053, 0), 0.835163, 0.835163, 0, 0, Vector2(1, 1), 0.0, -1.04401, 0, 0]
+point_count = 3
 
 [sub_resource type="Sky" id="Sky_7khwp"]
 
@@ -43,6 +43,10 @@ fog_depth_begin = 5.0
 fog_depth_end = 86.0
 volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0.590301, 1, 0.949091, 1)
+
+[sub_resource type="Curve" id="Curve_kfd2c"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.347368, 0.461538), 2.71429, 2.71429, 0, 0, Vector2(0.673684, 1), 0.0, 0.0, 0, 0, Vector2(0.857895, 0.285714), -4.42146, -4.42146, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
 
 [node name="Test Scene" type="Node3D"]
 
@@ -81,7 +85,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 [node name="Player" type="Node3D" parent="." node_paths=PackedStringArray("mazeRef")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 3)
 script = ExtResource("2_6b51s")
-moveTime = 0.3
+moveTime = 0.35
 walkCurve = SubResource("Curve_x6p1d")
 slideInCurve = SubResource("Curve_mdgxm")
 slideCurve = SubResource("Curve_u7dom")
@@ -91,11 +95,14 @@ rotationCurve = SubResource("Curve_ou3iv")
 mazeRef = NodePath("../GridMap")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 environment = SubResource("Environment_f8dpp")
 fov = 95.0
 near = 0.001
 script = ExtResource("3_iyvod")
+cameraShake = SubResource("Curve_kfd2c")
+cameraShakeIntensity = 0.1
 
 [node name="Label" type="Label" parent="."]
 offset_left = 16.0

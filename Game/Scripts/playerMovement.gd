@@ -20,6 +20,7 @@ var rotationClock : float = 0
 var lastMove : Vector2
 var playerInput = Vector2(0,0)
 var sliding = false
+var goingUpStairs = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -79,7 +80,6 @@ func _process(delta: float) -> void:
 		moveClock = moveTime
 		lastMove = nextSpace
 		setMoveCurve()
-		print("foreward")
 	#backwards
 	if(playerInput.x == -1 && moveClock <= -1 && !sliding):
 		previousPosition = position
@@ -112,9 +112,7 @@ func _process(delta: float) -> void:
 		if(block != -1 && block != 3):
 			stopPlayer()
 		if(block == 3):
-			targetPosition.x += lastMove.x
-			targetPosition.y += 1
-			targetPosition.z += lastMove.y
+			startStairs(1)
 	
 		#check feet collision
 		blockPos = mazeRef.local_to_map(targetPosition)
@@ -122,19 +120,24 @@ func _process(delta: float) -> void:
 		if(block == -1):
 			stopPlayer()
 		if(block == 3):
-			targetPosition.x += lastMove.x
-			targetPosition.y -= 1
-			targetPosition.z += lastMove.y
+			startStairs(-1)
 	
 	#move player
 	if(moveClock >= 0):
-		position = Vector3(moveCurve.sample((moveTime - moveClock)/moveTime) * (targetPosition - previousPosition) + previousPosition)
+		
+		#take longer to go up stairs
+		if(goingUpStairs):
+			if(position.distance_to(targetPosition) < 0.05):
+				position = targetPosition
+			else:
+				position = Vector3(moveCurve.sample((moveTime * 2) - moveClock)/(moveTime * 2) * (targetPosition - previousPosition) + previousPosition)
+		else:
+			position = Vector3(moveCurve.sample((moveTime - moveClock)/moveTime) * (targetPosition - previousPosition) + previousPosition)
+		
 	#make sure player is at centre of tile when stopped
 	elif(moveClock >= -0.5):
 		moveClock = -1
 		stopPlayer()
-		print("stop")
-		print(position)
 		#check ice
 		var blockPos = mazeRef.local_to_map(position)
 		var block = mazeRef.get_cell_item(blockPos)
@@ -162,7 +165,16 @@ func stopPlayer() -> void:
 	targetPosition = position
 	previousPosition = position
 	sliding = false
+	goingUpStairs = false
 	moveClock = -1
+
+func startStairs(offset : int) -> void:
+	targetPosition.x += lastMove.x
+	targetPosition.y += offset
+	targetPosition.z += lastMove.y
+	moveClock = moveTime * 2
+	goingUpStairs = true
+	%Camera3D.startShake(moveTime, 0)
 
 func setMoveCurve() -> void:
 	var blockPos = mazeRef.local_to_map(position)
@@ -177,3 +189,4 @@ func setMoveCurve() -> void:
 		moveCurve = slideOutCurve
 	else:
 		moveCurve = walkCurve
+		%Camera3D.startShake(moveTime, 1)

@@ -6,6 +6,11 @@ var mousePos
 var previousMousePos
 var mouseStillTime = 0 
 @export var hideMouseTime : float = 2
+@export var cameraShake : Curve
+@export var cameraShakeIntensity : float
+var shakeClock = 0
+var shakeItteration = 0
+@export var shakeTime : float
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -25,3 +30,15 @@ func _process(delta: float) -> void:
 	
 	#rotate camera
 	rotation_degrees = Vector3(-((mousePos.y - (get_viewport().size.y / 2))) * verticalDegrees / 360,-((mousePos.x - (get_viewport().size.x / 2))) * horizontalDegrees / 360,0)
+	
+	shakeClock -= delta
+	shakeItteration -= delta
+	if(shakeClock >= 0):
+		if(shakeItteration <=0):
+			shakeItteration = min(shakeTime, shakeClock)
+		position = Vector3(0, 1 + cameraShake.sample((shakeTime - shakeItteration)/shakeTime) * cameraShakeIntensity ,0)
+
+func startShake(frequency: float, ammount: int) -> void:
+	shakeTime = frequency
+	shakeClock = frequency * ammount
+	shakeItteration = frequency
