@@ -99,9 +99,10 @@ func _process(delta: float) -> void:
 		targetRotation = rotation_degrees.y - 90
 		rotationClock = rotationTime
 	targetRotation = round(targetRotation / 90) * 90
+	targetPosition = round(targetPosition)
 	
 	#check collision
-	if(targetPosition != previousPosition):
+	if(moveClock >= 0):
 		#check head collision
 		var headPosition = targetPosition
 		headPosition.y += 1
@@ -148,6 +149,7 @@ func _process(delta: float) -> void:
 	elif(rotationClock >= -0.5):
 		rotationClock = -1
 		rotation_degrees = Vector3(0,round(rotation_degrees.y / 90) * 90,0)
+		targetRotation = rotation_degrees.y
 		
 	#reset input
 	playerInput = Vector2(0,0)
@@ -164,11 +166,11 @@ func setMoveCurve() -> void:
 	var blockAtFeet = mazeRef.get_cell_item(blockPos)
 	blockPos = mazeRef.local_to_map(targetPosition)
 	var blockInFront = mazeRef.get_cell_item(blockPos)
-	print(blockAtFeet)
-	print(blockInFront)
 	if(blockAtFeet != 1 && blockInFront == 1):
 		moveCurve = slideInCurve
-	if(blockAtFeet == 1 && blockInFront == 1):
+	elif(blockAtFeet == 1 && blockInFront == 1):
 		moveCurve = slideCurve
-	if(blockAtFeet == 1 && blockInFront != 1):
+	elif(blockAtFeet == 1 && blockInFront != 1):
 		moveCurve = slideOutCurve
+	else:
+		moveCurve = walkCurve
