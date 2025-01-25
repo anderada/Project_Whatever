@@ -19,6 +19,7 @@ var moveClock : float = 0
 var rotationClock : float = 0
 var lastMove : Vector2
 var playerInput = Vector2(0,0)
+var moveInput = Vector2(0,0)
 var sliding = false
 var goingUpStairs = false
 
@@ -79,6 +80,7 @@ func _process(delta: float) -> void:
 		targetPosition.z += nextSpace.y
 		moveClock = moveTime
 		lastMove = nextSpace
+		moveInput = playerInput
 		setMoveCurve()
 	#backwards
 	if(playerInput.x == -1 && moveClock <= -1 && !sliding):
@@ -88,6 +90,7 @@ func _process(delta: float) -> void:
 		targetPosition.z -= nextSpace.y
 		moveClock = moveTime
 		lastMove = -nextSpace
+		moveInput = playerInput
 		setMoveCurve()
 	#turn right
 	if(playerInput.y == 1 && rotationClock <= -1):
@@ -109,7 +112,7 @@ func _process(delta: float) -> void:
 		headPosition.y += 1
 		var blockPos = mazeRef.local_to_map(headPosition)
 		var block = mazeRef.get_cell_item(blockPos)
-		if(block != -1 && block != 3):
+		if(block != -1 && block != 3 && !(block == 4 && moveInput.x == -1)):
 			stopPlayer()
 		if(block == 3):
 			startStairs(1)
