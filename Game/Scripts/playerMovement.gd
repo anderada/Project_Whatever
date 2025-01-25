@@ -19,9 +19,10 @@ var moveClock : float = 0
 var rotationClock : float = 0
 var lastMove : Vector2
 var playerInput = Vector2(0,0)
-var moveInput = Vector2(0,0)
 var sliding = false
 var goingUpStairs = false
+var directionFacing = 0
+var directionMoving = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -80,7 +81,7 @@ func _process(delta: float) -> void:
 		targetPosition.z += nextSpace.y
 		moveClock = moveTime
 		lastMove = nextSpace
-		moveInput = playerInput
+		directionMoving = directionFacing
 		setMoveCurve()
 	#backwards
 	if(playerInput.x == -1 && moveClock <= -1 && !sliding):
@@ -90,18 +91,25 @@ func _process(delta: float) -> void:
 		targetPosition.z -= nextSpace.y
 		moveClock = moveTime
 		lastMove = -nextSpace
-		moveInput = playerInput
+		directionMoving = directionFacing + 2
+		directionMoving = directionMoving - 4 if directionMoving > 3 else directionMoving
 		setMoveCurve()
 	#turn right
 	if(playerInput.y == 1 && rotationClock <= -1):
 		previousRotation = rotation_degrees.y
 		targetRotation = rotation_degrees.y + 90
 		rotationClock = rotationTime
+		directionFacing += 1
+		directionFacing = 0 if directionFacing == 4 else directionFacing
+		directionFacing = 3 if directionFacing == -1 else directionFacing
 	#turn left
 	if(playerInput.y == -1 && rotationClock <= -1):
 		previousRotation = rotation_degrees.y
 		targetRotation = rotation_degrees.y - 90
 		rotationClock = rotationTime
+		directionFacing -= 1
+		directionFacing = 0 if directionFacing == 4 else directionFacing
+		directionFacing = 3 if directionFacing == -1 else directionFacing
 	targetRotation = round(targetRotation / 90) * 90
 	targetPosition = round(targetPosition)
 	
@@ -112,7 +120,9 @@ func _process(delta: float) -> void:
 		headPosition.y += 1
 		var blockPos = mazeRef.local_to_map(headPosition)
 		var block = mazeRef.get_cell_item(blockPos)
-		if(block != -1 && block != 3 && !(block == 4 && moveInput.x == -1)):
+		print(directionFacing)
+		print(directionMoving)
+		if(block != -1 && block != 3 && !(block == 4 && abs(directionMoving - directionFacing) == 2)):
 			stopPlayer()
 		if(block == 3):
 			startStairs(1)
@@ -170,6 +180,7 @@ func stopPlayer() -> void:
 	sliding = false
 	goingUpStairs = false
 	moveClock = -1
+	%Camera3D.startShake(0, 0)
 
 func startStairs(offset : int) -> void:
 	targetPosition.x += lastMove.x
