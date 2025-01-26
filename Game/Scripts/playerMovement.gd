@@ -129,7 +129,7 @@ func _process(delta: float) -> void:
 	#make sure player is at centre of tile when stopped
 	elif(moveClock >= -0.5):
 		moveClock = -1
-		stopPlayer()
+		stopPlayer(false)
 		#check ice
 		var blockPos = mazeRef.local_to_map(position)
 		var block = mazeRef.get_cell_item(blockPos)
@@ -153,7 +153,9 @@ func _process(delta: float) -> void:
 	#reset input
 	playerInput = Vector2(0,0)
 	
-func stopPlayer() -> void:
+func stopPlayer(collided : bool) -> void:
+	if(!collided):
+		position = targetPosition
 	position = round(position)
 	targetPosition = position
 	previousPosition = position
@@ -193,7 +195,7 @@ func checkCollision() -> void:
 	var blockPos = mazeRef.local_to_map(headPosition)
 	var block = mazeRef.get_cell_item(blockPos)
 	if(block != -1 && block != 3 && !(block == 4 && abs(directionMoving - directionFacing) == 2)):
-		stopPlayer()
+		stopPlayer(true)
 	if(block == 3):
 		startStairs(1)
 	
@@ -201,6 +203,6 @@ func checkCollision() -> void:
 	blockPos = mazeRef.local_to_map(targetPosition)
 	block = mazeRef.get_cell_item(blockPos)
 	if(block == -1):
-		stopPlayer()
+		stopPlayer(true)
 	if(block == 3):
 		startStairs(-1)
