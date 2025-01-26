@@ -83,6 +83,7 @@ func _process(delta: float) -> void:
 		lastMove = nextSpace
 		directionMoving = directionFacing
 		setMoveCurve()
+		checkCollision()
 	#backwards
 	if(playerInput.x == -1 && moveClock <= -1 && !sliding):
 		previousPosition = position
@@ -94,6 +95,7 @@ func _process(delta: float) -> void:
 		directionMoving = directionFacing + 2
 		directionMoving = directionMoving - 4 if directionMoving > 3 else directionMoving
 		setMoveCurve()
+		checkCollision()
 	#turn right
 	if(playerInput.y == 1 && rotationClock <= -1):
 		previousRotation = rotation_degrees.y
@@ -113,31 +115,8 @@ func _process(delta: float) -> void:
 	targetRotation = round(targetRotation / 90) * 90
 	targetPosition = round(targetPosition)
 	
-	#check collision
-	if(moveClock >= 0):
-		#check head collision
-		var headPosition = targetPosition
-		headPosition.y += 1
-		var blockPos = mazeRef.local_to_map(headPosition)
-		var block = mazeRef.get_cell_item(blockPos)
-		print(directionFacing)
-		print(directionMoving)
-		if(block != -1 && block != 3 && !(block == 4 && abs(directionMoving - directionFacing) == 2)):
-			stopPlayer()
-		if(block == 3):
-			startStairs(1)
-	
-		#check feet collision
-		blockPos = mazeRef.local_to_map(targetPosition)
-		block = mazeRef.get_cell_item(blockPos)
-		if(block == -1):
-			stopPlayer()
-		if(block == 3):
-			startStairs(-1)
-	
 	#move player
 	if(moveClock >= 0):
-		
 		#take longer to go up stairs
 		if(goingUpStairs):
 			if(position.distance_to(targetPosition) < 0.05):
@@ -160,6 +139,7 @@ func _process(delta: float) -> void:
 			moveClock = moveTime
 			sliding = true
 			setMoveCurve()
+			checkCollision()
 
 
 	#rotate player
@@ -189,6 +169,7 @@ func startStairs(offset : int) -> void:
 	moveClock = moveTime * 2
 	goingUpStairs = true
 	%Camera3D.startShake(moveTime/2, 4)
+	checkCollision()
 
 func setMoveCurve() -> void:
 	var blockPos = mazeRef.local_to_map(position)
@@ -204,3 +185,22 @@ func setMoveCurve() -> void:
 	else:
 		moveCurve = walkCurve
 		%Camera3D.startShake(moveTime, 1)
+
+func checkCollision() -> void:
+	#check head collision
+	var headPosition = targetPosition
+	headPosition.y += 1
+	var blockPos = mazeRef.local_to_map(headPosition)
+	var block = mazeRef.get_cell_item(blockPos)
+	if(block != -1 && block != 3 && !(block == 4 && abs(directionMoving - directionFacing) == 2)):
+		stopPlayer()
+	if(block == 3):
+		startStairs(1)
+	
+	#check feet collision
+	blockPos = mazeRef.local_to_map(targetPosition)
+	block = mazeRef.get_cell_item(blockPos)
+	if(block == -1):
+		stopPlayer()
+	if(block == 3):
+		startStairs(-1)
