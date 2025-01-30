@@ -36,22 +36,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	#get forward vector for rotation
-	nextSpace = Vector2(0,0);
-	
-	if(rotation_degrees.y > 360):
-		rotation_degrees = Vector3(0,rotation_degrees.y -360,0)
-	if(rotation_degrees.y < 0):
-		rotation_degrees = Vector3(0,rotation_degrees.y +360,0)
-	var nearest90 : int = roundf(rotation_degrees.y / 90) * 90
-	match nearest90:
-		0,360:
-			nextSpace.y = -1
-		90:
-			nextSpace.x = -1
-		180:
-			nextSpace.y = 1
-		270,-90:
-			nextSpace.x = 1
+	getNextSpace()
 	
 	#take time off clocks
 	moveClock -= delta
@@ -187,7 +172,7 @@ func setMoveCurve() -> void:
 	else:
 		moveCurve = walkCurve
 		%Camera3D.startShake(moveTime, 1)
-
+	
 func checkCollision() -> void:
 	#check head collision
 	var headPosition = targetPosition
@@ -206,3 +191,21 @@ func checkCollision() -> void:
 		stopPlayer(true)
 	if(block == 3):
 		startStairs(-1)
+
+func getNextSpace() -> void:
+	nextSpace = Vector2(0,0);
+	
+	if(rotation_degrees.y > 360):
+		rotation_degrees = Vector3(0,rotation_degrees.y -360,0)
+	if(rotation_degrees.y < 0):
+		rotation_degrees = Vector3(0,rotation_degrees.y +360,0)
+	var nearest90 : int = roundf(rotation_degrees.y / 90) * 90
+	match nearest90:
+		0,360:
+			nextSpace.y = -1
+		90:
+			nextSpace.x = -1
+		180:
+			nextSpace.y = 1
+		270,-90:
+			nextSpace.x = 1

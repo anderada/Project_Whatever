@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 	
 	#rotate camera
 	rotation_degrees = Vector3(-((mousePos.y - (get_viewport().size.y / 2))) * verticalDegrees / 360,-((mousePos.x - (get_viewport().size.x / 2))) * horizontalDegrees / 360,0)
+	rotation_degrees = Vector3(clampf(rotation_degrees.x, -verticalDegrees, verticalDegrees), clampf(rotation_degrees.y, -horizontalDegrees, horizontalDegrees), 0)
 	
 	shakeClock -= delta
 	shakeItteration -= delta
