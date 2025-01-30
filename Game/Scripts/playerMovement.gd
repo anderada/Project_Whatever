@@ -24,6 +24,8 @@ var goingUpStairs = false
 var directionFacing = 0
 var directionMoving = 0
 
+@onready var actionable_finder: Area3D = $Direction/ActionableFinder
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	targetPosition = position
@@ -209,3 +211,9 @@ func getNextSpace() -> void:
 			nextSpace.y = 1
 		270,-90:
 			nextSpace.x = 1
+			
+func _on_actionable_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	if (event is InputEventMouseButton):
+		var actionables = actionable_finder.get_overlapping_areas()
+		if (event.button_index == MOUSE_BUTTON_LEFT && event.pressed && actionables.size() > 0):
+				actionables[0].action()
