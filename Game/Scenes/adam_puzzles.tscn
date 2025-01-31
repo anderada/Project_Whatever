@@ -1,32 +1,32 @@
-[gd_scene load_steps=12 format=3 uid="uid://c4xqcy0t3s4kx"]
+[gd_scene load_steps=13 format=3 uid="uid://c4xqcy0t3s4kx"]
 
 [ext_resource type="MeshLibrary" uid="uid://bmxsb4g7jp3c3" path="res://Assets/Tile Sets/tileSet.tres" id="1_d0lyq"]
 [ext_resource type="Script" path="res://Scripts/playerMovement.gd" id="2_4sj8x"]
 [ext_resource type="Script" path="res://Scripts/cameraMovement.gd" id="3_f852n"]
 
-[sub_resource type="Curve" id="Curve_x6p1d"]
+[sub_resource type="Curve" id="Curve_0jctm"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Curve" id="Curve_mdgxm"]
+[sub_resource type="Curve" id="Curve_bkjkb"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Curve" id="Curve_u7dom"]
+[sub_resource type="Curve" id="Curve_bmjeq"]
 _data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
 point_count = 2
 
-[sub_resource type="Curve" id="Curve_kf3x4"]
+[sub_resource type="Curve" id="Curve_343y2"]
 _data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Curve" id="Curve_ou3iv"]
+[sub_resource type="Curve" id="Curve_m6vs6"]
 _data = [Vector2(0, 0), 0.0, -0.245637, 0, 0, Vector2(0.321053, 0), 0.835163, 0.835163, 0, 0, Vector2(1, 1), 0.0, -1.04401, 0, 0]
 point_count = 3
 
 [sub_resource type="Sky" id="Sky_7khwp"]
 
-[sub_resource type="Environment" id="Environment_f8dpp"]
+[sub_resource type="Environment" id="Environment_bbkdl"]
 background_mode = 1
 background_color = Color(0.79794, 0.939559, 1, 1)
 sky = SubResource("Sky_7khwp")
@@ -44,9 +44,12 @@ fog_depth_end = 86.0
 volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0.590301, 1, 0.949091, 1)
 
-[sub_resource type="Curve" id="Curve_kfd2c"]
+[sub_resource type="Curve" id="Curve_kx3d7"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.347368, 0.461538), 2.71429, 2.71429, 0, 0, Vector2(0.673684, 1), 0.0, 0.0, 0, 0, Vector2(0.857895, 0.285714), -4.42146, -4.42146, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_v03gv"]
+height = 0.297069
 
 [node name="Test Scene" type="Node3D"]
 
@@ -82,30 +85,6 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
-[node name="Player" type="Node3D" parent="." node_paths=PackedStringArray("mazeRef")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
-script = ExtResource("2_4sj8x")
-moveTime = 0.35
-walkCurve = SubResource("Curve_x6p1d")
-slideInCurve = SubResource("Curve_mdgxm")
-slideCurve = SubResource("Curve_u7dom")
-slideOutCurve = SubResource("Curve_kf3x4")
-rotationTime = 0.3
-rotationCurve = SubResource("Curve_ou3iv")
-mazeRef = NodePath("../GridMap")
-
-[node name="Camera3D" type="Camera3D" parent="Player"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-environment = SubResource("Environment_f8dpp")
-fov = 95.0
-near = 0.001
-script = ExtResource("3_f852n")
-horizontalDegrees = 3.0
-verticalDegrees = 10.0
-cameraShake = SubResource("Curve_kfd2c")
-cameraShakeIntensity = 0.1
-
 [node name="Label" type="Label" parent="."]
 offset_left = 16.0
 offset_top = 10.0
@@ -114,3 +93,36 @@ offset_bottom = 59.0
 text = "W and S to move
 A and D to rotate
 "
+
+[node name="Player" type="Node3D" parent="." node_paths=PackedStringArray("mazeRef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+script = ExtResource("2_4sj8x")
+moveTime = 0.35
+walkCurve = SubResource("Curve_0jctm")
+slideInCurve = SubResource("Curve_bkjkb")
+slideCurve = SubResource("Curve_bmjeq")
+slideOutCurve = SubResource("Curve_343y2")
+rotationTime = 0.3
+rotationCurve = SubResource("Curve_m6vs6")
+mazeRef = NodePath("")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+environment = SubResource("Environment_bbkdl")
+fov = 95.0
+near = 0.001
+script = ExtResource("3_f852n")
+horizontalDegrees = 3.0
+verticalDegrees = 10.0
+cameraShake = SubResource("Curve_kx3d7")
+cameraShakeIntensity = 0.1
+
+[node name="Direction" type="Marker3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.745335, -1.04541)
+
+[node name="ActionableFinder" type="Area3D" parent="Player/Direction"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Direction/ActionableFinder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0448093, 0.389606)
+shape = SubResource("CylinderShape3D_v03gv")
