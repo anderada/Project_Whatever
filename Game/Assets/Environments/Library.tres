@@ -1,0 +1,19 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://b6e7ydi8600yb"]
+
+[sub_resource type="Sky" id="Sky_llbm7"]
+
+[resource]
+background_mode = 1
+background_color = Color(0.788321, 0.94283, 0.998415, 1)
+sky = SubResource("Sky_llbm7")
+ambient_light_source = 2
+glow_bloom = 0.07
+fog_mode = 1
+fog_light_color = Color(0.876319, 0.948077, 0.98491, 1)
+fog_density = 1.0
+fog_depth_curve = 2.14355
+fog_depth_begin = 5.0
+fog_depth_end = 86.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.04
+volumetric_fog_albedo = Color(0.834774, 0.923252, 0.984928, 1)

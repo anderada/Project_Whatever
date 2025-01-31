@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://dnak032cwbtnx"]
 
-[ext_resource type="Material" uid="uid://bfrhwsiqenlvm" path="res://Assets/Materials/ice.tres" id="1_5nmbb"]
+[ext_resource type="Material" uid="uid://bfrhwsiqenlvm" path="res://Assets/Materials/Blocks/ice.tres" id="1_5nmbb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prhrs"]
 resource_name = "Material"

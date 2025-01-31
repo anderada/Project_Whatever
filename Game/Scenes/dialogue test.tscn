@@ -1,12 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://cxg4y8fxc305a"]
+[gd_scene load_steps=18 format=3 uid="uid://40wngf47s3uf"]
 
-[ext_resource type="MeshLibrary" uid="uid://c13o30oe38ye3" path="res://Assets/Tile Sets/tileSetWeek4.1.tres" id="1_v0dm7"]
+[ext_resource type="MeshLibrary" uid="uid://rh1rjaxqabet" path="res://Assets/Tile Sets/tileSetWeek4.1.tres" id="1_v0dm7"]
 [ext_resource type="Script" path="res://Scripts/playerMovement.gd" id="2_x7362"]
+[ext_resource type="Environment" uid="uid://b6e7ydi8600yb" path="res://Assets/Environments/Library.tres" id="3_n5ra8"]
 [ext_resource type="Script" path="res://Scripts/cameraMovement.gd" id="3_ns3bt"]
 [ext_resource type="Script" path="res://Scripts/actionable.gd" id="4_snlh1"]
 [ext_resource type="Resource" uid="uid://c4b5du6lf0c6g" path="res://Dialogue/testDialogue.dialogue" id="5_xanhj"]
 [ext_resource type="Script" path="res://Scripts/lookAtPlayer.gd" id="6_t8vyl"]
-[ext_resource type="Material" uid="uid://b5h4jgj8iqxll" path="res://Assets/Materials/test_character.tres" id="6_uq17u"]
+[ext_resource type="Material" uid="uid://bnj7x1ybf6fpy" path="res://Assets/Materials/Characters/test_character.tres" id="6_uq17u"]
 
 [sub_resource type="Curve" id="Curve_x6p1d"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -28,26 +29,6 @@ point_count = 2
 _data = [Vector2(0, 0), 0.0, -0.245637, 0, 0, Vector2(0.321053, 0), 0.835163, 0.835163, 0, 0, Vector2(1, 1), 0.0, -1.04401, 0, 0]
 point_count = 3
 
-[sub_resource type="Sky" id="Sky_llbm7"]
-
-[sub_resource type="Environment" id="Environment_f8dpp"]
-background_mode = 1
-background_color = Color(0.79794, 0.939559, 1, 1)
-sky = SubResource("Sky_llbm7")
-ambient_light_source = 2
-ambient_light_color = Color(0.228272, 0.254902, 0.321211, 1)
-reflected_light_source = 2
-glow_enabled = true
-glow_bloom = 0.07
-fog_mode = 1
-fog_light_color = Color(0.876319, 0.948077, 0.98491, 1)
-fog_density = 1.0
-fog_depth_curve = 2.14355
-fog_depth_begin = 5.0
-fog_depth_end = 86.0
-volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.590301, 1, 0.949091, 1)
-
 [sub_resource type="Curve" id="Curve_kfd2c"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.347368, 0.461538), 2.71429, 2.71429, 0, 0, Vector2(0.673684, 1), 0.0, 0.0, 0, 0, Vector2(0.857895, 0.285714), -4.42146, -4.42146, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 5
@@ -67,7 +48,7 @@ orientation = 0
 
 [node name="Sun" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(0.773345, -0.308728, 0.553737, -0.221585, 0.686715, 0.692332, -0.594002, -0.658111, 0.462658, 0, 0, 0)
-light_energy = 1.809
+light_energy = 1.6
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 10.0
@@ -78,9 +59,7 @@ shadow_blur = 2.878
 [node name="Ambient" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(-0.195062, -0.872603, -0.44779, -0.379759, -0.353751, 0.854777, -0.904286, 0.336787, -0.262376, 1, -1, 0)
 light_color = Color(0.811759, 0.698879, 0.638784, 1)
-light_energy = 2.095
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 0.0
+directional_shadow_mode = 0
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_v0dm7")
@@ -111,7 +90,7 @@ mazeRef = NodePath("../GridMap")
 [node name="Camera3D" type="Camera3D" parent="Player"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-environment = SubResource("Environment_f8dpp")
+environment = ExtResource("3_n5ra8")
 fov = 70.0
 near = 0.001
 script = ExtResource("3_ns3bt")

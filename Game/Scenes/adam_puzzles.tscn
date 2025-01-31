@@ -94,7 +94,7 @@ text = "W and S to move
 A and D to rotate
 "
 
-[node name="Player" type="Node3D" parent="." node_paths=PackedStringArray("mazeRef")]
+[node name="Player" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 script = ExtResource("2_4sj8x")
 moveTime = 0.35
@@ -104,7 +104,6 @@ slideCurve = SubResource("Curve_bmjeq")
 slideOutCurve = SubResource("Curve_343y2")
 rotationTime = 0.3
 rotationCurve = SubResource("Curve_m6vs6")
-mazeRef = NodePath("")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 unique_name_in_owner = true
