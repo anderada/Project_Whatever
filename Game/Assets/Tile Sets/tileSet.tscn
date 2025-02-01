@@ -1,0 +1,23 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxumbmrempqsb"]
+
+[ext_resource type="PackedScene" uid="uid://cxuen0iaesmai" path="res://Assets/Prefabs/Blocks/bookshelf_door.tscn" id="1_46xh3"]
+[ext_resource type="PackedScene" uid="uid://bubp8euwdvhl0" path="res://Assets/Prefabs/Blocks/ice_block.tscn" id="2_fleeg"]
+[ext_resource type="PackedScene" uid="uid://b4ewqhqtaa0yh" path="res://Assets/Prefabs/Blocks/bookshelf.tscn" id="3_obc6w"]
+[ext_resource type="PackedScene" uid="uid://dcspkbnehhbye" path="res://Assets/Prefabs/stairs.tscn" id="4_1jgjh"]
+[ext_resource type="PackedScene" uid="uid://cl782vs3tgpgy" path="res://Assets/Prefabs/invisible.tscn" id="5_jy7bv"]
+[ext_resource type="PackedScene" uid="uid://dcsqq2opy3cyi" path="res://Assets/Prefabs/bridge.tscn" id="6_q6t27"]
+
+[node name="Tile Set" type="Node3D"]
+
+[node name="BookshelfDoor2" parent="." instance=ExtResource("1_46xh3")]
+
+[node name="IceBlock" parent="." instance=ExtResource("2_fleeg")]
+
+[node name="Bookshelf2" parent="." instance=ExtResource("3_obc6w")]
+
+[node name="Stairs" parent="." instance=ExtResource("4_1jgjh")]
+visible = true
+
+[node name="Invisible" parent="." instance=ExtResource("5_jy7bv")]
+
+[node name="Bridge" parent="." instance=ExtResource("6_q6t27")]

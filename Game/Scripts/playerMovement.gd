@@ -24,6 +24,11 @@ var goingUpStairs = false
 var directionFacing = 0
 var directionMoving = 0
 
+@export var iceIndex : int = 1
+@export var stairIndex : int = 3
+@export var pillarIndex : int = 4
+@export var bridgeIndex : int = 5
+
 @onready var actionable_finder: Area3D = $Direction/ActionableFinder
 
 # Called when the node enters the scene tree for the first time.
@@ -120,7 +125,7 @@ func _process(delta: float) -> void:
 		#check ice
 		var blockPos = mazeRef.local_to_map(position)
 		var block = mazeRef.get_cell_item(blockPos)
-		if(block == 1):
+		if(block == iceIndex):
 			targetPosition.x += lastMove.x
 			targetPosition.z += lastMove.y
 			moveClock = moveTime
@@ -165,11 +170,11 @@ func setMoveCurve() -> void:
 	var blockAtFeet = mazeRef.get_cell_item(blockPos)
 	blockPos = mazeRef.local_to_map(targetPosition)
 	var blockInFront = mazeRef.get_cell_item(blockPos)
-	if(blockAtFeet != 1 && blockInFront == 1):
+	if(blockAtFeet != iceIndex && blockInFront == iceIndex):
 		moveCurve = slideInCurve
-	elif(blockAtFeet == 1 && blockInFront == 1):
+	elif(blockAtFeet == iceIndex && blockInFront == iceIndex):
 		moveCurve = slideCurve
-	elif(blockAtFeet == 1 && blockInFront != 1):
+	elif(blockAtFeet == iceIndex && blockInFront != iceIndex):
 		moveCurve = slideOutCurve
 	else:
 		moveCurve = walkCurve
@@ -181,9 +186,9 @@ func checkCollision() -> void:
 	headPosition.y += 1
 	var blockPos = mazeRef.local_to_map(headPosition)
 	var block = mazeRef.get_cell_item(blockPos)
-	if(block != -1 && block != 3 && !(block == 4 && abs(directionMoving - directionFacing) == 2)):
+	if(block != -1 && block != stairIndex && block != bridgeIndex && !(block == pillarIndex && abs(directionMoving - directionFacing) == 2)):
 		stopPlayer(true)
-	if(block == 3):
+	if(block == stairIndex):
 		startStairs(1)
 	
 	#check feet collision
@@ -191,7 +196,7 @@ func checkCollision() -> void:
 	block = mazeRef.get_cell_item(blockPos)
 	if(block == -1):
 		stopPlayer(true)
-	if(block == 3):
+	if(block == stairIndex):
 		startStairs(-1)
 
 func getNextSpace() -> void:
