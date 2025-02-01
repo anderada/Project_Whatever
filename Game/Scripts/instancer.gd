@@ -13,12 +13,6 @@ var pillars : Array
 func _ready() -> void:
 	instancePillars()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func instancePillars():
 	var cells = get_used_cells()
 	for cell in cells:

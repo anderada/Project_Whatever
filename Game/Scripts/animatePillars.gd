@@ -44,7 +44,6 @@ func _on_player_activate_pillar(position: Vector3) -> void:
 		i += 1
 
 func _on_player_deactivate_pillar() -> void:
-	print("wat")
 	var i = 0
 	for pillar in pillars:
 		if(pillarStates[i] == 1 && pillarClocks[i] < 0):

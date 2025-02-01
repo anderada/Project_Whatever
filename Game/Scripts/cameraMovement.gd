@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 			shakeItteration = min(shakeTime, shakeClock)
 		position = Vector3(0, 1 + cameraShake.sample((shakeTime - shakeItteration)/shakeTime) * cameraShakeIntensity ,0)
 
-func startShake(frequency: float, ammount: int) -> void:
+func _on_player_start_shake(frequency: float, ammount: int) -> void:
 	shakeTime = frequency
 	shakeClock = frequency * ammount
 	shakeItteration = frequency
