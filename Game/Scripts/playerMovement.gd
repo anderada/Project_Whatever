@@ -1,5 +1,8 @@
 extends Node3D
 
+signal activatePillar(position: Vector3)
+signal deactivatePillar()
+
 @export var moveTime : float
 @export var walkCurve : Curve
 @export var slideInCurve : Curve
@@ -7,10 +10,11 @@ extends Node3D
 @export var slideOutCurve : Curve
 @export var rotationTime : float
 @export var rotationCurve : Curve
-@export var mazeRef : GridMap
+
 var moveCurve : Curve
-var forward : Vector2
 var nextSpace : Vector2
+var right : Vector2
+var left : Vector2
 var targetPosition : Vector3
 var previousPosition : Vector3
 var targetRotation : float = 0
@@ -24,9 +28,11 @@ var goingUpStairs = false
 var directionFacing = 0
 var directionMoving = 0
 
+@export var mazeRef : GridMap
+
 @export var iceIndex : int = 1
 @export var stairIndex : int = 3
-@export var pillarIndex : int = 4
+@export var pillarIndex : int = 6
 @export var bridgeIndex : int = 5
 
 @onready var actionable_finder: Area3D = $Direction/ActionableFinder
@@ -49,6 +55,14 @@ func _process(delta: float) -> void:
 	moveClock -= delta
 	rotationClock -= delta
 	
+	getPlayerInput()
+	move()
+	turn()
+		
+	#reset input
+	playerInput = Vector2(0,0)
+	
+func getPlayerInput() -> void:
 	#get player input
 	#forward
 	if Input.is_key_pressed(KEY_W):
@@ -106,6 +120,8 @@ func _process(delta: float) -> void:
 		directionFacing = 3 if directionFacing == -1 else directionFacing
 	targetRotation = round(targetRotation / 90) * 90
 	targetPosition = round(targetPosition)
+
+func move() -> void:
 	
 	#move player
 	if(moveClock >= 0):
@@ -133,7 +149,7 @@ func _process(delta: float) -> void:
 			setMoveCurve()
 			checkCollision()
 
-
+func turn() -> void:
 	#rotate player
 	if(rotationClock >= 0):
 		rotation_degrees = Vector3(0,rotationCurve.sample((rotationTime - rotationClock)/rotationTime) * (previousRotation - targetRotation) + previousRotation,0)
@@ -141,10 +157,8 @@ func _process(delta: float) -> void:
 		rotationClock = -1
 		rotation_degrees = Vector3(0,round(rotation_degrees.y / 90) * 90,0)
 		targetRotation = rotation_degrees.y
-		
-	#reset input
-	playerInput = Vector2(0,0)
-	
+		checkPillars()
+
 func stopPlayer(collided : bool) -> void:
 	if(!collided):
 		position = targetPosition
@@ -155,6 +169,7 @@ func stopPlayer(collided : bool) -> void:
 	goingUpStairs = false
 	moveClock = -1
 	%Camera3D.startShake(0, 0)
+	checkPillars()
 
 func startStairs(offset : int) -> void:
 	targetPosition.x += lastMove.x
@@ -184,16 +199,14 @@ func checkCollision() -> void:
 	#check head collision
 	var headPosition = targetPosition
 	headPosition.y += 1
-	var blockPos = mazeRef.local_to_map(headPosition)
-	var block = mazeRef.get_cell_item(blockPos)
+	var block = mazeRef.get_cell_item(headPosition)
 	if(block != -1 && block != stairIndex && block != bridgeIndex && !(block == pillarIndex && abs(directionMoving - directionFacing) == 2)):
 		stopPlayer(true)
 	if(block == stairIndex):
 		startStairs(1)
 	
 	#check feet collision
-	blockPos = mazeRef.local_to_map(targetPosition)
-	block = mazeRef.get_cell_item(blockPos)
+	block = mazeRef.get_cell_item(targetPosition)
 	if(block == -1):
 		stopPlayer(true)
 	if(block == stairIndex):
@@ -201,22 +214,61 @@ func checkCollision() -> void:
 
 func getNextSpace() -> void:
 	nextSpace = Vector2(0,0);
+	right = Vector2(0,0);
+	left = Vector2(0,0);
 	
 	if(rotation_degrees.y > 360):
 		rotation_degrees = Vector3(0,rotation_degrees.y -360,0)
 	if(rotation_degrees.y < 0):
 		rotation_degrees = Vector3(0,rotation_degrees.y +360,0)
-	var nearest90 : int = roundf(rotation_degrees.y / 90) * 90
+	var nearest90 : int = round(rotation_degrees.y / 90) * 90
 	match nearest90:
 		0,360:
 			nextSpace.y = -1
+			right.x = -1
+			left.x = 1
 		90:
 			nextSpace.x = -1
+			right.y = 1
+			left.y = -1
 		180:
 			nextSpace.y = 1
+			right.x = 1
+			left.x = -1
 		270,-90:
 			nextSpace.x = 1
+			right.y = -1
+			left.y = 1
 			
+func checkPillars() -> void:
+	deactivatePillar.emit()
+	##check forward
+	for i in range(1,4):
+		var pos = position
+		pos += Vector3(nextSpace.x * i, 1, nextSpace.y * i)
+		var block = mazeRef.get_cell_item(pos)
+		if(block == pillarIndex):
+				activatePillar.emit(pos)
+	##check forward, below
+	for i in range(0,4):
+		var pos = position
+		pos += Vector3(nextSpace.x * i, 0, nextSpace.y * i)
+		var block = mazeRef.get_cell_item(pos)
+		if(block == pillarIndex):
+				activatePillar.emit(pos)
+	##check sides
+	var pos = position
+	pos += Vector3(right.x, 1, right.y)
+	var block = mazeRef.get_cell_item(pos)
+	if(block == pillarIndex):
+			activatePillar.emit(pos)
+	
+	pos = position
+	pos += Vector3(left.x, 1, left.y)
+	block = mazeRef.get_cell_item(pos)
+	if(block == pillarIndex):
+			activatePillar.emit(pos)
+
 func _on_actionable_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if (event is InputEventMouseButton):
 		var actionables = actionable_finder.get_overlapping_areas()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxumbmrempqsb"]
+[gd_scene load_steps=8 format=3 uid="uid://cxumbmrempqsb"]
 
 [ext_resource type="PackedScene" uid="uid://cxuen0iaesmai" path="res://Assets/Prefabs/Blocks/bookshelf_door.tscn" id="1_46xh3"]
 [ext_resource type="PackedScene" uid="uid://bubp8euwdvhl0" path="res://Assets/Prefabs/Blocks/ice_block.tscn" id="2_fleeg"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dcspkbnehhbye" path="res://Assets/Prefabs/stairs.tscn" id="4_1jgjh"]
 [ext_resource type="PackedScene" uid="uid://cl782vs3tgpgy" path="res://Assets/Prefabs/invisible.tscn" id="5_jy7bv"]
 [ext_resource type="PackedScene" uid="uid://dcsqq2opy3cyi" path="res://Assets/Prefabs/bridge.tscn" id="6_q6t27"]
+
+[sub_resource type="PointMesh" id="PointMesh_o18d3"]
 
 [node name="Tile Set" type="Node3D"]
 
@@ -18,6 +20,18 @@
 [node name="Stairs" parent="." instance=ExtResource("4_1jgjh")]
 visible = true
 
-[node name="Invisible" parent="." instance=ExtResource("5_jy7bv")]
+[node name="HiddenPillar" type="Node3D" parent="."]
+
+[node name="HiddenPillar" type="MeshInstance3D" parent="HiddenPillar"]
+mesh = SubResource("PointMesh_o18d3")
+skeleton = NodePath("")
 
 [node name="Bridge" parent="." instance=ExtResource("6_q6t27")]
+
+[node name="Pillar" parent="." instance=ExtResource("5_jy7bv")]
+
+[node name="Barrier" type="Node3D" parent="."]
+
+[node name="Barrier" type="MeshInstance3D" parent="Barrier"]
+mesh = SubResource("PointMesh_o18d3")
+skeleton = NodePath("")

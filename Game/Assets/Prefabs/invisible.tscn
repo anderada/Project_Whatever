@@ -1,6 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://cl782vs3tgpgy"]
-
-[ext_resource type="Material" uid="uid://bk8ehqvtl7sb8" path="res://Assets/Materials/invisible.tres" id="1_ea2b4"]
+[gd_scene load_steps=4 format=4 uid="uid://cl782vs3tgpgy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nk5g"]
 resource_name = "Material"
@@ -43,6 +41,5 @@ shadow_mesh = SubResource("ArrayMesh_23owc")
 [node name="Invisible" type="Node3D"]
 
 [node name="Invisible" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_ea2b4")
 mesh = SubResource("ArrayMesh_4wqt0")
 skeleton = NodePath("")
