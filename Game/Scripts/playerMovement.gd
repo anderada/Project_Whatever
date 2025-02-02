@@ -28,9 +28,6 @@ var sliding = false
 var goingUpStairs = false
 var directionFacing = 0
 var directionMoving = 0
-var prevDirectionFacing = 0
-@export var directionIframes : int = 4
-var directionClock = 0
 
 @export var mazeRef : GridMap
 
@@ -41,7 +38,6 @@ var directionClock = 0
 
 @onready var actionable_finder: Area3D = $Direction/ActionableFinder
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	targetPosition = position
 	previousPosition = position
@@ -50,7 +46,6 @@ func _ready() -> void:
 	moveCurve = walkCurve
 	getNextSpace()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	updateMovementClocks(delta)
 	getPlayerInput()
@@ -62,7 +57,6 @@ func updateMovementClocks(delta: float) -> void:
 	#take time off clocks
 	moveClock -= delta
 	rotationClock -= delta
-	directionClock -= 1
 
 func getPlayerInput() -> void:
 	#get player input
@@ -112,7 +106,6 @@ func getPlayerInput() -> void:
 		directionFacing += 1
 		directionFacing = 0 if directionFacing == 4 else directionFacing
 		directionFacing = 3 if directionFacing == -1 else directionFacing
-		directionClock = directionIframes
 		getNextSpace()
 	#turn left
 	if(playerInput.y == -1 && rotationClock <= -1):
@@ -122,7 +115,6 @@ func getPlayerInput() -> void:
 		directionFacing -= 1
 		directionFacing = 0 if directionFacing == 4 else directionFacing
 		directionFacing = 3 if directionFacing == -1 else directionFacing
-		directionClock = directionIframes
 		getNextSpace()
 	targetRotation = round(targetRotation / 90) * 90
 	targetPosition = round(targetPosition)
@@ -168,10 +160,6 @@ func turn() -> void:
 		targetRotation = rotation_degrees.y
 		getNextSpace()
 		checkPillars()
-		
-	#update direction after iframes
-	if(directionClock == 0):
-		prevDirectionFacing = directionFacing
 
 func stopPlayer(collided : bool) -> void:
 	if(!collided):
@@ -232,7 +220,7 @@ func getNextSpace() -> void:
 	right = Vector2(0,0);
 	left = Vector2(0,0);
 
-	match prevDirectionFacing:
+	match directionFacing:
 		0:
 			nextSpace.y = -1
 			right.x = -1

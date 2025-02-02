@@ -104,7 +104,6 @@ slideCurve = SubResource("Curve_u7dom")
 slideOutCurve = SubResource("Curve_kf3x4")
 rotationTime = 0.3
 rotationCurve = SubResource("Curve_ou3iv")
-directionIframes = 20
 mazeRef = NodePath("../GridMap")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
