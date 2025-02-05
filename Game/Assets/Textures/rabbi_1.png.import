@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://357ycfxs86jo"
-path.s3tc="res://.godot/imported/test_char.png-15700a418a253006336b920aa9a51067.s3tc.ctex"
-path.etc2="res://.godot/imported/test_char.png-15700a418a253006336b920aa9a51067.etc2.ctex"
+uid="uid://bba44jrdnvgpo"
+path.s3tc="res://.godot/imported/rabbi_1.png-936690c2a18bf8d01373988cf658a6d2.s3tc.ctex"
+path.etc2="res://.godot/imported/rabbi_1.png-936690c2a18bf8d01373988cf658a6d2.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/test_char.png"
-dest_files=["res://.godot/imported/test_char.png-15700a418a253006336b920aa9a51067.s3tc.ctex", "res://.godot/imported/test_char.png-15700a418a253006336b920aa9a51067.etc2.ctex"]
+source_file="res://Assets/Textures/rabbi_1.png"
+dest_files=["res://.godot/imported/rabbi_1.png-936690c2a18bf8d01373988cf658a6d2.s3tc.ctex", "res://.godot/imported/rabbi_1.png-936690c2a18bf8d01373988cf658a6d2.etc2.ctex"]
 
 [params]
 

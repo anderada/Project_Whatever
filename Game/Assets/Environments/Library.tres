@@ -1,14 +1,17 @@
-[gd_resource type="Environment" load_steps=2 format=3 uid="uid://b6e7ydi8600yb"]
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://b6e7ydi8600yb"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_83vmq"]
 
 [sub_resource type="Sky" id="Sky_llbm7"]
+sky_material = SubResource("PanoramaSkyMaterial_83vmq")
 
 [resource]
 background_mode = 1
-background_color = Color(0.788321, 0.94283, 0.998415, 1)
+background_color = Color(0.500035, 0.547914, 0.556105, 1)
 sky = SubResource("Sky_llbm7")
 ambient_light_source = 2
 ambient_light_color = Color(0.541454, 0.569957, 0.591539, 1)
-ambient_light_energy = 1.15
+ambient_light_energy = 0.3
 glow_enabled = true
 glow_bloom = 0.25
 fog_mode = 1
