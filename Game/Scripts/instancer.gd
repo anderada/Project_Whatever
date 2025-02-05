@@ -19,7 +19,7 @@ func instancePillars():
 		if(get_cell_item(cell) == pillarIndex):
 			set_cell_item(cell, hiddenPillarIndex)
 			var pos = Vector3(cell)
-			pos.y += pillarDownPoint
+			pos.y += pillarDownPoint + 0.5
 			var pillar = pillarPrefab.instantiate()
 			pillar.transform = pillar.transform.scaled(Vector3(0.5,0.5,0.5))
 			pillar.transform.origin = pos
