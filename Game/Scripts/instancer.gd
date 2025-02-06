@@ -25,4 +25,4 @@ func instancePillars():
 			pillar.transform.origin = pos
 			add_child(pillar)
 			pillars.append(pillar)
-	pillarsInstanced.emit()
+	pillarsInstanced.emit(position)

@@ -7,6 +7,7 @@ var pillarActives : Array
 var pillarDefaults : Array
 var pillarStates : Array
 var pillarClocks : Array
+var offset : Vector3
 @export var animationTime : float = 0.2
 @export var activateCurve : Curve 
 @export var deactivateCurve : Curve 
@@ -35,10 +36,10 @@ func _process(delta: float) -> void:
 func _on_player_activate_pillar(position: Vector3) -> void:
 	var i = 0
 	for pillar in pillars:
-		if(pillarStates[i] == 0 && pillar.transform.origin.distance_to(position) < 1):
+		if(pillarStates[i] == 0 && pillar.transform.origin.distance_to(position - offset) < 1):
 			pillarClocks[i] = animationTime
 			pillarStates[i] = 1
-		elif(pillarStates[i] == -1 && pillar.transform.origin.distance_to(position) < 1):
+		elif(pillarStates[i] == -1 && pillar.transform.origin.distance_to(position - offset) < 1):
 			pillarClocks[i] = 0
 			pillarStates[i] = 1
 		i += 1
@@ -51,10 +52,12 @@ func _on_player_deactivate_pillar() -> void:
 		i += 1
 
 
-func _on_grid_map_pillars_instanced() -> void:
+func _on_grid_map_pillars_instanced(mazeOffset : Vector3) -> void:
 	pillars = grid.pillars
+	offset = mazeOffset
 	for pillar in pillars:
-		pillarActives.append(Vector3(pillar.transform.origin.x, pillar.transform.origin.y - grid.pillarDownPoint, pillar.transform.origin.z))
-		pillarDefaults.append(pillar.transform.origin)
+		var location = pillar.transform.origin
+		pillarActives.append(Vector3(location.x, location.y - grid.pillarDownPoint, location.z))
+		pillarDefaults.append(location)
 		pillarStates.append(0)
 		pillarClocks.append(0)

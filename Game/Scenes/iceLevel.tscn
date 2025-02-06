@@ -81,11 +81,13 @@ spot_range = 6.83
 spot_angle = 37.31
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.354054, 1.23744, -3.23595)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.354054, 0.935778, -3.23595)
 light_color = Color(0.829475, 0.897232, 0.911002, 1)
-light_energy = 5.0
+light_specular = 0.0
 spot_range = 6.83
-spot_angle = 51.94
+spot_attenuation = 0.0
+spot_angle = 29.59
+spot_angle_attenuation = 0.0688863
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -97,7 +99,7 @@ cell_center_y = false
 cell_center_z = false
 cell_scale = 0.5
 data = {
-"cells": PackedInt32Array(-65537, 1, 2, -65537, 0, 2, -65537, 65535, 2, -131072, 65535, 2, -131072, 0, 2, -131071, 0, 2, -131072, 1, 2, -131071, 1, 2, -131071, 65535, 2, -2, 1, 1441793, -2, 0, 1441794, -2, 65535, 1441793, -65534, 65535, 1441793, -65534, 1, 1441793, -65534, 0, 1441794, -1, 2, 1441793, -65536, 2, 1441794, -65535, 2, 1441793, -131072, 65534, 1441793, -131072, 65533, 1441793, -131072, 65532, 1441793, -1, 65532, 1441792, -65535, 65532, 1441792, -65536, 65532, 1441799, -65534, 65533, 1441793, -65534, 65534, 1441794, -131071, 65534, 1441793, -131071, 65533, 1441793, -65537, 65533, 1441793, -65537, 65534, 1441793, -2, 65533, 1441793, -2, 65534, 1441794, -1, 1, 1441793, -65535, 1, 1441793, -1, 65531, 1, -1, 65530, 6, -65535, 65531, 1, -65535, 65530, 1, -65535, 65529, 1, -1, 65529, 1, -131072, 65531, 1, -131072, 65530, 1, -131072, 65529, 6, -131072, 65528, 6, -2, 65531, 6, -2, 65530, 6, -2, 65529, 0, -65537, 65528, 6, -65538, 65528, 6, -131072, 65527, 6, -131072, 65526, 6, -131071, 65528, 6, -131071, 65526, 1, -131070, 65526, 1, -131069, 65526, 1, -131070, 65527, 1, -131070, 65528, 1, -65534, 65529, 1, -1, 65527, 1, -65536, 65525, 0, -1, 65526, 1, -65535, 65525, 1, -65534, 65525, 2, -65533, 65527, 1, -65533, 65528, 1, -65532, 65526, 2, -65533, 65525, 1, -131071, 65527, 0, -65535, 65527, 0, -65537, 65529, 6, -131071, 65529, 6, -65537, 65527, 6, -65537, 65526, 6, -2, 65527, 1, -65538, 65527, 6, -65538, 65529, 6, -65535, 65534, 1048581, -65535, 65535, 1048580, -65539, 65528, 1, -65540, 65528, 1, -65540, 65527, 1)
+"cells": PackedInt32Array(-65537, 1, 2, -65537, 0, 2, -65537, 65535, 2, -131072, 65535, 2, -131072, 0, 2, -131071, 0, 2, -131072, 1, 2, -131071, 1, 2, -131071, 65535, 2, -2, 1, 1441793, -2, 0, 1441794, -2, 65535, 1441793, -65534, 65535, 1441793, -65534, 1, 1441793, -65534, 0, 1441794, -1, 2, 1441793, -65536, 2, 1441794, -65535, 2, 1441793, -131072, 65534, 1441793, -131072, 65533, 1441793, -131072, 65532, 1441793, -1, 65532, 1441792, -65535, 65532, 1441792, -65536, 65532, 1441799, -65534, 65533, 1441793, -65534, 65534, 1441794, -131071, 65534, 1441793, -131071, 65533, 1441793, -65537, 65533, 1441793, -65537, 65534, 1441793, -2, 65533, 1441793, -2, 65534, 1441794, -1, 1, 1441793, -65535, 1, 1441793, -1, 65531, 1, -1, 65530, 6, -65535, 65531, 1, -65535, 65530, 1, -65535, 65529, 1, -1, 65529, 1, -131072, 65531, 1, -131072, 65530, 1, -131072, 65529, 6, -131072, 65528, 6, -2, 65531, 6, -2, 65530, 6, -2, 65529, 0, -65537, 65528, 6, -65538, 65528, 6, -131072, 65527, 6, -131072, 65526, 6, -131071, 65528, 6, -131071, 65526, 1, -131070, 65526, 1, -131069, 65526, 1, -131070, 65527, 1, -131070, 65528, 1, -65534, 65529, 1, -1, 65527, 1, -65536, 65525, 0, -1, 65526, 1, -65535, 65525, 1, -65534, 65525, 2, -65533, 65527, 1, -65533, 65528, 1, -65532, 65526, 2, -65533, 65525, 1, -131071, 65527, 0, -65535, 65527, 0, -65537, 65529, 6, -131071, 65529, 6, -65537, 65527, 6, -65537, 65526, 6, -2, 65527, 1, -65538, 65527, 6, -65538, 65529, 6, -65535, 65534, 1048581, -65535, 65535, 1048580, -65539, 65528, 1, -65540, 65528, 1, -65540, 65527, 1, -65541, 65527, 1)
 }
 script = ExtResource("2_26ana")
 pillarIndex = 7
@@ -127,7 +129,7 @@ script = ExtResource("2_26ana")
 pillarIndex = 7
 hiddenPillarIndex = 8
 pillarPrefab = ExtResource("3_w0d8i")
-metadata/_editor_floor_ = Vector3(0, -2, 0)
+metadata/_editor_floor_ = Vector3(0, -1, 0)
 
 [node name="pillarAnimator" type="Node" parent="GridMap2"]
 script = ExtResource("4_wia41")
@@ -135,7 +137,7 @@ animationTime = 0.1
 activateCurve = SubResource("Curve_ay5xt")
 deactivateCurve = SubResource("Curve_5pkt8")
 
-[node name="Player" type="Node3D" parent="." node_paths=PackedStringArray("mazeRef")]
+[node name="Player" type="Node3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 script = ExtResource("5_txvlx")
@@ -146,7 +148,7 @@ slideCurve = SubResource("Curve_u7dom")
 slideOutCurve = SubResource("Curve_kf3x4")
 rotationTime = 0.3
 rotationCurve = SubResource("Curve_ou3iv")
-mazeRef = NodePath("../GridMap")
+mazeMaps = [NodePath("../GridMap"), NodePath("../GridMap2")]
 iceIndex = 6
 stairIndex = 4
 pillarIndex = 8
@@ -205,6 +207,8 @@ surface_material_override/0 = ExtResource("11_yu0rn")
 [connection signal="pillarsInstanced" from="GridMap" to="GridMap/pillarAnimator" method="_on_grid_map_pillars_instanced"]
 [connection signal="pillarsInstanced" from="GridMap2" to="GridMap2/pillarAnimator" method="_on_grid_map_pillars_instanced"]
 [connection signal="activatePillar" from="Player" to="GridMap/pillarAnimator" method="_on_player_activate_pillar"]
+[connection signal="activatePillar" from="Player" to="GridMap2/pillarAnimator" method="_on_player_activate_pillar"]
 [connection signal="deactivatePillar" from="Player" to="GridMap/pillarAnimator" method="_on_player_deactivate_pillar"]
+[connection signal="deactivatePillar" from="Player" to="GridMap2/pillarAnimator" method="_on_player_deactivate_pillar"]
 [connection signal="startShake" from="Player" to="Player/Camera3D" method="_on_player_start_shake"]
 [connection signal="input_event" from="Character/Actionable" to="Player" method="_on_actionable_input_event"]
