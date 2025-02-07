@@ -33,11 +33,7 @@ func _process(delta: float) -> void:
 
 func _on_player_activate_pillar(position: Vector3) -> void:
 	var i = 0
-	print("###################################w")
 	for pillar in pillars:
-		print(pillar.transform.origin)
-		print(pillarOffsets[i])
-		print("-_______________________________-")
 		if(pillarStates[i] == 0 && pillar.transform.origin.distance_to(position - pillarOffsets[i]) < 1):
 			pillarClocks[i] = animationTime
 			pillarStates[i] = 1
