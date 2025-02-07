@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dhtt1sunmp6tr"]
+[gd_scene load_steps=26 format=3 uid="uid://dryhm4kxeq046"]
 
 [ext_resource type="MeshLibrary" uid="uid://dad42sw0f4afa" path="res://Assets/Tile Sets/tileSet.tres" id="1_nrea6"]
 [ext_resource type="Script" path="res://Scripts/instancer.gd" id="2_26ana"]
