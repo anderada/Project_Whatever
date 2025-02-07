@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/playerMovement.gd" id="2_x7362"]
 [ext_resource type="Script" path="res://Scripts/cameraMovement.gd" id="3_ns3bt"]
 [ext_resource type="Script" path="res://Scripts/actionable.gd" id="4_snlh1"]
+[ext_resource type="Resource" uid="uid://c4b5du6lf0c6g" path="res://Dialogue/testDialogue.dialogue" id="5_xanhj"]
 [ext_resource type="Script" path="res://Scripts/item.gd" id="6_gg44o"]
 
 [sub_resource type="Curve" id="Curve_x6p1d"]
@@ -53,9 +54,6 @@ point_count = 5
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_16tlw"]
 height = 0.297069
 
-[sub_resource type="Resource" id="Resource_gotr0"]
-metadata/__load_path__ = "res://Dialogue/testDialogue.dialogue"
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8s12t"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vlvrd"]
@@ -103,6 +101,7 @@ metadata/_editor_floor_ = Vector3(0, -1, -20)
 
 [node name="Player" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+visible = false
 script = ExtResource("2_x7362")
 moveTime = 0.35
 walkCurve = SubResource("Curve_x6p1d")
@@ -148,7 +147,7 @@ transform = Transform3D(0.745, 0, 0, 0, 0.745, 0, 0, 0, 0.745, -3.12508, -0.8659
 
 [node name="Actionable" type="Area3D" parent="Character"]
 script = ExtResource("4_snlh1")
-dialogue_resource = SubResource("Resource_gotr0")
+dialogue_resource = ExtResource("5_xanhj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Character/Actionable"]
 shape = SubResource("CapsuleShape3D_8s12t")

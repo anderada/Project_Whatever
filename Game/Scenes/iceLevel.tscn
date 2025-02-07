@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dryhm4kxeq046"]
+[gd_scene load_steps=29 format=3 uid="uid://dt67mu85m4skl"]
 
 [ext_resource type="MeshLibrary" uid="uid://dad42sw0f4afa" path="res://Assets/Tile Sets/tileSet.tres" id="1_nrea6"]
 [ext_resource type="Script" path="res://Scripts/instancer.gd" id="2_26ana"]
@@ -8,9 +8,10 @@
 [ext_resource type="Environment" uid="uid://b6e7ydi8600yb" path="res://Assets/Environments/Library.tres" id="6_k86my"]
 [ext_resource type="Script" path="res://Scripts/cameraMovement.gd" id="7_6qnms"]
 [ext_resource type="Script" path="res://Scripts/actionable.gd" id="8_1unjb"]
-[ext_resource type="Resource" uid="uid://bxg1svmf4p4tw" path="res://Dialogue/PillarClue.dialogue" id="9_2psa1"]
+[ext_resource type="Resource" uid="uid://c4b5du6lf0c6g" path="res://Dialogue/testDialogue.dialogue" id="9_f5tld"]
 [ext_resource type="Script" path="res://Scripts/lookAtPlayer.gd" id="10_knadl"]
 [ext_resource type="Material" uid="uid://bnj7x1ybf6fpy" path="res://Assets/Materials/Characters/test_character.tres" id="11_yu0rn"]
+[ext_resource type="Script" path="res://Scripts/item.gd" id="12_u2g18"]
 
 [sub_resource type="Curve" id="Curve_ay5xt"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -61,6 +62,12 @@ height = 0.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffuh5"]
 albedo_color = Color(0.961512, 0.961513, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_62ebi"]
+size = Vector3(0.364345, 0.425667, 0.486832)
+
+[sub_resource type="BoxMesh" id="BoxMesh_llvny"]
+size = Vector3(0.2, 0.2, 0.2)
 
 [node name="Test Scene2" type="Node3D"]
 
@@ -122,7 +129,7 @@ cell_center_y = false
 cell_center_z = false
 cell_scale = 0.5
 data = {
-"cells": PackedInt32Array(-65537, 1, 2, -65537, 0, 2, -65537, 65535, 2, -131072, 65535, 2, -131072, 0, 2, -131071, 0, 2, -131072, 1, 2, -131071, 1, 2, -131071, 65535, 2, -2, 1, 1441793, -2, 0, 1441794, -2, 65535, 1441793, -65534, 65535, 1441793, -65534, 1, 1441793, -65534, 0, 1441794, -1, 2, 1441793, -65536, 2, 1441794, -65535, 2, 1441793, -131072, 65534, 1441793, -131072, 65533, 1441793, -131072, 65532, 1441793, -1, 65532, 1441792, -65535, 65532, 1441792, -65536, 65532, 1441799, -65534, 65533, 1441793, -65534, 65534, 1441794, -131071, 65534, 1441793, -131071, 65533, 1441793, -65537, 65533, 1441793, -65537, 65534, 1441793, -2, 65533, 1441793, -2, 65534, 1441794, -1, 1, 1441793, -65535, 1, 1441793, -1, 65531, 1, -1, 65530, 6, -65535, 65531, 1, -65535, 65530, 1, -65535, 65529, 1, -1, 65529, 1, -131072, 65531, 1, -131072, 65530, 1, -131072, 65529, 6, -131072, 65528, 6, -2, 65531, 6, -2, 65530, 6, -2, 65529, 0, -65537, 65528, 6, -65538, 65528, 6, -131072, 65527, 6, -131072, 65526, 6, -131071, 65528, 6, -131071, 65526, 1, -131070, 65526, 1, -131069, 65526, 1, -131070, 65527, 1, -131070, 65528, 1, -65534, 65529, 1, -1, 65527, 1, -65536, 65525, 0, -1, 65526, 1, -65535, 65525, 1, -65534, 65525, 2, -65533, 65527, 1, -65533, 65528, 1, -65532, 65526, 2, -65533, 65525, 1, -131071, 65527, 0, -65535, 65527, 0, -65537, 65529, 6, -131071, 65529, 6, -65537, 65527, 6, -65537, 65526, 6, -2, 65527, 1, -65538, 65527, 6, -65538, 65529, 6, -65535, 65534, 1048581, -65535, 65535, 1048580, -196614, 65510, 1441793, -196614, 65511, 1441793, -196613, 65511, 1441793, -196612, 65512, 1441793, -196610, 65514, 1441792, -196614, 65508, 1441793, -196614, 65509, 1441793, -196616, 65511, 1441793, -65539, 65528, 1441793)
+"cells": PackedInt32Array(-65537, 1, 2, -65537, 0, 2, -65537, 65535, 2, -131072, 65535, 2, -131072, 0, 2, -131071, 0, 2, -131072, 1, 2, -131071, 1, 2, -131071, 65535, 2, -2, 1, 1441793, -2, 0, 1441794, -2, 65535, 1441793, -65534, 65535, 1441793, -65534, 1, 1441793, -65534, 0, 1441794, -1, 2, 1441793, -65536, 2, 1441794, -65535, 2, 1441793, -131072, 65534, 1441793, -131072, 65533, 1441793, -131072, 65532, 1441793, -1, 65532, 1441792, -65535, 65532, 1441792, -65536, 65532, 1441799, -65534, 65533, 1441793, -65534, 65534, 1441794, -131071, 65534, 1441793, -131071, 65533, 1441793, -65537, 65533, 1441793, -65537, 65534, 1441793, -2, 65533, 1441793, -2, 65534, 1441794, -1, 1, 1441793, -65535, 1, 1441793, -1, 65531, 1, -1, 65530, 6, -65535, 65531, 1, -65535, 65530, 1, -65535, 65529, 1, -1, 65529, 1, -131072, 65531, 1, -131072, 65530, 1, -131072, 65529, 6, -131072, 65528, 6, -2, 65531, 6, -2, 65530, 6, -2, 65529, 0, -65537, 65528, 6, -65538, 65528, 6, -131072, 65527, 6, -131072, 65526, 6, -131071, 65528, 6, -131071, 65526, 1, -131070, 65526, 1, -131069, 65526, 1, -131070, 65527, 1, -131070, 65528, 1, -65534, 65529, 1, -1, 65527, 1, -65536, 65525, 0, -1, 65526, 1, -65535, 65525, 1, -65534, 65525, 2, -65533, 65527, 1, -65533, 65528, 1, -65532, 65526, 2, -65533, 65525, 1, -131071, 65527, 0, -65535, 65527, 0, -65537, 65529, 6, -131071, 65529, 6, -65537, 65527, 6, -65537, 65526, 6, -2, 65527, 1, -65538, 65527, 6, -65538, 65529, 6, -196614, 65510, 1441793, -196614, 65511, 1441793, -196613, 65511, 1441793, -196612, 65512, 1441793, -196610, 65514, 1441792, -196614, 65508, 1441793, -196614, 65509, 1441793, -196616, 65511, 1441793, -65539, 65528, 1441793, -1, 65534, 9)
 }
 script = ExtResource("2_26ana")
 pillarIndex = 7
@@ -280,7 +287,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -2)
 
 [node name="Actionable" type="Area3D" parent="Character"]
 script = ExtResource("8_1unjb")
-dialogue_resource = ExtResource("9_2psa1")
+dialogue_resource = ExtResource("9_f5tld")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Character/Actionable"]
 shape = SubResource("BoxShape3D_p4702")
@@ -315,6 +322,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.03884, -5.29504, -27.0344)
 mesh = SubResource("SphereMesh_erkp8")
 surface_material_override/0 = SubResource("StandardMaterial3D_ffuh5")
 
+[node name="Key" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54248, -0.911232, -1.0273)
+
+[node name="Actionable" type="Area3D" parent="Key"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5168, 0, -1.14058)
+script = ExtResource("12_u2g18")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Key/Actionable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200518, -0.0777187, 0.0369051)
+shape = SubResource("BoxShape3D_62ebi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Key/Actionable/CollisionShape3D"]
+mesh = SubResource("BoxMesh_llvny")
+
 [connection signal="pillarsInstanced" from="Maps/Empty" to="Maps/pillarAnimator" method="_on_pillars_instanced"]
 [connection signal="pillarsInstanced" from="Maps/Tutorial" to="Maps/pillarAnimator" method="_on_pillars_instanced"]
 [connection signal="pillarsInstanced" from="Maps/Maze 1" to="Maps/pillarAnimator" method="_on_pillars_instanced"]
@@ -327,3 +348,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ffuh5")
 [connection signal="deactivatePillar" from="Player" to="Maps/pillarAnimator" method="_on_player_deactivate_pillar"]
 [connection signal="startShake" from="Player" to="Player/Camera3D" method="_on_player_start_shake"]
 [connection signal="input_event" from="Character/Actionable" to="Player" method="_on_actionable_input_event"]
+[connection signal="input_event" from="Key/Actionable" to="Player" method="_on_actionable_input_event"]
