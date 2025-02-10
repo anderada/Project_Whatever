@@ -29,7 +29,7 @@ var goingUpStairs = false
 var directionFacing = 0
 var directionMoving = 0
 
-@export var mazeRef : GridMap
+@export var mazeMaps : Array
 
 @export var iceIndex : int = 1
 @export var stairIndex : int = 3
@@ -52,6 +52,17 @@ func _process(delta: float) -> void:
 	move()
 	turn()
 	resetPlayerInput()
+
+func getBlock(location : Vector3) -> int:
+	#return get_node(mazeMaps[0]).get_cell_item(location)
+	for mapPath in mazeMaps:
+		var map : GridMap = get_node(mapPath)
+		var mazePosition = location - map.transform.origin
+		mazePosition.y -= 0.5
+		var block = map.get_cell_item(mazePosition)
+		if(block >= 0):
+			return block
+	return -1
 
 func updateMovementClocks(delta: float) -> void:
 	#take time off clocks
@@ -140,8 +151,7 @@ func move() -> void:
 		moveClock = -1
 		stopPlayer(false)
 		#check ice
-		var blockPos = mazeRef.local_to_map(position)
-		var block = mazeRef.get_cell_item(blockPos)
+		var block = getBlock(position)
 		if(block == iceIndex):
 			targetPosition.x += lastMove.x
 			targetPosition.z += lastMove.y
@@ -184,10 +194,8 @@ func startStairs(offset : int) -> void:
 	checkCollision()
 
 func setMoveCurve() -> void:
-	var blockPos = mazeRef.local_to_map(position)
-	var blockAtFeet = mazeRef.get_cell_item(blockPos)
-	blockPos = mazeRef.local_to_map(targetPosition)
-	var blockInFront = mazeRef.get_cell_item(blockPos)
+	var blockAtFeet = getBlock(position)
+	var blockInFront = getBlock(targetPosition)
 	if(blockAtFeet != iceIndex && blockInFront == iceIndex):
 		moveCurve = slideInCurve
 	elif(blockAtFeet == iceIndex && blockInFront == iceIndex):
@@ -202,14 +210,14 @@ func checkCollision() -> void:
 	#check head collision
 	var headPosition = targetPosition
 	headPosition.y += 1
-	var block = mazeRef.get_cell_item(headPosition)
+	var block = getBlock(headPosition)
 	if(block != -1 && block != stairIndex && block != bridgeIndex && !(block == pillarIndex && abs(directionMoving - directionFacing) > 0)):
 		stopPlayer(true)
 	if(block == stairIndex):
 		startStairs(1)
 	
 	#check feet collision
-	block = mazeRef.get_cell_item(targetPosition)
+	block = getBlock(targetPosition)
 	if(block == -1 || block == pillarIndex):
 		stopPlayer(true)
 	if(block == stairIndex):
@@ -246,7 +254,7 @@ func checkPillars() -> void:
 	for i in range(1,4):
 		pos = position
 		pos += Vector3(nextSpace.x * i, 1, nextSpace.y * i)
-		block = mazeRef.get_cell_item(pos)
+		block = getBlock(pos)
 		if(block == pillarIndex):
 				activatePillar.emit(pos)
 	"""check forward, below
