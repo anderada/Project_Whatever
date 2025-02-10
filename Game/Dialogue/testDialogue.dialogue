@@ -1,11 +1,15 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+Rabbit: Ahhh, long have I waited, the slumbered maiden. 
+Alice: Wh..Where am I? What is this place? Why you, a rabbit, can talk?
+Alice: All I remember is going to bed, then the next thing is being here with you, A Talking Rabbit! 
+Rabbit: Oh, my dear, it matters not. It is the sorrow that you refused to relinquish that brought us to this situation. 
+Rabbit: To cage yourself no more, your mind needs to find its serenity and desert its despair. 
+Rabbit: A truce and reconciliation with the aether and freezer condenser. 
+Alice: Sorry, what?
+Rabbit: Your unconsciousness, I mean. The singing nightingale is pending! Coming to drag your ardor towards the muddy down below and being perished forever. Paralysis and mopishness you shall become, for waver in escape.
+Rabbit: Be brave, love. Ryan would hate to see you fail.
+Alice: Ryan?...no….how did you know my father’s name? 
+Alice: Dad….. I do miss you.
+Rabbit: As I said, it matters not. You will know everything eventually. Remember, behold things selective are essential next. 
+Rabbit: Now, make haste fore time exhausts!
 => END
