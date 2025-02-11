@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://q8e6v1paxrfj"]
+
+[ext_resource type="Texture2D" uid="uid://bdsuq060jow1y" path="res://Assets/Textures/Stairs/DefaultMaterial_BaseColor.png" id="1_kes0j"]
+[ext_resource type="Texture2D" uid="uid://bi14nmre130p2" path="res://Assets/Textures/Stairs/DefaultMaterial_MetallicGlossMap.png" id="2_23qri"]
+[ext_resource type="Texture2D" uid="uid://bb8hnf5oc5ren" path="res://Assets/Textures/Stairs/DefaultMaterial_Normal_OpenGL.png" id="3_727ly"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_kes0j")
+metallic = 1.0
+metallic_specular = 0.1
+metallic_texture = ExtResource("2_23qri")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_23qri")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_727ly")

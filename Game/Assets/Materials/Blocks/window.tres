@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://bbfsq5tecp8cj"]
+
+[ext_resource type="Texture2D" uid="uid://b3bkln2syu1g7" path="res://Assets/Textures/Glass/Glass_BaseColor.png" id="1_oub1i"]
+[ext_resource type="Texture2D" uid="uid://cyg7nr4kpqmni" path="res://Assets/Textures/Glass/Glass_MetallicGlossMap.png" id="2_ndkag"]
+[ext_resource type="Texture2D" uid="uid://cb7wdk3spkcfg" path="res://Assets/Textures/Glass/Glass_Normal_OpenGL.png" id="3_ajqvi"]
+
+[resource]
+resource_name = "Bookshelf"
+transparency = 1
+depth_draw_mode = 2
+albedo_color = Color(1, 1, 1, 0.294118)
+albedo_texture = ExtResource("1_oub1i")
+metallic = 1.0
+metallic_specular = 0.1
+metallic_texture = ExtResource("2_ndkag")
+metallic_texture_channel = 2
+roughness = 0.5
+roughness_texture = ExtResource("2_ndkag")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_ajqvi")

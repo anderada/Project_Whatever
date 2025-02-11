@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://bwv7y6ck8fsfh"]
+
+[ext_resource type="Texture2D" uid="uid://dn4tm2f0cvrx6" path="res://Assets/Textures/IceBlock/IceBlock_BaseColor.png" id="1_g7ybs"]
+[ext_resource type="Texture2D" uid="uid://bcxvj1q4cbany" path="res://Assets/Textures/IceBlock/IceBlock_MetallicGlossMap.png" id="2_ac6qf"]
+[ext_resource type="Texture2D" uid="uid://b8h3mq3o64lyw" path="res://Assets/Textures/IceBlock/IceBlock_Normal_OpenGL.png" id="3_sdrb6"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_g7ybs")
+metallic = 1.0
+metallic_specular = 1.0
+metallic_texture = ExtResource("2_ac6qf")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_ac6qf")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_sdrb6")
