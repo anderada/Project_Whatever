@@ -96,7 +96,7 @@ func apply_dialogue_line(next_dialogue_line: DialogueLine) -> void:
 		await ready
 
 	character_label.visible = not dialogue_line.character.is_empty()
-	character_label.text = tr(dialogue_line.character, "dialogue")
+	character_label.text = "[center]"+tr(dialogue_line.character, "dialogue")
 	
 	var portrait_path: String = "res://Characters/%s.png" % dialogue_line.character
 	if FileAccess.file_exists(portrait_path):

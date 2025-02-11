@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://2mim118sc8dd"]
+[gd_scene load_steps=11 format=3 uid="uid://2mim118sc8dd"]
 
 [ext_resource type="Script" path="res://Dialogue/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="Theme" uid="uid://dddwf6annn1er" path="res://Dialogue/theme.tres" id="2_oxfwm"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="Texture2D" uid="uid://binl67lc410ge" path="res://Characters/Rabbit.png" id="3_dphvf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -80,52 +82,64 @@ theme = SubResource("Theme_qq3yp")
 [node name="Panel" type="Panel" parent="Balloon"]
 clip_children = 2
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = -1
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 21.0
-offset_top = -183.0
-offset_right = -19.0
-offset_bottom = -19.0
+offset_left = -555.0
+offset_top = -363.0
+offset_right = 557.0
+offset_bottom = -13.3
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
+theme = ExtResource("2_oxfwm")
 
 [node name="Dialogue" type="MarginContainer" parent="Balloon/Panel"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 32
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Balloon/Panel/Dialogue"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Panel/Dialogue"]
+custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 43
 
-[node name="Portrait" type="TextureRect" parent="Balloon/Panel/Dialogue/HBoxContainer"]
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/Panel/Dialogue/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(138.63, 0)
 layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Panel/Dialogue/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer"]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.501961)
-layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 1
+theme = ExtResource("2_oxfwm")
 bbcode_enabled = true
-text = "Character"
+text = "[center]Character"
 fit_content = true
 scroll_active = false
 
-[node name="DialogueLabel" parent="Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer" instance=ExtResource("2_a8ve6")]
+[node name="HBoxContainer" type="HBoxContainer" parent="Balloon/Panel/Dialogue/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_oxfwm")
+theme_override_constants/separation = 25
+
+[node name="Portrait" type="TextureRect" parent="Balloon/Panel/Dialogue/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+texture = ExtResource("3_dphvf")
+
+[node name="DialogueLabel" parent="Balloon/Panel/Dialogue/VBoxContainer/HBoxContainer" instance=ExtResource("2_a8ve6")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Dialogue..."
 
@@ -137,9 +151,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -147.0
-offset_top = -558.0
+offset_top = -700.0
 offset_right = 494.0
-offset_bottom = -154.0
+offset_bottom = -296.0
 grow_horizontal = 2
 grow_vertical = 0
 
