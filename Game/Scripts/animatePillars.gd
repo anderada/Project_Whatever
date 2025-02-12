@@ -34,10 +34,10 @@ func _process(delta: float) -> void:
 func _on_player_activate_pillar(position: Vector3) -> void:
 	var i = 0
 	for pillar in pillars:
-		if(pillarStates[i] == 0 && pillar.transform.origin.distance_to(position - pillarOffsets[i]) < 1):
+		if(pillarStates[i] == 0 && pillar.transform.origin.distance_to(position - pillarOffsets[i]) < 1.2):
 			pillarClocks[i] = animationTime
 			pillarStates[i] = 1
-		elif(pillarStates[i] == -1 && pillar.transform.origin.distance_to(position - pillarOffsets[i]) < 1):
+		elif(pillarStates[i] == -1 && pillar.transform.origin.distance_to(position - pillarOffsets[i]) < 1.2):
 			pillarClocks[i] = 0
 			pillarStates[i] = 1
 		i += 1

@@ -2,7 +2,7 @@
 
 [ext_resource type="MeshLibrary" uid="uid://d3v8v2evnorg2" path="res://Assets/Tile Sets/tileSetNewNew.tres" id="2_7smhl"]
 [ext_resource type="Script" path="res://Scripts/instancer.gd" id="2_26ana"]
-[ext_resource type="PackedScene" uid="uid://cl782vs3tgpgy" path="res://Assets/Prefabs/invisible.tscn" id="3_w0d8i"]
+[ext_resource type="PackedScene" uid="uid://cl782vs3tgpgy" path="res://Assets/Prefabs/pillar.tscn" id="3_w0d8i"]
 [ext_resource type="Script" path="res://Scripts/animatePillars.gd" id="4_wia41"]
 [ext_resource type="Script" path="res://Scripts/playerMovement.gd" id="5_txvlx"]
 [ext_resource type="Environment" uid="uid://b6e7ydi8600yb" path="res://Assets/Environments/Library.tres" id="6_k86my"]
@@ -116,6 +116,7 @@ script = ExtResource("2_26ana")
 pillarIndex = 7
 hiddenPillarIndex = 8
 pillarPrefab = ExtResource("3_w0d8i")
+pillarDownPoint = -0.96
 metadata/_editor_floor_ = Vector3(0, -2, 0)
 
 [node name="Tutorial" type="GridMap" parent="Maps"]
@@ -133,6 +134,7 @@ script = ExtResource("2_26ana")
 pillarIndex = 7
 hiddenPillarIndex = 8
 pillarPrefab = ExtResource("3_w0d8i")
+pillarDownPoint = -0.96
 metadata/_editor_floor_ = Vector3(0, -1, 0)
 
 [node name="Maze 1" type="GridMap" parent="Maps"]
@@ -150,6 +152,7 @@ script = ExtResource("2_26ana")
 pillarIndex = 7
 hiddenPillarIndex = 8
 pillarPrefab = ExtResource("3_w0d8i")
+pillarDownPoint = -0.96
 metadata/_editor_floor_ = Vector3(0, -4, 0)
 
 [node name="Easy" type="GridMap" parent="Maps"]
@@ -167,6 +170,7 @@ script = ExtResource("2_26ana")
 pillarIndex = 7
 hiddenPillarIndex = 8
 pillarPrefab = ExtResource("3_w0d8i")
+pillarDownPoint = -0.96
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="Maze 2" type="GridMap" parent="Maps"]
@@ -184,6 +188,7 @@ script = ExtResource("2_26ana")
 pillarIndex = 7
 hiddenPillarIndex = 8
 pillarPrefab = ExtResource("3_w0d8i")
+pillarDownPoint = -0.96
 metadata/_editor_floor_ = Vector3(0, 3, 0)
 
 [node name="Medium" type="GridMap" parent="Maps"]
@@ -201,6 +206,7 @@ script = ExtResource("2_26ana")
 pillarIndex = 7
 hiddenPillarIndex = 8
 pillarPrefab = ExtResource("3_w0d8i")
+pillarDownPoint = -0.96
 metadata/_editor_floor_ = Vector3(0, 3, 0)
 
 [node name="Maze 3" type="GridMap" parent="Maps"]
@@ -218,6 +224,7 @@ script = ExtResource("2_26ana")
 pillarIndex = 7
 hiddenPillarIndex = 8
 pillarPrefab = ExtResource("3_w0d8i")
+pillarDownPoint = -0.96
 metadata/_editor_floor_ = Vector3(0, -2, 0)
 
 [node name="Hard" type="GridMap" parent="Maps"]
@@ -235,6 +242,7 @@ script = ExtResource("2_26ana")
 pillarIndex = 7
 hiddenPillarIndex = 8
 pillarPrefab = ExtResource("3_w0d8i")
+pillarDownPoint = -0.96
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="Player" type="Node3D" parent="."]

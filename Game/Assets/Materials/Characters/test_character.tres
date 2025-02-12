@@ -1,17 +1,15 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bnj7x1ybf6fpy"]
 
-[ext_resource type="Texture2D" uid="uid://bba44jrdnvgpo" path="res://Assets/Textures/rabbi_1.png" id="1_21yec"]
+[ext_resource type="Texture2D" uid="uid://dyebq27woft10" path="res://Assets/Textures/xin2.png" id="1_c51gm"]
 
 [resource]
 transparency = 4
 shading_mode = 0
 specular_mode = 2
 disable_ambient_light = true
-albedo_texture = ExtResource("1_21yec")
+albedo_texture = ExtResource("1_c51gm")
 heightmap_scale = 5.75
 refraction_scale = -0.52
-uv1_scale = Vector3(0.775, 0.775, 0.775)
-uv1_offset = Vector3(0.1, 0.16, 0)
 texture_filter = 5
 texture_repeat = false
 disable_receive_shadows = true

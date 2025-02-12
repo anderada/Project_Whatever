@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=4 uid="uid://cl782vs3tgpgy"]
 
-[ext_resource type="Material" uid="uid://c8sl444bcb550" path="res://Assets/Materials/Blocks/Pilar.tres" id="1_wjvy6"]
-[ext_resource type="Material" uid="uid://dsi8t6ww2a8h3" path="res://Assets/Materials/Blocks/eye.tres" id="2_mcxfj"]
-[ext_resource type="Script" path="res://Scripts/lookAtPlayer.gd" id="3_duu15"]
+[ext_resource type="Material" uid="uid://c8sl444bcb550" path="res://Assets/Materials/Blocks/Pilar.tres" id="1_bwi5a"]
+[ext_resource type="Material" uid="uid://dsi8t6ww2a8h3" path="res://Assets/Materials/Blocks/eye.tres" id="2_xtrxh"]
+[ext_resource type="Script" path="res://Scripts/lookAtPlayer.gd" id="3_l68w0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kv4kj"]
 resource_name = "BackwardBlock"
@@ -96,15 +96,15 @@ shadow_mesh = SubResource("ArrayMesh_3eymv")
 
 [node name="BackwardBlock" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-material_override = ExtResource("1_wjvy6")
+material_override = ExtResource("1_bwi5a")
 mesh = SubResource("ArrayMesh_24lu4")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_wjvy6")
+surface_material_override/0 = ExtResource("1_bwi5a")
 
 [node name="Eye" type="MeshInstance3D" parent="BackwardBlock"]
-transform = Transform3D(0.503152, 0, 0, 0, 0.503152, 0, 0, 0, 0.503152, -0.00202537, 1.46286, 0.00855112)
-material_override = ExtResource("2_mcxfj")
+transform = Transform3D(6.00003e-09, 0, -0.503152, 0, 0.503152, 0, 0.503152, 0, 6.00003e-09, -0.00202537, 1.46286, 0.00855112)
+material_override = ExtResource("2_xtrxh")
 mesh = SubResource("ArrayMesh_64orp")
 skeleton = NodePath("")
-script = ExtResource("3_duu15")
+script = ExtResource("3_l68w0")
 offset = 90.0

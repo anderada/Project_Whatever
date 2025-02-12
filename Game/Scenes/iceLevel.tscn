@@ -2,7 +2,7 @@
 
 [ext_resource type="MeshLibrary" uid="uid://dad42sw0f4afa" path="res://Assets/Tile Sets/tileSet.tres" id="1_nrea6"]
 [ext_resource type="Script" path="res://Scripts/instancer.gd" id="2_26ana"]
-[ext_resource type="PackedScene" uid="uid://cl782vs3tgpgy" path="res://Assets/Prefabs/invisible.tscn" id="3_w0d8i"]
+[ext_resource type="PackedScene" uid="uid://cl782vs3tgpgy" path="res://Assets/Prefabs/pillar.tscn" id="3_w0d8i"]
 [ext_resource type="Script" path="res://Scripts/animatePillars.gd" id="4_wia41"]
 [ext_resource type="Script" path="res://Scripts/playerMovement.gd" id="5_txvlx"]
 [ext_resource type="Environment" uid="uid://b6e7ydi8600yb" path="res://Assets/Environments/Library.tres" id="6_k86my"]
