@@ -7,11 +7,13 @@ sky_material = SubResource("PanoramaSkyMaterial_83vmq")
 
 [resource]
 background_mode = 1
-background_color = Color(0.500035, 0.547914, 0.556105, 1)
+background_color = Color(0.611995, 0.879129, 0.999494, 1)
 sky = SubResource("Sky_llbm7")
 ambient_light_source = 2
 ambient_light_color = Color(0.391451, 0.548196, 0.845834, 1)
 ambient_light_energy = 0.3
+tonemap_mode = 1
+tonemap_white = 1.2
 glow_enabled = true
 glow_bloom = 0.25
 fog_mode = 1
