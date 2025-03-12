@@ -97,6 +97,7 @@ func getPlayerInput() -> void:
 		directionMoving = directionFacing
 		setMoveCurve()
 		checkCollision()
+		Telemetry.log_event("", "Move Forward", {x = position.x, y = position.y, z = position.z})
 	#backwards
 	if(playerInput.x == -1 && moveClock <= -1 && !sliding):
 		previousPosition = position
@@ -109,6 +110,7 @@ func getPlayerInput() -> void:
 		directionMoving = directionMoving - 4 if directionMoving > 3 else directionMoving
 		setMoveCurve()
 		checkCollision()
+		Telemetry.log_event("", "Move Back", {x = position.x, y = position.y, z = position.z})
 	#turn right
 	if(playerInput.y == 1 && rotationClock <= -1):
 		previousRotation = rotation_degrees.y
@@ -118,6 +120,7 @@ func getPlayerInput() -> void:
 		directionFacing = 0 if directionFacing == 4 else directionFacing
 		directionFacing = 3 if directionFacing == -1 else directionFacing
 		getNextSpace()
+		Telemetry.log_event("", "Rotate Right", null)
 	#turn left
 	if(playerInput.y == -1 && rotationClock <= -1):
 		previousRotation = rotation_degrees.y
@@ -127,6 +130,7 @@ func getPlayerInput() -> void:
 		directionFacing = 0 if directionFacing == 4 else directionFacing
 		directionFacing = 3 if directionFacing == -1 else directionFacing
 		getNextSpace()
+		Telemetry.log_event("", "Rotate Left", null)
 	targetRotation = round(targetRotation / 90) * 90
 	targetPosition = round(targetPosition)
 

@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://2mim118sc8dd"]
 
-[ext_resource type="Script" path="res://Dialogue/balloon.gd" id="1_36de5"]
+[ext_resource type="Script" uid="uid://t3rve7odmj2" path="res://Dialogue/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Theme" uid="uid://dddwf6annn1er" path="res://Dialogue/theme.tres" id="2_oxfwm"]
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
-[ext_resource type="Texture2D" uid="uid://binl67lc410ge" path="res://Characters/Rabbit.png" id="3_dphvf"]
+[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="Texture2D" uid="uid://bnw4okupl6l2t" path="res://Characters/Rabbit.png" id="3_dphvf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)

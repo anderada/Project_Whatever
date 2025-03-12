@@ -1,11 +1,11 @@
 [gd_scene load_steps=20 format=3 uid="uid://obg7dddv74fk"]
 
 [ext_resource type="MeshLibrary" uid="uid://dad42sw0f4afa" path="res://Assets/Tile Sets/tileSet.tres" id="1_oxkg4"]
-[ext_resource type="Script" path="res://Scripts/playerMovement.gd" id="2_x7362"]
-[ext_resource type="Script" path="res://Scripts/cameraMovement.gd" id="3_ns3bt"]
-[ext_resource type="Script" path="res://Scripts/actionable.gd" id="4_snlh1"]
+[ext_resource type="Script" uid="uid://dkqltgxtklh61" path="res://Scripts/playerMovement.gd" id="2_x7362"]
+[ext_resource type="Script" uid="uid://d20g3cyjsji01" path="res://Scripts/cameraMovement.gd" id="3_ns3bt"]
+[ext_resource type="Script" uid="uid://b5d3uhsvithov" path="res://Scripts/actionable.gd" id="4_snlh1"]
 [ext_resource type="Resource" uid="uid://c4b5du6lf0c6g" path="res://Dialogue/testDialogue.dialogue" id="5_xanhj"]
-[ext_resource type="Script" path="res://Scripts/item.gd" id="6_gg44o"]
+[ext_resource type="Script" uid="uid://dirhv7img3o70" path="res://Scripts/item.gd" id="6_gg44o"]
 
 [sub_resource type="Curve" id="Curve_x6p1d"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]

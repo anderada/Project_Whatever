@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://230cqs57gq7n"]
+
+[ext_resource type="Script" path="res://telemetry/Telemetry.gd" id="1_0f2v8"]
+
+[node name="Telemetry" type="Node"]
+script = ExtResource("1_0f2v8")
+user_name = "tattin"
+secret = "991607556"
+version = "V1"
+log_to_server = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+use_threads = true
