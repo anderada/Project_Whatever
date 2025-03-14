@@ -174,6 +174,7 @@ func turn() -> void:
 func stopPlayer(collided : bool) -> void:
 	if(!collided):
 		position = targetPosition
+		SoundManger.playSound(getBlock(position))
 	position = round(position)
 	targetPosition = position
 	previousPosition = position

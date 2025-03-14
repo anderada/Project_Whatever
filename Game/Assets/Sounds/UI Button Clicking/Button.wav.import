@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cvbd75oa6rsft"
+path="res://.godot/imported/Button.wav-1e73a4ace51b720298e0958240cb3024.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/UI Button Clicking/Button.wav"
+dest_files=["res://.godot/imported/Button.wav-1e73a4ace51b720298e0958240cb3024.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

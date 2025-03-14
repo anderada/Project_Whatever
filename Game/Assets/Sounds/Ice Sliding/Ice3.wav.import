@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bmiqe4lsp34im"
+path="res://.godot/imported/Ice3.wav-b423c7f3a3dd18efab43d529a3bdf799.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Ice Sliding/Ice3.wav"
+dest_files=["res://.godot/imported/Ice3.wav-b423c7f3a3dd18efab43d529a3bdf799.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
