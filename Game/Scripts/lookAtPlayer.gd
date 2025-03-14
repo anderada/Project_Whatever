@@ -1,11 +1,19 @@
 extends Node3D
 
 @export var offset : float = 0
+@export var lockPitch : bool = true
+
+var player: Node3D
+@export var playerPath = "/root/Test Scene2/Player"
+
+func _ready() -> void:
+	player = get_node(playerPath)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if(%Player != null):
-		look_at(%Player.global_position)
-		rotation_degrees.x = 0
+	if(player != null):
+		look_at(player.global_position)
 		rotation_degrees.y += offset
-		rotation_degrees.z = 0
+		if(lockPitch):
+			rotation_degrees.x = 0
+			rotation_degrees.z = 0

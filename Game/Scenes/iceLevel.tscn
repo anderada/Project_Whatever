@@ -70,6 +70,7 @@ size = Vector3(0.364345, 0.425667, 0.486832)
 size = Vector3(0.2, 0.2, 0.2)
 
 [node name="Test Scene2" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0099988, -1.19209e-07, -0.00546288)
 
 [node name="Lights" type="Node" parent="."]
 

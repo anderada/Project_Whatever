@@ -257,6 +257,18 @@ func checkPillars() -> void:
 		block = getBlock(pos)
 		if(block == pillarIndex):
 				activatePillar.emit(pos)
+		
+		pos = position + Vector3(left.x, 0, left.y)
+		pos += Vector3(nextSpace.x * i, 1, nextSpace.y * i)
+		block = getBlock(pos)
+		if(block == pillarIndex):
+				activatePillar.emit(pos)
+				
+		pos = position + Vector3(right.x, 0, right.y)
+		pos += Vector3(nextSpace.x * i, 1, nextSpace.y * i)
+		block = getBlock(pos)
+		if(block == pillarIndex):
+				activatePillar.emit(pos)
 	"""check forward, below
 	for i in range(0,4):
 		pos = position

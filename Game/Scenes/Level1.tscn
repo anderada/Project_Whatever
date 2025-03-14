@@ -70,6 +70,7 @@ size = Vector3(0.364345, 0.425667, 0.486832)
 size = Vector3(0.2, 0.2, 0.2)
 
 [node name="Test Scene2" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53674e-07, -9.53674e-07, 1.90735e-06)
 
 [node name="Lights" type="Node" parent="."]
 
@@ -306,7 +307,6 @@ surface_material_override/0 = ExtResource("11_yu0rn")
 [node name="Tower" type="MeshInstance3D" parent="."]
 transform = Transform3D(6.04641, 0, 0, 0, 109.348, 0, 0, 0, 6.04641, -1.77177, 16.6113, -147.76)
 mesh = SubResource("BoxMesh_r2dwg")
-metadata/_edit_group_ = true
 
 [node name="Collectable" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.995412, 0.688368, -131.038)
@@ -349,5 +349,3 @@ mesh = SubResource("BoxMesh_llvny")
 [connection signal="activatePillar" from="Player" to="Maps/pillarAnimator" method="_on_player_activate_pillar"]
 [connection signal="deactivatePillar" from="Player" to="Maps/pillarAnimator" method="_on_player_deactivate_pillar"]
 [connection signal="startShake" from="Player" to="Player/Camera3D" method="_on_player_start_shake"]
-[connection signal="input_event" from="Character/Actionable" to="Player" method="_on_actionable_input_event"]
-[connection signal="input_event" from="Key/Actionable" to="Player" method="_on_actionable_input_event"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://c8sl444bcb550" path="res://Assets/Materials/Blocks/Pilar.tres" id="1_bwi5a"]
 [ext_resource type="Material" uid="uid://dsi8t6ww2a8h3" path="res://Assets/Materials/Blocks/eye.tres" id="2_xtrxh"]
-[ext_resource type="Script" path="res://Scripts/lookAtPlayer.gd" id="3_l68w0"]
+[ext_resource type="Script" path="res://Scripts/lookAtPlayer.gd" id="3_s5t3j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kv4kj"]
 resource_name = "BackwardBlock"
@@ -106,5 +106,6 @@ transform = Transform3D(6.00003e-09, 0, -0.503152, 0, 0.503152, 0, 0.503152, 0, 
 material_override = ExtResource("2_xtrxh")
 mesh = SubResource("ArrayMesh_64orp")
 skeleton = NodePath("")
-script = ExtResource("3_l68w0")
+script = ExtResource("3_s5t3j")
 offset = 90.0
+lockPitch = false
