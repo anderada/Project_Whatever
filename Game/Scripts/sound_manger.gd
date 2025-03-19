@@ -18,17 +18,17 @@ extends Node
 @onready var walk_8: AudioStreamPlayer = $"Wood/Walk 8"
 
 var timeSinceLastSound : float = 0
-@export var minimumTimeBetweenSounds : float = 0.5
+@export var minimumTimeBetweenIceSounds : float = 0.4
 
 func _process(delta: float) -> void:
 	timeSinceLastSound+= delta
 
 func playSound(type : int) -> void:
-	if(timeSinceLastSound < minimumTimeBetweenSounds):
-		return
-	else:
-		timeSinceLastSound = 0
 	if(type == 6):
+		if(timeSinceLastSound < minimumTimeBetweenIceSounds):
+			return
+		else:
+			timeSinceLastSound = 0
 		var dice : int = randi_range(1,4)
 		match dice:
 			1:

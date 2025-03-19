@@ -72,16 +72,16 @@ func updateMovementClocks(delta: float) -> void:
 func getPlayerInput() -> void:
 	#get player input
 	#forward
-	if Input.is_key_pressed(KEY_W):
+	if Input.is_action_pressed("Forward"):
 		playerInput.x = 1
 	#backwards
-	if Input.is_key_pressed(KEY_S):
+	if Input.is_action_pressed("Backward"):
 		playerInput.x = -1
 	#right
-	if Input.is_key_pressed(KEY_D):
+	if Input.is_action_just_pressed("Right"):
 		playerInput.y = 1
 	#left
-	if Input.is_key_pressed(KEY_A):
+	if Input.is_action_just_pressed("Left"):
 		playerInput.y = -1
 	
 		

@@ -11,6 +11,7 @@ var mouseStillTime = 0
 var shakeClock = 0
 var shakeItteration = 0
 @export var shakeTime : float
+var locked = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -18,6 +19,8 @@ func _process(delta: float) -> void:
 	previousMousePos = mousePos
 	mousePos = get_viewport().get_mouse_position()
 	
+	if(locked):
+		mousePos = Vector2(0,0)
 	
 	if(mousePos == previousMousePos):
 		mouseStillTime += delta
@@ -43,3 +46,6 @@ func _on_player_start_shake(frequency: float, ammount: int) -> void:
 	shakeTime = frequency
 	shakeClock = frequency * ammount
 	shakeItteration = frequency
+	
+func lockCamera(state: bool):
+	locked = state

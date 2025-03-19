@@ -48,9 +48,9 @@ point_count = 5
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_16tlw"]
 height = 0.297069
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_p4702"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_77ese"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_8loid"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_ggogk"]
 size = Vector2(0.4, 0.8)
 orientation = 0
 
@@ -291,7 +291,7 @@ script = ExtResource("8_1unjb")
 dialogue_resource = ExtResource("9_f5tld")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Character/Actionable"]
-shape = SubResource("BoxShape3D_p4702")
+shape = SubResource("BoxShape3D_77ese")
 
 [node name="Node3D" type="Node3D" parent="Character/Actionable/CollisionShape3D"]
 script = ExtResource("10_knadl")
@@ -300,7 +300,7 @@ offset = 90.0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Character/Actionable/CollisionShape3D/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.1, 0)
 cast_shadow = 0
-mesh = SubResource("PlaneMesh_8loid")
+mesh = SubResource("PlaneMesh_ggogk")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("11_yu0rn")
 
@@ -349,3 +349,4 @@ mesh = SubResource("BoxMesh_llvny")
 [connection signal="activatePillar" from="Player" to="Maps/pillarAnimator" method="_on_player_activate_pillar"]
 [connection signal="deactivatePillar" from="Player" to="Maps/pillarAnimator" method="_on_player_deactivate_pillar"]
 [connection signal="startShake" from="Player" to="Player/Camera3D" method="_on_player_start_shake"]
+[connection signal="input_event" from="Character/Actionable" to="Player" method="_on_actionable_input_event"]

@@ -9,6 +9,7 @@ var player: Node3D
 func _ready() -> void:
 	player = get_node(playerPath)
 
+@warning_ignore("unused_parameter")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(player != null):
