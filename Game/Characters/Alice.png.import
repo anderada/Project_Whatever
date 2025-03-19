@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://befnhqgxh4hmv"
-path="res://.godot/imported/Rabbit.png-c61330f6394aca740d622d727e138843.ctex"
+uid="uid://d0pbmeqacu0kj"
+path="res://.godot/imported/Alice.png-e513c30c80c22b076f72680bbba1133a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Rabbit.png"
-dest_files=["res://.godot/imported/Rabbit.png-c61330f6394aca740d622d727e138843.ctex"]
+source_file="res://Characters/Alice.png"
+dest_files=["res://.godot/imported/Alice.png-e513c30c80c22b076f72680bbba1133a.ctex"]
 
 [params]
 

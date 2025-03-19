@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://2mim118sc8dd"]
 
-[ext_resource type="Script" path="res://Dialogue/balloon.gd" id="1_36de5"]
+[ext_resource type="Script" uid="uid://bx0a5ry57dcfv" path="res://Dialogue/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Theme" uid="uid://dddwf6annn1er" path="res://Dialogue/theme.tres" id="2_oxfwm"]
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
-[ext_resource type="Texture2D" uid="uid://binl67lc410ge" path="res://Characters/Rabbit.png" id="3_dphvf"]
+[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="Texture2D" uid="uid://befnhqgxh4hmv" path="res://Characters/Rabbit.png" id="3_dphvf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -101,21 +101,36 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -332.0
+offset_right = -3.0
+offset_bottom = 0.299988
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 36
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_bottom = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Panel/Dialogue"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-theme_override_constants/separation = 43
+[node name="Node2D" type="Node2D" parent="Balloon/Panel/Dialogue"]
 
-[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/Panel/Dialogue/VBoxContainer"]
+[node name="Portrait" type="TextureRect" parent="Balloon/Panel/Dialogue/Node2D"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+anchors_preset = -1
+offset_left = 33.0
+offset_top = 403.0
+offset_right = 389.0
+offset_bottom = 1045.0
+scale = Vector2(0.433892, 0.382464)
+texture = ExtResource("3_dphvf")
+
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/Panel/Dialogue/Node2D"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(138.63, 0)
-layout_mode = 2
+offset_left = 35.0
+offset_top = 338.0
+offset_right = 173.63
+offset_bottom = 366.0
 size_flags_horizontal = 0
 mouse_filter = 1
 theme = ExtResource("2_oxfwm")
@@ -124,24 +139,28 @@ text = "[center]Character"
 fit_content = true
 scroll_active = false
 
+[node name="DialogueLabel" parent="Balloon/Panel/Dialogue/Node2D" instance=ExtResource("2_a8ve6")]
+unique_name_in_owner = true
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 216.0
+offset_top = 416.0
+offset_right = 1262.0
+offset_bottom = 987.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Dialogue..."
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Panel/Dialogue"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_constants/separation = 43
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Balloon/Panel/Dialogue/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_oxfwm")
 theme_override_constants/separation = 25
-
-[node name="Portrait" type="TextureRect" parent="Balloon/Panel/Dialogue/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-texture = ExtResource("3_dphvf")
-
-[node name="DialogueLabel" parent="Balloon/Panel/Dialogue/VBoxContainer/HBoxContainer" instance=ExtResource("2_a8ve6")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Dialogue..."
 
 [node name="Responses" type="MarginContainer" parent="Balloon"]
 layout_mode = 1

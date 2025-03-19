@@ -8,8 +8,8 @@ var player: Node3D
 
 func _ready() -> void:
 	player = get_node(playerPath)
-	if(player == null && %player != null):
-		player = %player
+	if(player == null && %Player != null):
+		player = %Player
 
 @warning_ignore("unused_parameter")
 # Called every frame. 'delta' is the elapsed time since the previous frame.

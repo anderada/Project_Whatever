@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://81js5eo74vpj"]
 
-[ext_resource type="Script" path="res://Scripts/playerMovement.gd" id="1_iwpb1"]
+[ext_resource type="Script" uid="uid://q4o8q4qccg4p" path="res://Scripts/playerMovement.gd" id="1_iwpb1"]
 [ext_resource type="Environment" uid="uid://b6e7ydi8600yb" path="res://Assets/Environments/Library.tres" id="2_5eak4"]
-[ext_resource type="Script" path="res://Scripts/cameraMovement.gd" id="3_7g0kf"]
+[ext_resource type="Script" uid="uid://beaf1bjrt1j35" path="res://Scripts/cameraMovement.gd" id="3_7g0kf"]
 
 [sub_resource type="Curve" id="Curve_x6p1d"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]

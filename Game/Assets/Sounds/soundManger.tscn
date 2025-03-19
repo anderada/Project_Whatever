@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://dskhd2726otdj"]
 
-[ext_resource type="Script" path="res://Scripts/sound_manger.gd" id="1_qkqdy"]
+[ext_resource type="Script" uid="uid://bblylvo1ehd3o" path="res://Scripts/sound_manger.gd" id="1_qkqdy"]
 [ext_resource type="AudioStream" uid="uid://cc7llffeu08tq" path="res://Assets/Sounds/Ice Sliding/Ice1.wav" id="2_qiwrk"]
 [ext_resource type="AudioStream" uid="uid://bjd6kgh7nesms" path="res://Assets/Sounds/Ice Sliding/Ice2.wav" id="3_hfutq"]
 [ext_resource type="AudioStream" uid="uid://bmiqe4lsp34im" path="res://Assets/Sounds/Ice Sliding/Ice3.wav" id="4_hm3hh"]

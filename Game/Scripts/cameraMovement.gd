@@ -12,12 +12,18 @@ var shakeClock = 0
 var shakeItteration = 0
 @export var shakeTime : float
 var locked = false
+var logEventPoint = Vector2(0,0)
+var logEventThreshold = 400
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#get mouse position
 	previousMousePos = mousePos
 	mousePos = get_viewport().get_mouse_position()
+	
+	if(abs(mousePos.distance_to(logEventPoint)) >= logEventThreshold):
+		Telemetry.log_event("","Mouse Event","")
+		logEventPoint = mousePos
 	
 	if(locked):
 		mousePos = Vector2(0,0)

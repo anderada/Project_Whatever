@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://dgnne05hm545d"]
 
-[ext_resource type="Script" path="res://telemetry/Telemetry.gd" id="1_0f2v8"]
+[ext_resource type="Script" uid="uid://7mnu64ik12h6" path="res://telemetry/Telemetry.gd" id="1_0f2v8"]
 
 [node name="Telemetry" type="Node"]
 script = ExtResource("1_0f2v8")
-user_name = "anderada"
-secret = "991635755"
+user_name = "Team Whatever"
+secret = "defective seal"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 use_threads = true

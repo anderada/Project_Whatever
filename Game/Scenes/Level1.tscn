@@ -1,19 +1,20 @@
-[gd_scene load_steps=32 format=3 uid="uid://dt67mu85m4skl"]
+[gd_scene load_steps=33 format=3 uid="uid://dt67mu85m4skl"]
 
 [ext_resource type="MeshLibrary" uid="uid://d3v8v2evnorg2" path="res://Assets/Tile Sets/tileSetNewNew.tres" id="2_7smhl"]
-[ext_resource type="Script" path="res://Scripts/instancer.gd" id="2_26ana"]
+[ext_resource type="Script" uid="uid://1h5uj6wgu678" path="res://Scripts/instancer.gd" id="2_26ana"]
 [ext_resource type="PackedScene" uid="uid://cl782vs3tgpgy" path="res://Assets/Prefabs/pillar.tscn" id="3_w0d8i"]
-[ext_resource type="Script" path="res://Scripts/animatePillars.gd" id="4_wia41"]
-[ext_resource type="Script" path="res://Scripts/playerMovement.gd" id="5_txvlx"]
+[ext_resource type="Script" uid="uid://cseb3qb4wx0k1" path="res://Scripts/animatePillars.gd" id="4_wia41"]
+[ext_resource type="Script" uid="uid://q4o8q4qccg4p" path="res://Scripts/playerMovement.gd" id="5_txvlx"]
 [ext_resource type="Environment" uid="uid://b6e7ydi8600yb" path="res://Assets/Environments/Library.tres" id="6_k86my"]
-[ext_resource type="Script" path="res://Scripts/cameraMovement.gd" id="7_6qnms"]
-[ext_resource type="Script" path="res://Scripts/actionable.gd" id="8_1unjb"]
+[ext_resource type="Script" uid="uid://beaf1bjrt1j35" path="res://Scripts/cameraMovement.gd" id="7_6qnms"]
+[ext_resource type="Script" uid="uid://lakil470eb3u" path="res://Scripts/actionable.gd" id="8_1unjb"]
 [ext_resource type="Resource" uid="uid://c4b5du6lf0c6g" path="res://Dialogue/testDialogue.dialogue" id="9_f5tld"]
-[ext_resource type="Script" path="res://Scripts/lookAtPlayer.gd" id="10_knadl"]
+[ext_resource type="Script" uid="uid://dqflxk2gtolfk" path="res://Scripts/lookAtPlayer.gd" id="10_knadl"]
 [ext_resource type="Material" uid="uid://bnj7x1ybf6fpy" path="res://Assets/Materials/Characters/test_character.tres" id="11_yu0rn"]
-[ext_resource type="Script" path="res://Scripts/item.gd" id="12_u2g18"]
+[ext_resource type="Script" uid="uid://bf6dr2qcmcpma" path="res://Scripts/item.gd" id="12_u2g18"]
 [ext_resource type="PackedScene" uid="uid://dgnne05hm545d" path="res://telemetry/Telemetry.tscn" id="13_qxt46"]
-[ext_resource type="Script" path="res://Scripts/telemetry_display.gd" id="13_upepm"]
+[ext_resource type="Script" uid="uid://dihnclign121k" path="res://Scripts/telemetry_display.gd" id="13_upepm"]
+[ext_resource type="Script" uid="uid://dmw67oyijw67l" path="res://Scripts/telemetry_point.gd" id="15_ubfni"]
 
 [sub_resource type="Curve" id="Curve_ay5xt"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -304,7 +305,7 @@ script = ExtResource("10_knadl")
 offset = 90.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Character/Actionable/CollisionShape3D/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.28252, 0.4, -0.122071, 0)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_ggogk")
 skeleton = NodePath("")
@@ -352,6 +353,109 @@ offset_bottom = 23.0
 label_settings = SubResource("LabelSettings_b0yvq")
 script = ExtResource("13_upepm")
 
+[node name="Controls" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.5
+offset_top = -62.0
+offset_right = 200.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "W S to move, A D to turn, Click to talk."
+label_settings = SubResource("LabelSettings_b0yvq")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Telemetry Points" type="Node" parent="."]
+
+[node name="Level Start" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -4)
+script = ExtResource("15_ubfni")
+logMessage = "Level Start"
+
+[node name="Maze 1 Start" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -2, -9)
+script = ExtResource("15_ubfni")
+logMessage = "Maze 1 Start"
+
+[node name="Maze 1 End" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -5, -19)
+script = ExtResource("15_ubfni")
+logMessage = "Maze 1 End"
+
+[node name="Puzzle 1 Start" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -5, -19)
+script = ExtResource("15_ubfni")
+logMessage = "Puzzle 1 Start"
+
+[node name="Puzzle 1 End" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -6, -26)
+script = ExtResource("15_ubfni")
+logMessage = "Puzzle 1 End"
+
+[node name="Collectable 1" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -6, -25)
+script = ExtResource("15_ubfni")
+logMessage = "Collectable 1"
+
+[node name="Maze 2 Start" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -6, -26)
+script = ExtResource("15_ubfni")
+logMessage = "Puzzle 1 End"
+
+[node name="Maze 2 End" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -3, -61)
+script = ExtResource("15_ubfni")
+logMessage = "Maze 2 End"
+
+[node name="Puzzle 2 Start" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -3, -61)
+script = ExtResource("15_ubfni")
+logMessage = "Puzzle 2 Start"
+
+[node name="Puzzle 2 End" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -86)
+script = ExtResource("15_ubfni")
+logMessage = "Puzzle 2 End"
+
+[node name="Collectable 2" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -1, -81)
+script = ExtResource("15_ubfni")
+logMessage = "Collectable 2"
+
+[node name="Maze 3 Start" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -86)
+script = ExtResource("15_ubfni")
+logMessage = "Puzzle 2 End"
+
+[node name="Maze 3 End" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.90686, -2.97266, -120.007)
+script = ExtResource("15_ubfni")
+logMessage = "Maze 3 End"
+
+[node name="Puzzle 3 Start" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.90686, -2.97266, -120.007)
+script = ExtResource("15_ubfni")
+logMessage = "Puzzle 3 Start"
+
+[node name="Puzzle 3 End" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -136)
+script = ExtResource("15_ubfni")
+logMessage = "Puzzle 3 End"
+
+[node name="Level End" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -142)
+script = ExtResource("15_ubfni")
+logMessage = "Level End"
+
+[node name="Collectable 3" type="Node3D" parent="Telemetry Points"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -130)
+script = ExtResource("15_ubfni")
+logMessage = "Collectable 3"
+
 [connection signal="pillarsInstanced" from="Maps/Empty" to="Maps/pillarAnimator" method="_on_pillars_instanced"]
 [connection signal="pillarsInstanced" from="Maps/Tutorial" to="Maps/pillarAnimator" method="_on_pillars_instanced"]
 [connection signal="pillarsInstanced" from="Maps/Maze 1" to="Maps/pillarAnimator" method="_on_pillars_instanced"]
@@ -365,3 +469,10 @@ script = ExtResource("13_upepm")
 [connection signal="startShake" from="Player" to="Player/Camera3D" method="_on_player_start_shake"]
 [connection signal="input_event" from="Character/Actionable" to="Player" method="_on_actionable_input_event"]
 [connection signal="authenticated" from="Telemetry" to="Telemetry Display" method="_on_telemetry_authenticated"]
+[connection signal="start_Stopwatch" from="Telemetry Points/Level Start" to="Telemetry Points/Level End" method="startStopwatch"]
+[connection signal="start_Stopwatch" from="Telemetry Points/Maze 1 Start" to="Telemetry Points/Maze 1 End" method="startStopwatch"]
+[connection signal="start_Stopwatch" from="Telemetry Points/Puzzle 1 Start" to="Telemetry Points/Puzzle 1 End" method="startStopwatch"]
+[connection signal="start_Stopwatch" from="Telemetry Points/Maze 2 Start" to="Telemetry Points/Maze 2 End" method="startStopwatch"]
+[connection signal="start_Stopwatch" from="Telemetry Points/Puzzle 2 Start" to="Telemetry Points/Puzzle 2 End" method="startStopwatch"]
+[connection signal="start_Stopwatch" from="Telemetry Points/Maze 3 Start" to="Telemetry Points/Maze 3 End" method="startStopwatch"]
+[connection signal="start_Stopwatch" from="Telemetry Points/Puzzle 3 Start" to="Telemetry Points/Puzzle 3 End" method="startStopwatch"]
