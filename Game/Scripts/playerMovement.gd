@@ -45,6 +45,7 @@ func _ready() -> void:
 	previousRotation = rotation_degrees.y
 	moveCurve = walkCurve
 	getNextSpace()
+	Telemetry.set_section("Level 1")
 
 func _process(delta: float) -> void:
 	updateMovementClocks(delta)
@@ -80,9 +81,11 @@ func getPlayerInput() -> void:
 	#right
 	if Input.is_action_just_pressed("Right"):
 		playerInput.y = 1
+		Telemetry.log_event("","Turn","Right")
 	#left
 	if Input.is_action_just_pressed("Left"):
 		playerInput.y = -1
+		Telemetry.log_event("","Turn","Left")
 	
 		
 	#set target position and rotation
@@ -175,6 +178,7 @@ func stopPlayer(collided : bool) -> void:
 	if(!collided):
 		position = targetPosition
 		SoundManger.playSound(getBlock(position))
+		Telemetry.log_event("","Move",{x = position.x, y = position.y, z = position.z})
 	position = round(position)
 	targetPosition = position
 	previousPosition = position

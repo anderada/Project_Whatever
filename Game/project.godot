@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SoundManger="*res://Assets/Sounds/soundManger.tscn"
+Telemetry="*res://telemetry/Telemetry.tscn"
 
 [dialogue_manager]
 
