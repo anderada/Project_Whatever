@@ -1,11 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://dskhd2726otdj"]
+[gd_scene load_steps=19 format=3 uid="uid://dskhd2726otdj"]
 
-[ext_resource type="Script" uid="uid://bblylvo1ehd3o" path="res://Scripts/sound_manger.gd" id="1_qkqdy"]
+[ext_resource type="Script" path="res://Scripts/sound_manger.gd" id="1_qkqdy"]
 [ext_resource type="AudioStream" uid="uid://cc7llffeu08tq" path="res://Assets/Sounds/Ice Sliding/Ice1.wav" id="2_qiwrk"]
 [ext_resource type="AudioStream" uid="uid://bjd6kgh7nesms" path="res://Assets/Sounds/Ice Sliding/Ice2.wav" id="3_hfutq"]
 [ext_resource type="AudioStream" uid="uid://bmiqe4lsp34im" path="res://Assets/Sounds/Ice Sliding/Ice3.wav" id="4_hm3hh"]
 [ext_resource type="AudioStream" uid="uid://liy2edqtlshp" path="res://Assets/Sounds/Ice Sliding/Ice4.wav" id="5_4rtv7"]
 [ext_resource type="AudioStream" uid="uid://dw05p7otg2rja" path="res://Assets/Sounds/Pillar/Pillar1.wav" id="6_jubqw"]
+[ext_resource type="AudioStream" uid="uid://vbrbybgg7rn3" path="res://Assets/Sounds/Ice Sliding/iceLooping.wav" id="6_kabnn"]
 [ext_resource type="AudioStream" uid="uid://cmara56g4hrlf" path="res://Assets/Sounds/Pillar/Pillar2.wav" id="7_hrrpx"]
 [ext_resource type="AudioStream" uid="uid://ci0re5gr4yijf" path="res://Assets/Sounds/Pillar/Pillar3.wav" id="8_rdqm6"]
 [ext_resource type="AudioStream" uid="uid://dysgppxkyo5i3" path="res://Assets/Sounds/Pillar/Pillar4.wav" id="9_cqayv"]
@@ -34,6 +35,9 @@ stream = ExtResource("4_hm3hh")
 
 [node name="Ice4" type="AudioStreamPlayer" parent="Ice"]
 stream = ExtResource("5_4rtv7")
+
+[node name="IceLoop" type="AudioStreamPlayer" parent="Ice"]
+stream = ExtResource("6_kabnn")
 
 [node name="Pillar" type="Node" parent="."]
 
