@@ -35,6 +35,7 @@ var directionMoving = 0
 @export var stairIndex : int = 3
 @export var pillarIndex : int = 6
 @export var bridgeIndex : int = 5
+@export var lampIndex : int = 18
 
 @onready var actionable_finder: Area3D = $Direction/ActionableFinder
 
@@ -216,7 +217,7 @@ func checkCollision() -> void:
 	var headPosition = targetPosition
 	headPosition.y += 1
 	var block = getBlock(headPosition)
-	if(block != -1 && block != stairIndex && block != bridgeIndex && !(block == pillarIndex && abs(directionMoving - directionFacing) > 0)):
+	if(block != -1 && block != stairIndex && block != lampIndex && block != bridgeIndex && !(block == pillarIndex && abs(directionMoving - directionFacing) > 0)):
 		stopPlayer(true)
 	if(block == stairIndex):
 		startStairs(1)

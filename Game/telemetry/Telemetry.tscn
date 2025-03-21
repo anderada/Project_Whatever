@@ -6,6 +6,7 @@
 script = ExtResource("1_0f2v8")
 user_name = "Team Whatever"
 secret = "defective seal"
+debug_print = false
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 use_threads = true

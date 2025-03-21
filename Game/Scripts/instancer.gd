@@ -6,6 +6,8 @@ signal pillarsInstanced
 @export var hiddenPillarIndex : int = 6
 @export var pillarPrefab : PackedScene
 @export var pillarDownPoint : float = -0.9
+@export var lampIndex : int = 18
+@export var lampPrefab : PackedScene
 var pillars : Array
 
 # Called when the node enters the scene tree for the first time.
@@ -24,4 +26,11 @@ func instancePillars():
 			pillar.transform.origin = pos
 			add_child(pillar)
 			pillars.append(pillar)
+		if(get_cell_item(cell) == lampIndex):
+			var pos = Vector3(cell)
+			pos.y -= 1
+			var lamp = lampPrefab.instantiate()
+			lamp.transform = lamp.transform.scaled(Vector3(0.5,0.5,0.5))
+			lamp.transform.origin = pos
+			add_child(lamp)
 	pillarsInstanced.emit(position, pillars, pillarDownPoint)

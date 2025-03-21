@@ -1,10 +1,11 @@
-[gd_scene load_steps=33 format=3 uid="uid://dt67mu85m4skl"]
+[gd_scene load_steps=34 format=3 uid="uid://dt67mu85m4skl"]
 
-[ext_resource type="MeshLibrary" uid="uid://d3v8v2evnorg2" path="res://Assets/Tile Sets/tileSetNewNew.tres" id="2_7smhl"]
 [ext_resource type="Script" uid="uid://1h5uj6wgu678" path="res://Scripts/instancer.gd" id="2_26ana"]
+[ext_resource type="MeshLibrary" uid="uid://bw470utinpfc3" path="res://Assets/Tile Sets/tileSet10.tres" id="2_ubfni"]
 [ext_resource type="PackedScene" uid="uid://cl782vs3tgpgy" path="res://Assets/Prefabs/pillar.tscn" id="3_w0d8i"]
 [ext_resource type="Script" uid="uid://cseb3qb4wx0k1" path="res://Scripts/animatePillars.gd" id="4_wia41"]
 [ext_resource type="Script" uid="uid://q4o8q4qccg4p" path="res://Scripts/playerMovement.gd" id="5_txvlx"]
+[ext_resource type="PackedScene" uid="uid://bs6ta7ky2yv72" path="res://Assets/Prefabs/lamp.tscn" id="5_ug0sv"]
 [ext_resource type="Environment" uid="uid://b6e7ydi8600yb" path="res://Assets/Environments/Library.tres" id="6_k86my"]
 [ext_resource type="Script" uid="uid://beaf1bjrt1j35" path="res://Scripts/cameraMovement.gd" id="7_6qnms"]
 [ext_resource type="Script" uid="uid://lakil470eb3u" path="res://Scripts/actionable.gd" id="8_1unjb"]
@@ -114,7 +115,7 @@ deactivateCurve = SubResource("Curve_5pkt8")
 
 [node name="Empty" type="GridMap" parent="Maps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-mesh_library = ExtResource("2_7smhl")
+mesh_library = ExtResource("2_ubfni")
 cell_size = Vector3(1, 1, 1)
 cell_center_x = false
 cell_center_y = false
@@ -129,25 +130,39 @@ metadata/_editor_floor_ = Vector3(0, -2, 0)
 
 [node name="Tutorial" type="GridMap" parent="Maps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-mesh_library = ExtResource("2_7smhl")
+mesh_library = ExtResource("2_ubfni")
 cell_size = Vector3(1, 1, 1)
 cell_center_x = false
 cell_center_y = false
 cell_center_z = false
 cell_scale = 0.5
 data = {
-"cells": PackedInt32Array(-65537, 1, 2, -65537, 0, 2, -65537, 65535, 2, -131072, 65535, 2, -131072, 0, 2, -131071, 0, 2, -131072, 1, 2, -131071, 1, 2, -131071, 65535, 2, -2, 1, 1441793, -2, 0, 1441794, -2, 65535, 1441793, -65534, 65535, 1441793, -65534, 1, 1441793, -65534, 0, 1441794, -1, 2, 1441793, -65536, 2, 1441794, -65535, 2, 1441793, -131072, 65534, 1441793, -131072, 65533, 1441793, -131072, 65532, 1441793, -1, 65532, 1441792, -65535, 65532, 1441792, -65536, 65532, 1441799, -65534, 65533, 1441793, -65534, 65534, 1441794, -131071, 65534, 1441793, -131071, 65533, 1441793, -65537, 65533, 1441793, -65537, 65534, 1441793, -2, 65533, 1441793, -2, 65534, 1441794, -1, 1, 1441793, -65535, 1, 1441793, -1, 65531, 1, -1, 65530, 6, -65535, 65531, 1, -65535, 65530, 1, -65535, 65529, 1, -1, 65529, 1, -131072, 65531, 1, -131072, 65530, 1, -131072, 65529, 6, -131072, 65528, 6, -2, 65531, 6, -2, 65530, 6, -2, 65529, 0, -65537, 65528, 6, -65538, 65528, 6, -131072, 65527, 6, -131072, 65526, 6, -131071, 65528, 6, -131071, 65526, 1, -131070, 65526, 1, -131069, 65526, 1, -131070, 65527, 1, -131070, 65528, 1, -65534, 65529, 1, -1, 65527, 1, -65536, 65525, 0, -1, 65526, 1, -65535, 65525, 1, -65534, 65525, 2, -65533, 65527, 1, -65533, 65528, 1, -65532, 65526, 2, -65533, 65525, 1, -131071, 65527, 0, -65535, 65527, 0, -65537, 65529, 6, -131071, 65529, 6, -65537, 65527, 6, -65537, 65526, 6, -2, 65527, 1, -65538, 65527, 6, -65538, 65529, 6, -196614, 65510, 1441793, -196614, 65511, 1441793, -196613, 65511, 1441793, -196612, 65512, 1441793, -196610, 65514, 1441792, -196614, 65508, 1441793, -196614, 65509, 1441793, -196616, 65511, 1441793, -65539, 65528, 1441793, -1, 65534, 9)
+"cells": PackedInt32Array(-65537, 1, 2, -131072, 1, 2, -131071, 1, 2, -2, 1, 1441793, -65535, 65529, 1, -1, 65529, 1, -131072, 65529, 6, -131072, 65528, 6, -2, 65529, 0, -65537, 65528, 6, -65538, 65528, 6, -131072, 65527, 6, -131072, 65526, 6, -131071, 65528, 6, -131071, 65526, 1, -131070, 65526, 1, -131069, 65526, 1, -131070, 65527, 1, -131070, 65528, 1, -65534, 65529, 1, -1, 65527, 1, -65536, 65525, 0, -1, 65526, 1, -65535, 65525, 1, -65534, 65525, 2, -65533, 65527, 1, -65533, 65528, 1, -65532, 65526, 2, -65533, 65525, 1, -131071, 65527, 0, -65535, 65527, 0, -65537, 65529, 6, -131071, 65529, 6, -65537, 65527, 6, -65537, 65526, 6, -2, 65527, 1, -65538, 65527, 6, -65538, 65529, 6, -196614, 65510, 1441793, -196614, 65511, 1441793, -196613, 65511, 1441793, -196612, 65512, 1441793, -196610, 65514, 1441792, -196614, 65508, 1441793, -196614, 65509, 1441793, -196616, 65511, 1441793, -65539, 65528, 1441793, -2, 65530, 6, -2, 65531, 6, -2, 65533, 1441793, -2, 65534, 1441794, -2, 65535, 1441793, -2, 0, 1441794, -65537, 65533, 1441793, -65537, 65534, 1441793, -65537, 65535, 2, -65537, 0, 2, -1, 65530, 6, -1, 65531, 1, -1, 65532, 1441792, -1, 65534, 9, -131072, 65530, 1, -131072, 65531, 1, -131072, 65532, 1441793, -131072, 65533, 1441793, -131072, 65534, 1441793, -131072, 65535, 2, -131072, 0, 2, -65536, 65532, 1441799, -131071, 65533, 1441793, -131071, 65534, 1441793, -131071, 65535, 2, -131071, 0, 2, -65535, 65530, 1, -65535, 65531, 1, -65535, 65532, 1441792, -65534, 65533, 1441793, -65534, 65534, 1441794, -65534, 65535, 1441793, -65534, 0, 1441794, -65537, 2, 655361, -65537, 3, 655361, -65537, 4, 655361, -131072, 4, 655361, -131071, 4, 655361, -131070, 4, 655361, -131070, 3, 655361, -131070, 2, 655361, -131070, 1, 655361, -131070, 0, 655361, -131071, 2, 655361, -131072, 2, 655361, -131072, 3, 655361, -131071, 3, 655361, -131069, 1, 655361, -131069, 2, 655361, -131069, 3, 655361, -131069, 4, 655361, -131069, 5, 655361, -131070, 5, 655361, -131071, 5, 655361, -131072, 5, 655361, -65537, 5, 655361, -2, 2, 655361, -2, 3, 655361, -2, 4, 655361, -2, 5, 655361, -2, 6, 655361, -1, 6, 655361, -65536, 6, 655361, -65535, 6, 655361, -65534, 6, 655361, -65533, 6, 655361, -65532, 6, 655361, -65532, 5, 655361, -65533, 0, 655361, -65532, 0, 655361, -65532, 1, 655361, -65532, 2, 655361, -65532, 3, 655361, -65532, 4, 655361, -65534, 3, 131090, 1, 4, 131074)
 }
 script = ExtResource("2_26ana")
 pillarIndex = 7
 hiddenPillarIndex = 8
 pillarPrefab = ExtResource("3_w0d8i")
 pillarDownPoint = -0.96
-metadata/_editor_floor_ = Vector3(0, -1, 0)
+lampPrefab = ExtResource("5_ug0sv")
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Decoration" type="GridMap" parent="Maps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98323, -0.5, 0)
+mesh_library = ExtResource("2_ubfni")
+cell_size = Vector3(1, 1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+cell_scale = 0.5
+data = {
+"cells": PackedInt32Array(-65535, 65533, 1048587, -65535, 65534, 1048586, -65536, 65533, 1048587, -65535, 65532, 1048587, 0, 65533, 1048591, 0, 65534, 1048591, 0, 65535, 1048591, 1, 65531, 1048592, 1, 65532, 1048592, 4, 65534, 1048592, 0, 1, 1048593, 4, 0, 1048593, 4, 65533, 1048593, 3, 65531, 1048591, 0, 0, 1048592, 4, 65535, 1048592, 3, 65532, 1048592, 3, 65530, 1048592, 0, 65529, 1048593, 1, 65529, 1048593, 3, 65529, 1048593)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="Maze 1" type="GridMap" parent="Maps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-mesh_library = ExtResource("2_7smhl")
+mesh_library = ExtResource("2_ubfni")
 cell_size = Vector3(1, 1, 1)
 cell_center_x = false
 cell_center_y = false
@@ -165,7 +180,7 @@ metadata/_editor_floor_ = Vector3(0, -4, 0)
 
 [node name="Easy" type="GridMap" parent="Maps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -6.5, -20)
-mesh_library = ExtResource("2_7smhl")
+mesh_library = ExtResource("2_ubfni")
 cell_size = Vector3(1, 1, 1)
 cell_center_x = false
 cell_center_y = false
@@ -183,7 +198,7 @@ metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="Maze 2" type="GridMap" parent="Maps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.5, -26)
-mesh_library = ExtResource("2_7smhl")
+mesh_library = ExtResource("2_ubfni")
 cell_size = Vector3(1, 1, 1)
 cell_center_x = false
 cell_center_y = false
@@ -201,7 +216,7 @@ metadata/_editor_floor_ = Vector3(0, 3, 0)
 
 [node name="Medium" type="GridMap" parent="Maps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -3.5, -62)
-mesh_library = ExtResource("2_7smhl")
+mesh_library = ExtResource("2_ubfni")
 cell_size = Vector3(1, 1, 1)
 cell_center_x = false
 cell_center_y = false
@@ -219,7 +234,7 @@ metadata/_editor_floor_ = Vector3(0, 3, 0)
 
 [node name="Maze 3" type="GridMap" parent="Maps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, -0.5, -87)
-mesh_library = ExtResource("2_7smhl")
+mesh_library = ExtResource("2_ubfni")
 cell_size = Vector3(1, 1, 1)
 cell_center_x = false
 cell_center_y = false
@@ -237,7 +252,7 @@ metadata/_editor_floor_ = Vector3(0, -2, 0)
 
 [node name="Hard" type="GridMap" parent="Maps"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -0.5, -120)
-mesh_library = ExtResource("2_7smhl")
+mesh_library = ExtResource("2_ubfni")
 cell_size = Vector3(1, 1, 1)
 cell_center_x = false
 cell_center_y = false
