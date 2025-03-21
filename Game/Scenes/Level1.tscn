@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dt67mu85m4skl"]
+[gd_scene load_steps=45 format=3 uid="uid://dt67mu85m4skl"]
 
 [ext_resource type="Script" uid="uid://1h5uj6wgu678" path="res://Scripts/instancer.gd" id="2_26ana"]
 [ext_resource type="MeshLibrary" uid="uid://bw470utinpfc3" path="res://Assets/Tile Sets/tileSet10.tres" id="2_ubfni"]
@@ -9,6 +9,7 @@
 [ext_resource type="Environment" uid="uid://b6e7ydi8600yb" path="res://Assets/Environments/Library.tres" id="6_k86my"]
 [ext_resource type="Script" uid="uid://beaf1bjrt1j35" path="res://Scripts/cameraMovement.gd" id="7_6qnms"]
 [ext_resource type="Script" uid="uid://lakil470eb3u" path="res://Scripts/actionable.gd" id="8_1unjb"]
+[ext_resource type="Resource" uid="uid://lmvqayoyqeo0" path="res://Dialogue/Collectable4.dialogue" id="10_03od6"]
 [ext_resource type="Script" uid="uid://dqflxk2gtolfk" path="res://Scripts/lookAtPlayer.gd" id="10_knadl"]
 [ext_resource type="Resource" uid="uid://bk12sinhnhw1h" path="res://Dialogue/Rabbit1.dialogue" id="10_yji5v"]
 [ext_resource type="Resource" uid="uid://xrmw4dsriqww" path="res://Dialogue/Rabbit1End.dialogue" id="11_384de"]
@@ -23,6 +24,9 @@
 [ext_resource type="Script" uid="uid://dmw67oyijw67l" path="res://Scripts/telemetry_point.gd" id="15_ubfni"]
 [ext_resource type="Resource" uid="uid://bkjg2yixfx254" path="res://Dialogue/Rabbit3End.dialogue" id="17_o0dvq"]
 [ext_resource type="Resource" uid="uid://syyrwh4fxk18" path="res://Dialogue/Rabbit4End.dialogue" id="19_1nrjw"]
+[ext_resource type="Resource" uid="uid://b0dok3oxg18xx" path="res://Dialogue/Collectable1.dialogue" id="20_384de"]
+[ext_resource type="Resource" uid="uid://ec1kvi6hfwt" path="res://Dialogue/Collectable2.dialogue" id="21_bhaf5"]
+[ext_resource type="Resource" uid="uid://blkiiegpqv3sa" path="res://Dialogue/Collectable3.dialogue" id="22_o0dvq"]
 
 [sub_resource type="Curve" id="Curve_ay5xt"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -65,14 +69,14 @@ height = 0.297069
 size = Vector2(0.4, 0.8)
 orientation = 0
 
-[sub_resource type="BoxMesh" id="BoxMesh_r2dwg"]
-
 [sub_resource type="SphereMesh" id="SphereMesh_erkp8"]
 radius = 0.2
 height = 0.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffuh5"]
 albedo_color = Color(0.961512, 0.961513, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r2dwg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_62ebi"]
 size = Vector3(0.364345, 0.425667, 0.486832)
@@ -401,45 +405,76 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("11_yu0rn")
 
 [node name="Collectable 1" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 1.00463)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -5, -27)
 
 [node name="Actionable" type="Area3D" parent="Collectable 1"]
 script = ExtResource("8_1unjb")
-dialogue_resource = ExtResource("15_03od6")
-dialogue_last_sentence = ExtResource("19_1nrjw")
+dialogue_resource = ExtResource("20_384de")
+dialogue_last_sentence = ExtResource("20_384de")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collectable 1/Actionable"]
 shape = SubResource("BoxShape3D_77ese")
 
-[node name="Node3D" type="Node3D" parent="Collectable 1/Actionable/CollisionShape3D"]
-script = ExtResource("10_knadl")
-offset = 90.0
+[node name="Collectable" type="MeshInstance3D" parent="Collectable 1/Actionable/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0388403, -0.29504, -0.0344009)
+mesh = SubResource("SphereMesh_erkp8")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ffuh5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Collectable 1/Actionable/CollisionShape3D/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.28252, 0.4, -0.122071, 0)
-cast_shadow = 0
-mesh = SubResource("PlaneMesh_ggogk")
-skeleton = NodePath("")
-surface_material_override/0 = ExtResource("11_yu0rn")
+[node name="Collectable 2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -81)
+
+[node name="Actionable" type="Area3D" parent="Collectable 2"]
+script = ExtResource("8_1unjb")
+dialogue_resource = ExtResource("21_bhaf5")
+dialogue_last_sentence = ExtResource("21_bhaf5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collectable 2/Actionable"]
+shape = SubResource("BoxShape3D_77ese")
+
+[node name="Collectable" type="MeshInstance3D" parent="Collectable 2/Actionable/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0388403, -0.29504, -0.0344009)
+mesh = SubResource("SphereMesh_erkp8")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ffuh5")
+
+[node name="Collectable 3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -131)
+
+[node name="Actionable" type="Area3D" parent="Collectable 3"]
+script = ExtResource("8_1unjb")
+dialogue_resource = ExtResource("22_o0dvq")
+dialogue_last_sentence = ExtResource("22_o0dvq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collectable 3/Actionable"]
+shape = SubResource("BoxShape3D_77ese")
+
+[node name="Collectable" type="MeshInstance3D" parent="Collectable 3/Actionable/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0388403, -0.29504, -0.0344009)
+mesh = SubResource("SphereMesh_erkp8")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ffuh5")
+
+[node name="Collectable 4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -137)
+
+[node name="Actionable" type="Area3D" parent="Collectable 4"]
+script = ExtResource("8_1unjb")
+dialogue_resource = ExtResource("10_03od6")
+dialogue_last_sentence = ExtResource("10_03od6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collectable 4/Actionable"]
+shape = SubResource("BoxShape3D_77ese")
+
+[node name="Collectable" type="MeshInstance3D" parent="Collectable 4/Actionable/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0388403, -0.29504, -0.0344009)
+mesh = SubResource("SphereMesh_erkp8")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ffuh5")
 
 [node name="Tower" type="MeshInstance3D" parent="."]
 transform = Transform3D(6.04641, 0, 0, 0, 109.348, 0, 0, 0, 6.04641, -1.77177, 16.6113, -147.76)
 mesh = SubResource("BoxMesh_r2dwg")
-
-[node name="Collectable" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.995412, 0.688368, -131.038)
-mesh = SubResource("SphereMesh_erkp8")
-surface_material_override/0 = SubResource("StandardMaterial3D_ffuh5")
-
-[node name="Collectable2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0436, -0.24623, -81.0456)
-mesh = SubResource("SphereMesh_erkp8")
-surface_material_override/0 = SubResource("StandardMaterial3D_ffuh5")
-
-[node name="Collectable3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.03884, -5.29504, -27.0344)
-mesh = SubResource("SphereMesh_erkp8")
-surface_material_override/0 = SubResource("StandardMaterial3D_ffuh5")
 
 [node name="Key" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54248, -0.911232, -1.0273)
@@ -582,6 +617,9 @@ logMessage = "Collectable 3"
 [connection signal="input_event" from="Rabbit 3/Actionable" to="Player" method="_on_actionable_input_event"]
 [connection signal="input_event" from="Rabbit 4/Actionable" to="Player" method="_on_actionable_input_event"]
 [connection signal="input_event" from="Collectable 1/Actionable" to="Player" method="_on_actionable_input_event"]
+[connection signal="input_event" from="Collectable 2/Actionable" to="Player" method="_on_actionable_input_event"]
+[connection signal="input_event" from="Collectable 3/Actionable" to="Player" method="_on_actionable_input_event"]
+[connection signal="input_event" from="Collectable 4/Actionable" to="Player" method="_on_actionable_input_event"]
 [connection signal="authenticated" from="Telemetry" to="Telemetry Display" method="_on_telemetry_authenticated"]
 [connection signal="start_Stopwatch" from="Telemetry Points/Level Start" to="Telemetry Points/Level End" method="startStopwatch"]
 [connection signal="start_Stopwatch" from="Telemetry Points/Maze 1 Start" to="Telemetry Points/Maze 1 End" method="startStopwatch"]

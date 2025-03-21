@@ -65,7 +65,7 @@ Right={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogue/Rabbit1.dialogue", "res://Dialogue/Rabbit2.dialogue", "res://Dialogue/Rabbit3.dialogue", "res://Dialogue/Rabbit4.dialogue", "res://Dialogue/Rabbit1End.dialogue", "res://Dialogue/Rabbit2End.dialogue", "res://Dialogue/Rabbit3End.dialogue", "res://Dialogue/Rabbit4End.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogue/Rabbit1.dialogue", "res://Dialogue/Rabbit2.dialogue", "res://Dialogue/Rabbit3.dialogue", "res://Dialogue/Rabbit4.dialogue", "res://Dialogue/Rabbit1End.dialogue", "res://Dialogue/Rabbit2End.dialogue", "res://Dialogue/Rabbit3End.dialogue", "res://Dialogue/Rabbit4End.dialogue", "res://Dialogue/Collectable1.dialogue", "res://Dialogue/Collectable2.dialogue", "res://Dialogue/Collectable3.dialogue", "res://Dialogue/Collectable4.dialogue")
 
 [rendering]
 

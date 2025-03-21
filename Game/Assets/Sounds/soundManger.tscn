@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://dskhd2726otdj"]
 
 [ext_resource type="Script" uid="uid://bblylvo1ehd3o" path="res://Scripts/sound_manger.gd" id="1_qkqdy"]
-[ext_resource type="AudioStream" uid="uid://bvh5mws0wpr4x" path="res://Assets/Sounds/Ice Sliding/iceLooping.wav" id="2_60g6b"]
+[ext_resource type="AudioStream" uid="uid://b00yhdtcwabql" path="res://Assets/Sounds/Ice Sliding/newIceSliding.wav" id="2_60g6b"]
 [ext_resource type="AudioStream" uid="uid://dw05p7otg2rja" path="res://Assets/Sounds/Pillar/Pillar1.wav" id="6_jubqw"]
 [ext_resource type="AudioStream" uid="uid://cmara56g4hrlf" path="res://Assets/Sounds/Pillar/Pillar2.wav" id="7_hrrpx"]
 [ext_resource type="AudioStream" uid="uid://ci0re5gr4yijf" path="res://Assets/Sounds/Pillar/Pillar3.wav" id="8_rdqm6"]
@@ -22,21 +22,25 @@ script = ExtResource("1_qkqdy")
 
 [node name="Ice Looping" type="AudioStreamPlayer" parent="Ice"]
 stream = ExtResource("2_60g6b")
-volume_db = -10.0
+volume_db = 5.0
 
 [node name="Pillar" type="Node" parent="."]
 
 [node name="Pillar 1" type="AudioStreamPlayer" parent="Pillar"]
 stream = ExtResource("6_jubqw")
+volume_db = -10.0
 
 [node name="Pillar 2" type="AudioStreamPlayer" parent="Pillar"]
 stream = ExtResource("7_hrrpx")
+volume_db = -10.0
 
 [node name="Pillar 3" type="AudioStreamPlayer" parent="Pillar"]
 stream = ExtResource("8_rdqm6")
+volume_db = -10.0
 
 [node name="Pillar 4" type="AudioStreamPlayer" parent="Pillar"]
 stream = ExtResource("9_cqayv")
+volume_db = -10.0
 
 [node name="Wood" type="Node" parent="."]
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://blkiiegpqv3sa"
+path="res://.godot/imported/Collectable3.dialogue-10b284398e29495ec6c1fb47d1b10ea3.tres"
+
+[deps]
+
+source_file="res://Dialogue/Collectable3.dialogue"
+dest_files=["res://.godot/imported/Collectable3.dialogue-10b284398e29495ec6c1fb47d1b10ea3.tres"]
+
+[params]
+
+defaults=true
