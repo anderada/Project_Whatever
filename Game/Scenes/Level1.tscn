@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dt67mu85m4skl"]
+[gd_scene load_steps=39 format=3 uid="uid://dt67mu85m4skl"]
 
 [ext_resource type="Script" uid="uid://1h5uj6wgu678" path="res://Scripts/instancer.gd" id="2_26ana"]
 [ext_resource type="MeshLibrary" uid="uid://bw470utinpfc3" path="res://Assets/Tile Sets/tileSet10.tres" id="2_ubfni"]
@@ -9,13 +9,17 @@
 [ext_resource type="Environment" uid="uid://b6e7ydi8600yb" path="res://Assets/Environments/Library.tres" id="6_k86my"]
 [ext_resource type="Script" uid="uid://beaf1bjrt1j35" path="res://Scripts/cameraMovement.gd" id="7_6qnms"]
 [ext_resource type="Script" uid="uid://lakil470eb3u" path="res://Scripts/actionable.gd" id="8_1unjb"]
-[ext_resource type="Resource" uid="uid://c4b5du6lf0c6g" path="res://Dialogue/testDialogue.dialogue" id="9_f5tld"]
 [ext_resource type="Script" uid="uid://dqflxk2gtolfk" path="res://Scripts/lookAtPlayer.gd" id="10_knadl"]
+[ext_resource type="Resource" uid="uid://bk12sinhnhw1h" path="res://Dialogue/Rabbit1.dialogue" id="10_yji5v"]
 [ext_resource type="Material" uid="uid://bnj7x1ybf6fpy" path="res://Assets/Materials/Characters/test_character.tres" id="11_yu0rn"]
 [ext_resource type="Script" uid="uid://bf6dr2qcmcpma" path="res://Scripts/item.gd" id="12_u2g18"]
 [ext_resource type="PackedScene" uid="uid://dgnne05hm545d" path="res://telemetry/Telemetry.tscn" id="13_qxt46"]
+[ext_resource type="Resource" uid="uid://b8h4suppegdnj" path="res://Dialogue/Rabbit2.dialogue" id="13_ulvkb"]
 [ext_resource type="Script" uid="uid://dihnclign121k" path="res://Scripts/telemetry_display.gd" id="13_upepm"]
+[ext_resource type="Resource" uid="uid://ddh4ak4p25g1u" path="res://Dialogue/Rabbit3.dialogue" id="14_fh0sh"]
+[ext_resource type="Resource" uid="uid://ctmcu1g1vpfbq" path="res://Dialogue/Rabbit4.dialogue" id="15_03od6"]
 [ext_resource type="Script" uid="uid://dmw67oyijw67l" path="res://Scripts/telemetry_point.gd" id="15_ubfni"]
+[ext_resource type="Script" uid="uid://dbs4435dsf3ry" path="res://addons/dialogue_manager/dialogue_resource.gd" id="16_384de"]
 
 [sub_resource type="Curve" id="Curve_ay5xt"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -57,6 +61,143 @@ height = 0.297069
 [sub_resource type="PlaneMesh" id="PlaneMesh_ggogk"]
 size = Vector2(0.4, 0.8)
 orientation = 0
+
+[sub_resource type="Resource" id="Resource_bhaf5"]
+script = ExtResource("16_384de")
+using_states = PackedStringArray()
+titles = {
+"start": "1"
+}
+character_names = PackedStringArray("Rabbit", "Alice")
+first_title = "0"
+lines = {
+"0": {
+&"id": "0",
+&"next_id": "1",
+&"type": "title"
+},
+"1": {
+&"character": "Rabbit",
+&"id": "1",
+&"next_id": "2",
+&"text": "Ahhh, long have I waited, the slumbered maiden.",
+&"type": "dialogue"
+},
+"10": {
+&"character": "Alice",
+&"id": "10",
+&"next_id": "11",
+&"text": "Ryan?...no….how did you know my father’s name?",
+&"type": "dialogue"
+},
+"11": {
+&"character": "Alice",
+&"id": "11",
+&"next_id": "12",
+&"text": "Dad….. I do miss you.",
+&"type": "dialogue"
+},
+"12": {
+&"character": "Rabbit",
+&"id": "12",
+&"next_id": "13",
+&"text": "As I said, it matters not. You will know everything eventually. Remember, behold things selective are essential next.",
+&"type": "dialogue"
+},
+"13": {
+&"character": "Rabbit",
+&"id": "13",
+&"next_id": "14",
+&"text": "Now, make haste fore time exhausts!",
+&"type": "dialogue"
+},
+"14": {
+&"id": "14",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"15": {
+&"id": "15",
+&"is_snippet": false,
+&"next_id": "end",
+&"next_id_after": "",
+&"type": "goto"
+},
+"2": {
+&"character": "Alice",
+&"id": "2",
+&"next_id": "3",
+&"text": "Wh..Where am I? What is this place? Why you, a rabbit, can talk?",
+&"type": "dialogue"
+},
+"3": {
+&"character": "Alice",
+&"id": "3",
+&"next_id": "4",
+&"text": "All I remember is going to bed, then the next thing is being here with you, A Talking Rabbit!",
+&"type": "dialogue"
+},
+"4": {
+&"character": "Rabbit",
+&"id": "4",
+&"next_id": "5",
+&"text": "Oh, my dear, it matters not. It is the sorrow that you refused to relinquish that brought us to this situation.",
+&"type": "dialogue"
+},
+"5": {
+&"character": "Rabbit",
+&"id": "5",
+&"next_id": "6",
+&"text": "To cage yourself no more, your mind needs to find its serenity and desert its despair.",
+&"type": "dialogue"
+},
+"6": {
+&"character": "Rabbit",
+&"id": "6",
+&"next_id": "7",
+&"text": "A truce and reunion with the aether and freezer condenser.",
+&"type": "dialogue"
+},
+"7": {
+&"character": "Alice",
+&"id": "7",
+&"next_id": "8",
+&"text": "Sorry, what?",
+&"type": "dialogue"
+},
+"8": {
+&"character": "Rabbit",
+&"id": "8",
+&"next_id": "9",
+&"text": "Your unconsciousness, I mean. The singing nightingale is pending! Coming to drag your ardor towards the muddy down below and being perished forever. Paralysis and mopishness you shall become, for waver in escape.",
+&"type": "dialogue"
+},
+"9": {
+&"character": "Rabbit",
+&"id": "9",
+&"next_id": "10",
+&"text": "Be brave, love. Ryan would hate to see you fail.",
+&"type": "dialogue"
+}
+}
+raw_text = "~ start
+Rabbit: Ahhh, long have I waited, the slumbered maiden. 
+Alice: Wh..Where am I? What is this place? Why you, a rabbit, can talk?
+Alice: All I remember is going to bed, then the next thing is being here with you, A Talking Rabbit! 
+Rabbit: Oh, my dear, it matters not. It is the sorrow that you refused to relinquish that brought us to this situation. 
+Rabbit: To cage yourself no more, your mind needs to find its serenity and desert its despair. 
+Rabbit: A truce and reunion with the aether and freezer condenser. 
+Alice: Sorry, what?
+Rabbit: Your unconsciousness, I mean. The singing nightingale is pending! Coming to drag your ardor towards the muddy down below and being perished forever. Paralysis and mopishness you shall become, for waver in escape.
+Rabbit: Be brave, love. Ryan would hate to see you fail.
+Alice: Ryan?...no….how did you know my father’s name? 
+Alice: Dad….. I do miss you.
+Rabbit: As I said, it matters not. You will know everything eventually. Remember, behold things selective are essential next. 
+Rabbit: Now, make haste fore time exhausts!
+=> END"
+metadata/dialogue_manager_version = "2.44.4"
 
 [sub_resource type="BoxMesh" id="BoxMesh_r2dwg"]
 
@@ -270,7 +411,7 @@ metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="Player" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00951171, -2, -0.00641561)
 script = ExtResource("5_txvlx")
 moveTime = 0.3
 walkCurve = SubResource("Curve_x6p1d")
@@ -305,21 +446,102 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.745335, -1.04541)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0448093, 0.389606)
 shape = SubResource("CylinderShape3D_16tlw")
 
-[node name="Character" type="Node3D" parent="."]
+[node name="Rabbit 1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -2)
 
-[node name="Actionable" type="Area3D" parent="Character"]
+[node name="Actionable" type="Area3D" parent="Rabbit 1"]
 script = ExtResource("8_1unjb")
-dialogue_resource = ExtResource("9_f5tld")
+dialogue_resource = ExtResource("10_yji5v")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Character/Actionable"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rabbit 1/Actionable"]
 shape = SubResource("BoxShape3D_77ese")
 
-[node name="Node3D" type="Node3D" parent="Character/Actionable/CollisionShape3D"]
+[node name="Node3D" type="Node3D" parent="Rabbit 1/Actionable/CollisionShape3D"]
 script = ExtResource("10_knadl")
 offset = 90.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Character/Actionable/CollisionShape3D/Node3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rabbit 1/Actionable/CollisionShape3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.28252, 0.4, -0.122071, 0)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_ggogk")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("11_yu0rn")
+
+[node name="Rabbit 2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -0.998926)
+
+[node name="Actionable" type="Area3D" parent="Rabbit 2"]
+script = ExtResource("8_1unjb")
+dialogue_resource = ExtResource("13_ulvkb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rabbit 2/Actionable"]
+shape = SubResource("BoxShape3D_77ese")
+
+[node name="Node3D" type="Node3D" parent="Rabbit 2/Actionable/CollisionShape3D"]
+script = ExtResource("10_knadl")
+offset = 90.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rabbit 2/Actionable/CollisionShape3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.28252, 0.4, -0.122071, 0)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_ggogk")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("11_yu0rn")
+
+[node name="Rabbit 3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 0.00403965)
+
+[node name="Actionable" type="Area3D" parent="Rabbit 3"]
+script = ExtResource("8_1unjb")
+dialogue_resource = ExtResource("14_fh0sh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rabbit 3/Actionable"]
+shape = SubResource("BoxShape3D_77ese")
+
+[node name="Node3D" type="Node3D" parent="Rabbit 3/Actionable/CollisionShape3D"]
+script = ExtResource("10_knadl")
+offset = 90.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rabbit 3/Actionable/CollisionShape3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.28252, 0.4, -0.122071, 0)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_ggogk")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("11_yu0rn")
+
+[node name="Rabbit 4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 1.00463)
+
+[node name="Actionable" type="Area3D" parent="Rabbit 4"]
+script = ExtResource("8_1unjb")
+dialogue_resource = ExtResource("15_03od6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rabbit 4/Actionable"]
+shape = SubResource("BoxShape3D_77ese")
+
+[node name="Node3D" type="Node3D" parent="Rabbit 4/Actionable/CollisionShape3D"]
+script = ExtResource("10_knadl")
+offset = 90.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rabbit 4/Actionable/CollisionShape3D/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.28252, 0.4, -0.122071, 0)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_ggogk")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("11_yu0rn")
+
+[node name="Actionable2" type="Area3D" parent="Rabbit 4"]
+script = ExtResource("8_1unjb")
+dialogue_resource = SubResource("Resource_bhaf5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rabbit 4/Actionable2"]
+shape = SubResource("BoxShape3D_77ese")
+
+[node name="Node3D" type="Node3D" parent="Rabbit 4/Actionable2/CollisionShape3D"]
+script = ExtResource("10_knadl")
+offset = 90.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Rabbit 4/Actionable2/CollisionShape3D/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.28252, 0.4, -0.122071, 0)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_ggogk")
@@ -482,7 +704,11 @@ logMessage = "Collectable 3"
 [connection signal="activatePillar" from="Player" to="Maps/pillarAnimator" method="_on_player_activate_pillar"]
 [connection signal="deactivatePillar" from="Player" to="Maps/pillarAnimator" method="_on_player_deactivate_pillar"]
 [connection signal="startShake" from="Player" to="Player/Camera3D" method="_on_player_start_shake"]
-[connection signal="input_event" from="Character/Actionable" to="Player" method="_on_actionable_input_event"]
+[connection signal="input_event" from="Rabbit 1/Actionable" to="Player" method="_on_actionable_input_event"]
+[connection signal="input_event" from="Rabbit 2/Actionable" to="Player" method="_on_actionable_input_event"]
+[connection signal="input_event" from="Rabbit 3/Actionable" to="Player" method="_on_actionable_input_event"]
+[connection signal="input_event" from="Rabbit 4/Actionable" to="Player" method="_on_actionable_input_event"]
+[connection signal="input_event" from="Rabbit 4/Actionable2" to="Player" method="_on_actionable_input_event"]
 [connection signal="authenticated" from="Telemetry" to="Telemetry Display" method="_on_telemetry_authenticated"]
 [connection signal="start_Stopwatch" from="Telemetry Points/Level Start" to="Telemetry Points/Level End" method="startStopwatch"]
 [connection signal="start_Stopwatch" from="Telemetry Points/Maze 1 Start" to="Telemetry Points/Maze 1 End" method="startStopwatch"]

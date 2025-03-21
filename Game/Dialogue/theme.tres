@@ -3,4 +3,5 @@
 [ext_resource type="StyleBox" uid="uid://cbkdvey2ym77u" path="res://Assets/UI/dialouge_box.tres" id="1_0lmjo"]
 
 [resource]
+default_font_size = 19
 Panel/styles/panel = ExtResource("1_0lmjo")

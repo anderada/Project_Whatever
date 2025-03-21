@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://b8h4suppegdnj"
+path="res://.godot/imported/Rabbit2.dialogue-5ff127781275180e0f6cf1bd6f4c1d06.tres"
+
+[deps]
+
+source_file="res://Dialogue/Rabbit2.dialogue"
+dest_files=["res://.godot/imported/Rabbit2.dialogue-5ff127781275180e0f6cf1bd6f4c1d06.tres"]
+
+[params]
+
+defaults=true

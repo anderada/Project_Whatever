@@ -31,8 +31,8 @@ const CUSTOM_TEST_SCENE_PATH = "editor/advanced/custom_test_scene_path"
 const BALLOON_PATH = "runtime/balloon_path"
 ## The names of any autoloads to shortcut into all dialogue files (so you don't have to write `using SomeGlobal` in each file).
 const STATE_AUTOLOAD_SHORTCUTS = "runtime/state_autoload_shortcuts"
-## Include responses that fail their condition check.
-const INCLUDE_ALL_RESPONSES = "runtime/include_all_responses"
+## Check for possible naming conflicts in state shortcuts.
+const WARN_ABOUT_METHOD_PROPERTY_OR_SIGNAL_NAME_CONFLICTS = "runtime/warn_about_method_property_or_signal_name_conflicts"
 
 ## Bypass any missing state when running dialogue.
 const IGNORE_MISSING_STATE_VALUES = "runtime/advanced/ignore_missing_state_values"
@@ -97,9 +97,10 @@ const SETTINGS_CONFIGURATION = {
 		value = [],
 		type = TYPE_PACKED_STRING_ARRAY,
 	},
-	INCLUDE_ALL_RESPONSES: {
+	WARN_ABOUT_METHOD_PROPERTY_OR_SIGNAL_NAME_CONFLICTS: {
 		value = false,
-		type = TYPE_BOOL
+		type = TYPE_BOOL,
+		is_advanced = true
 	},
 
 	IGNORE_MISSING_STATE_VALUES: {
@@ -126,7 +127,7 @@ static func prepare() -> void:
 		wrap_lines = WRAP_LONG_LINES,
 		new_with_template = null,
 		new_template = NEW_FILE_TEMPLATE,
-		include_all_responses = INCLUDE_ALL_RESPONSES,
+		include_all_responses = null,
 		ignore_missing_state_values = IGNORE_MISSING_STATE_VALUES,
 		custom_test_scene_path = CUSTOM_TEST_SCENE_PATH,
 		default_csv_locale = DEFAULT_CSV_LOCALE,

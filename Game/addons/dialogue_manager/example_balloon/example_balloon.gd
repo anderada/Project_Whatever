@@ -29,12 +29,15 @@ var dialogue_line: DialogueLine:
 	set(value):
 		if value:
 			dialogue_line = value
-			apply_dialogue_line(value)
+			apply_dialogue_line()
 		else:
 			# The dialogue has finished so close the balloon
 			queue_free()
 	get:
 		return dialogue_line
+
+## A cooldown timer for delaying the balloon hide when encountering a mutation.
+var mutation_cooldown: Timer = Timer.new()
 
 ## The base balloon anchor
 @onready var balloon: Control = %Balloon
@@ -57,6 +60,9 @@ func _ready() -> void:
 	if responses_menu.next_action.is_empty():
 		responses_menu.next_action = next_action
 
+	mutation_cooldown.timeout.connect(_on_mutation_cooldown_timeout)
+	add_child(mutation_cooldown)
+
 
 func _unhandled_input(_event: InputEvent) -> void:
 	# Only the balloon is allowed to handle input while it's showing
@@ -75,8 +81,6 @@ func _notification(what: int) -> void:
 
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
-	if not is_node_ready():
-		await ready
 	temporary_game_states = [self] + extra_game_states
 	is_waiting_for_input = false
 	resource = dialogue_resource
@@ -84,14 +88,12 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 
 
 ## Apply any changes to the balloon given a new [DialogueLine].
-func apply_dialogue_line(next_dialogue_line: DialogueLine) -> void:
+func apply_dialogue_line() -> void:
+	mutation_cooldown.stop()
+
 	is_waiting_for_input = false
 	balloon.focus_mode = Control.FOCUS_ALL
 	balloon.grab_focus()
-
-	# If the node isn't ready yet then none of the labels will be ready yet either
-	if not is_node_ready():
-		await ready
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
@@ -133,14 +135,16 @@ func next(next_id: String) -> void:
 #region Signals
 
 
+func _on_mutation_cooldown_timeout() -> void:
+	if will_hide_balloon:
+		will_hide_balloon = false
+		balloon.hide()
+
+
 func _on_mutated(_mutation: Dictionary) -> void:
 	is_waiting_for_input = false
 	will_hide_balloon = true
-	get_tree().create_timer(0.1).timeout.connect(func():
-		if will_hide_balloon:
-			will_hide_balloon = false
-			balloon.hide()
-	)
+	mutation_cooldown.start(0.1)
 
 
 func _on_balloon_gui_input(event: InputEvent) -> void:
