@@ -1,9 +1,6 @@
 extends Node
 
-@onready var ice_1: AudioStreamPlayer = $Ice/Ice1
-@onready var ice_2: AudioStreamPlayer = $Ice/Ice2
-@onready var ice_3: AudioStreamPlayer = $Ice/Ice3
-@onready var ice_4: AudioStreamPlayer = $Ice/Ice4
+@onready var ice: AudioStreamPlayer = $"Ice/Ice Looping"
 @onready var pillar_1: AudioStreamPlayer = $"Pillar/Pillar 1"
 @onready var pillar_2: AudioStreamPlayer = $"Pillar/Pillar 2"
 @onready var pillar_3: AudioStreamPlayer = $"Pillar/Pillar 3"
@@ -23,23 +20,17 @@ var timeSinceLastSound : float = 0
 func _process(delta: float) -> void:
 	timeSinceLastSound+= delta
 
+func startIce() -> void:
+	ice.play()
+
+func stopIce() -> void:
+	ice.stop()
+	
+func icePlaying() -> bool:
+	return ice.playing
+
 func playSound(type : int) -> void:
-	if(type == 6):
-		if(timeSinceLastSound < minimumTimeBetweenIceSounds):
-			return
-		else:
-			timeSinceLastSound = 0
-		var dice : int = randi_range(1,4)
-		match dice:
-			1:
-				ice_1.play()
-			2:
-				ice_2.play()
-			3:
-				ice_3.play()
-			4:
-				ice_4.play()
-	elif(type == 8):
+	if(type == 8):
 		var dice : int = randi_range(1,4)
 		match dice:
 			1:

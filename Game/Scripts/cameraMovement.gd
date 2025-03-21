@@ -46,6 +46,7 @@ func _process(delta: float) -> void:
 	if(shakeClock >= 0):
 		if(shakeItteration <=0):
 			shakeItteration = min(shakeTime, shakeClock)
+			SoundManger.playSound(1)
 		position = Vector3(0, 1 + cameraShake.sample((shakeTime - shakeItteration)/shakeTime) * cameraShakeIntensity ,0)
 
 func _on_player_start_shake(frequency: float, ammount: int) -> void:

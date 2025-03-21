@@ -9,14 +9,10 @@ func _ready() -> void:
 	player = get_node(playerPath)
 	if(player == null && %Player != null):
 		player = %Player
-	print("player")
-	print(player)
 
 func _process(delta: float) -> void:
 	if(triggered):
 		return
-	print(abs(player.position.distance_to(position)))
 	if(abs(player.position.distance_to(position)) < 1):
-		print("lamp on")
 		lamp.omni_range = 5
 		triggered = true

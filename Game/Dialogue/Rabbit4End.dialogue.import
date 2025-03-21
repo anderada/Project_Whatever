@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://syyrwh4fxk18"
+path="res://.godot/imported/Rabbit4End.dialogue-2d16cf3b35fa0e213fec298517bab8a5.tres"
+
+[deps]
+
+source_file="res://Dialogue/Rabbit4End.dialogue"
+dest_files=["res://.godot/imported/Rabbit4End.dialogue-2d16cf3b35fa0e213fec298517bab8a5.tres"]
+
+[params]
+
+defaults=true

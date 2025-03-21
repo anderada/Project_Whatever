@@ -178,8 +178,17 @@ func turn() -> void:
 func stopPlayer(collided : bool) -> void:
 	if(!collided):
 		position = targetPosition
-		SoundManger.playSound(getBlock(position))
+		if getBlock(position) != iceIndex:
+			SoundManger.playSound(getBlock(position))
+			if(SoundManger.icePlaying()):
+				SoundManger.stopIce()
+		else:
+			if(!SoundManger.icePlaying()):
+				SoundManger.startIce()
 		Telemetry.log_event("","Move",{x = position.x, y = position.y, z = position.z})
+	else:
+		if(SoundManger.icePlaying()):
+				SoundManger.stopIce()
 	position = round(position)
 	targetPosition = position
 	previousPosition = position

@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 		elif(pillarStates[i] == -1):
 			pillarClocks[i] = animationTime
 			pillarStates[i] = 0
+			SoundManger.playSound(8)
 		i += 1
 
 func _on_player_activate_pillar(position: Vector3) -> void:
@@ -37,6 +38,7 @@ func _on_player_activate_pillar(position: Vector3) -> void:
 		if(pillarStates[i] == 0 && pillar.transform.origin.distance_to(position - pillarOffsets[i]) < 1.2):
 			pillarClocks[i] = animationTime
 			pillarStates[i] = 1
+			SoundManger.playSound(8)
 		elif(pillarStates[i] == -1 && pillar.transform.origin.distance_to(position - pillarOffsets[i]) < 1.2):
 			pillarClocks[i] = 0
 			pillarStates[i] = 1
