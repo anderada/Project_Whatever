@@ -1,13 +1,16 @@
-[gd_resource type="Environment" load_steps=3 format=3 uid="uid://b6e7ydi8600yb"]
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://b6e7ydi8600yb"]
+
+[ext_resource type="Texture2D" uid="uid://cr4lq8yajvixp" path="res://Assets/Textures/belfast_sunset_puresky_4k.exr" id="1_xy6jv"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_83vmq"]
+panorama = ExtResource("1_xy6jv")
 
 [sub_resource type="Sky" id="Sky_llbm7"]
 sky_material = SubResource("PanoramaSkyMaterial_83vmq")
 
 [resource]
-background_mode = 1
-background_color = Color(0.611995, 0.879129, 0.999494, 1)
+background_mode = 2
+background_energy_multiplier = 0.1
 sky = SubResource("Sky_llbm7")
 ambient_light_source = 2
 ambient_light_color = Color(0.391451, 0.548196, 0.845834, 1)
@@ -22,6 +25,5 @@ fog_density = 1.0
 fog_depth_curve = 2.14355
 fog_depth_begin = 5.0
 fog_depth_end = 86.0
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.04
 volumetric_fog_albedo = Color(0.834774, 0.923252, 0.984928, 1)

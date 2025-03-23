@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj5l7a0v44u5y"
+uid="uid://ud3cqvxj6fne"
 path.s3tc="res://.godot/imported/BackwardBlock_Eye_MetallicGlossMap.png-26b89e6dd022ddbb2e696399b576312b.s3tc.ctex"
 path.etc2="res://.godot/imported/BackwardBlock_Eye_MetallicGlossMap.png-26b89e6dd022ddbb2e696399b576312b.etc2.ctex"
 metadata={
@@ -10,7 +10,7 @@ metadata={
 "vram_texture": true
 }
 generator_parameters={
-"md5": "9f3e1f5b76f2c5807ea744cf593d29b2"
+"md5": "0be7c534f0a091102a83982bdd235f60"
 }
 
 [deps]

@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b678pe21q36m8"
+uid="uid://c86fs8bm4b8a0"
 path.s3tc="res://.godot/imported/StandaloneBookshelf_BookShelfMetallicGlossMap.png-147ca34f13328a9dbf948eacb3531b22.s3tc.ctex"
 path.etc2="res://.godot/imported/StandaloneBookshelf_BookShelfMetallicGlossMap.png-147ca34f13328a9dbf948eacb3531b22.etc2.ctex"
 metadata={
@@ -10,7 +10,7 @@ metadata={
 "vram_texture": true
 }
 generator_parameters={
-"md5": "80d11d7d0bd9e781319a1b6a129c119a"
+"md5": "e7f0d97be1cde36ce94120405895a0bf"
 }
 
 [deps]

@@ -2,13 +2,21 @@
 
 [ext_resource type="Script" uid="uid://bldhiwgr2f7v2" path="res://Scripts/lamp.gd" id="1_100ac"]
 
-[node name="Node3D" type="Node3D" node_paths=PackedStringArray("lamp")]
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("lamp", "secondaryLamp")]
 script = ExtResource("1_100ac")
 lamp = NodePath("OmniLight3D")
+secondaryLamp = NodePath("OmniLight3D2")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 2.2, 0)
 light_color = Color(1, 0.701652, 0.444377, 1)
 light_energy = 3.0
+shadow_enabled = true
+omni_range = 0.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.2, 0)
+light_color = Color(0.723338, 0.368504, 7.70092e-07, 1)
+light_energy = 0.5
 shadow_enabled = true
 omni_range = 0.0

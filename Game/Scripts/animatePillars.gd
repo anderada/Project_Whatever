@@ -56,6 +56,7 @@ func _on_pillars_instanced(mazeOffset : Vector3, pillarArray : Array, pillarDown
 	pillars.append_array(pillarArray)
 	for pillar in pillarArray:
 		var location = pillar.transform.origin
+		location.y -= 0.5
 		pillarActives.append(Vector3(location.x, location.y - pillarDownPoint, location.z))
 		pillarDefaults.append(location)
 		pillarStates.append(0)

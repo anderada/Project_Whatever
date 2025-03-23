@@ -22,48 +22,56 @@ script = ExtResource("1_qkqdy")
 
 [node name="Ice Looping" type="AudioStreamPlayer" parent="Ice"]
 stream = ExtResource("2_60g6b")
-volume_db = 5.0
+volume_db = -20.0
 
 [node name="Pillar" type="Node" parent="."]
 
 [node name="Pillar 1" type="AudioStreamPlayer" parent="Pillar"]
 stream = ExtResource("6_jubqw")
-volume_db = -10.0
+volume_db = -20.0
 
 [node name="Pillar 2" type="AudioStreamPlayer" parent="Pillar"]
 stream = ExtResource("7_hrrpx")
-volume_db = -10.0
+volume_db = -20.0
 
 [node name="Pillar 3" type="AudioStreamPlayer" parent="Pillar"]
 stream = ExtResource("8_rdqm6")
-volume_db = -10.0
+volume_db = -20.0
 
 [node name="Pillar 4" type="AudioStreamPlayer" parent="Pillar"]
 stream = ExtResource("9_cqayv")
-volume_db = -10.0
+volume_db = -20.0
 
 [node name="Wood" type="Node" parent="."]
 
 [node name="Walk 1" type="AudioStreamPlayer" parent="Wood"]
 stream = ExtResource("10_7k0sy")
+volume_db = -10.0
 
 [node name="Walk 2" type="AudioStreamPlayer" parent="Wood"]
 stream = ExtResource("11_l0h88")
+volume_db = -10.0
 
 [node name="Walk 3" type="AudioStreamPlayer" parent="Wood"]
 stream = ExtResource("12_dbse1")
+volume_db = -10.0
 
 [node name="Walk 4" type="AudioStreamPlayer" parent="Wood"]
 stream = ExtResource("13_edgsc")
+volume_db = -10.0
 
 [node name="Walk 5" type="AudioStreamPlayer" parent="Wood"]
 stream = ExtResource("14_nfeso")
+volume_db = -10.0
 
 [node name="Walk 6" type="AudioStreamPlayer" parent="Wood"]
 stream = ExtResource("15_eooow")
+volume_db = -10.0
 
 [node name="Walk 7" type="AudioStreamPlayer" parent="Wood"]
 stream = ExtResource("16_1adwi")
+volume_db = -10.0
 
 [node name="Walk 8" type="AudioStreamPlayer" parent="Wood"]
 stream = ExtResource("17_wxabf")
+volume_db = -10.0

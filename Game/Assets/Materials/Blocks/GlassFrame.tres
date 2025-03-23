@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://c6t3f5vjpn605"]
+
+[ext_resource type="Texture2D" uid="uid://b3bkln2syu1g7" path="res://Assets/Textures/Glass/Glass_BaseColor.png" id="1_4tgur"]
+[ext_resource type="Texture2D" uid="uid://cyg7nr4kpqmni" path="res://Assets/Textures/Glass/Glass_MetallicGlossMap.png" id="2_a0cua"]
+[ext_resource type="Texture2D" uid="uid://cb7wdk3spkcfg" path="res://Assets/Textures/Glass/Glass_Normal_OpenGL.png" id="3_ccu86"]
+
+[resource]
+albedo_texture = ExtResource("1_4tgur")
+metallic = 1.0
+metallic_texture = ExtResource("2_a0cua")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_a0cua")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_ccu86")

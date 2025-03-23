@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b50hc16uy2k10"
+uid="uid://8gusy24t7qgm"
 path.s3tc="res://.godot/imported/Bookshelf_Bookshelf_Normal_OpenGL.png-7622de15ac466617674c56defe32063a.s3tc.ctex"
 path.etc2="res://.godot/imported/Bookshelf_Bookshelf_Normal_OpenGL.png-7622de15ac466617674c56defe32063a.etc2.ctex"
 metadata={
@@ -10,7 +10,7 @@ metadata={
 "vram_texture": true
 }
 generator_parameters={
-"md5": "6d4605573e160613f24025f24ac6a8b1"
+"md5": "85e867721a63e9222244a4f5a7d4fdfb"
 }
 
 [deps]

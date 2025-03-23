@@ -30,7 +30,20 @@ func instancePillars():
 			var pos = Vector3(cell)
 			pos.y -= 1
 			var lamp = lampPrefab.instantiate()
+			var orient = get_cell_item_orientation(cell)
 			lamp.transform = lamp.transform.scaled(Vector3(0.5,0.5,0.5))
+			pos = Vector3(round(pos.x),round(pos.y),round(pos.z))
 			lamp.transform.origin = pos
+			var rot = 0
+			match orient:
+				0:
+					rot = 1
+				10:
+					rot = 3
+				16:
+					rot = 2
+				22:
+					rot = 0
+			lamp.rotation = Vector3(0,rot * (PI / 2),0)
 			add_child(lamp)
 	pillarsInstanced.emit(position, pillars, pillarDownPoint)

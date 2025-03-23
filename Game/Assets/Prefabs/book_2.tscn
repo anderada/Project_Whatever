@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=4 uid="uid://dk8tbye34kqpd"]
+
+[ext_resource type="Material" uid="uid://bpx11mfvb0shf" path="res://Assets/Materials/Blocks/Books.tres" id="1_ixkex"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4st4d"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_spq27"]
+_surfaces = [{
+"aabb": AABB(-0.120531, 0.000311577, -0.0960532, 0.246937, 0.0448876, 0.185572),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("CAAJAAoACAALAAkADAAKAAkACwAMAAkACgANAAgADQALAAgACgAOAA0ACgADAA4ADAADAAoADgAAAA0ADgADAAAACwAPAAwADQABAAsACwABAA8ABAANAAAABAAAAAMAAQANAAQADwACAAwADwABAAIABQAMAAIAAwAMAAUAAQAFAAIABAADAAcAAwAFAAcAAQAEAAYAAQAGAAUABgAEAAcABgAHAAUA"),
+"lods": [0.0223493, PackedByteArray("AAABAAIAAgADAAAAAQAAAAQABAAAAAMAAQAFAAIAAwACAAUAAQAEAAYAAQAGAAUABAADAAcABgAEAAcAAwAFAAcABgAHAAUA")],
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAAMjtAAAAAP//yO0AAP/////I7QAA//8AAMjtAAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAAAAAAASkv//wAA//+0tP//AAD//0pL//8AAAAAtLT//wAA///x6an6AAAAAA0WqfoAAP//DRap+gAAAADx6an6AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tf23f"]
+resource_name = "Book2_Cube_004"
+_surfaces = [{
+"aabb": AABB(-0.120531, 0.000311577, -0.0960532, 0.246937, 0.0448876, 0.185572),
+"attribute_data": PackedByteArray("1+IvcUrIL3FKyN8B1+LfAWDmDnP/////YOb/////DnOeGYVrAAAkCZ4ZJAkAAIVrYWL+/wAADnNhYg5zAAD//2FiDnPCxP//YWL//8LEDnM9M4VrnhkkCT0zJAmeGYVru9kvcWbR3wG72d8BZtEvcUneL3HYzN8BSd7fAdjML3E0AtlwFRIOc2kX2XCIBw5z0xvZcLQrDnMIMdlwJyEOcw=="),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("GAAZABoAGAAbABkAGgAcABgAGwAdABkAGgAeABwAHgAAABwAHgADAAAAGwAfAB0AHwACAB0AHwABAAIABAAFAAYABAAHAAUACAAJAAoACAAgAAkACQAgAAsAIAAIACEAIQAIACIAIAAhACMADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAkABUAFQAkABcAJAAUACUAJQAUACYAJAAlACcA"),
+"lods": [0.0223493, PackedByteArray("AAABAAIAAgADAAAABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA")],
+"material": SubResource("StandardMaterial3D_4st4d"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("AAAAAMjt39AAAP//yO3f0P/////I7d/Q//8AAMjt39AAAP//AAD/////AAAAAP///////wAA//8AAAAAAAD/////AADI7VTV/////wAAVNX//wAAAABU1f/////I7VTVAAD//8jt39D/////AABU1f/////I7d/QAAD//wAAVNUAAAAAAABU1f//AADI7d/Q//8AAAAAVNUAAAAAyO3f0AAA///I7VTVAAAAAAAAVNUAAP//AABU1QAAAADI7VTVAABKS///Y8D//7S0//9jwP//Skv//2PAAAC0tP//Y8AAAA0Wqfr8xf//8emp+vzF//8NFqn6/MUAAPHpqfr8xf//8emp+lTV//9KS///VNX//w0WqfpU1f//tLT//1TVAAANFqn6VNUAALS0//9U1QAA8emp+lTVAABKS///VNU6WDpYxKfEp8SnxKc6WDpY/z//v/8//7//P/+//z//v6qqVFWqqlRVqqpUVaqqVFXEp8SnqqqqqsSnxKepqqqqqipU1cQnOtiqKlTVxCc62FTVVNVU1VTVVNVU1VTVVNV3dXd1h4qHind1d3WHioeKAGMAY/6c/pwAYwBj/pz+nKqqVFWqqlRVqqpUVaqqVFVU1VTVVNVU1VTVVNVU1VTV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_spq27")
+
+[node name="Book2" type="Node3D"]
+
+[node name="Book2" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_tf23f")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_ixkex")

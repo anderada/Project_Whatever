@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 	if(counting):
 		stopwatch += delta
 	if(abs(%Player.position.distance_to(position)) < 1):
-		Telemetry.log_event("", logMessage, stopwatch if stopwatch != 0 else "")
+		Telemetry.log_event("", logMessage, stopwatch if stopwatch != 0 else 0.0)
 		triggered = true
 		emit_signal("start_Stopwatch")
 
