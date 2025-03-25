@@ -14,7 +14,7 @@ func _ready() -> void:
 @warning_ignore("unused_parameter")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if(player != null):
+	if(player != null && player.position != position):
 		look_at(player.global_position)
 		rotation_degrees.y += offset
 		if(lockPitch):

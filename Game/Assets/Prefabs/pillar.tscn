@@ -108,4 +108,3 @@ mesh = SubResource("ArrayMesh_64orp")
 skeleton = NodePath("")
 script = ExtResource("3_s5t3j")
 offset = 90.0
-lockPitch = false

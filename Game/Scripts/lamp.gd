@@ -19,3 +19,4 @@ func _process(delta: float) -> void:
 		lamp.omni_range = 5
 		secondaryLamp.omni_range = 3
 		triggered = true
+		player.removeIce(position, 2)

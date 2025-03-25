@@ -30,6 +30,12 @@ func _process(delta: float) -> void:
 			pillarClocks[i] = animationTime
 			pillarStates[i] = 0
 			SoundManger.playSound(8)
+		else:
+			match pillarStates[i]:
+				0:
+					pillars[i].transform.origin = pillarDefaults[i]
+				1:
+					pillars[i].transform.origin = pillarActives[i]
 		i += 1
 
 func _on_player_activate_pillar(position: Vector3) -> void:

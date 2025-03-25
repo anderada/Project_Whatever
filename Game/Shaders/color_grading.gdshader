@@ -6,6 +6,7 @@ uniform vec3 dark_color = vec3(0.2,0.5,0.7);
 
 uniform sampler2D screen_texture : hint_screen_texture;
 
+
 void fragment() {
 	vec3 color = texture(screen_texture, SCREEN_UV).rgb;
 	
@@ -19,7 +20,9 @@ void fragment() {
 		vec3 dark = vec3(max(color.r * dark_color.r,0),max(color.g * dark_color.g,0),max(color.b * dark_color.b,0));
 		//vec3 dark = vec3(luminance);
 		
-		COLOR.rgb = mix(dark, light, luminance);
+		vec3 colorMix = mix(dark, light, luminance);
+		vec4 output = vec4(colorMix.r, colorMix.g, colorMix.b, 1.0);
+		COLOR = output;
 	}
 	else {
 		COLOR.rgb = color;

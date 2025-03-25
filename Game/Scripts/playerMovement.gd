@@ -36,6 +36,7 @@ var directionMoving = 0
 @export var pillarIndex : int = 6
 @export var bridgeIndex : int = 5
 @export var lampIndex : int = 18
+@export var floorIndex : int = 22
 
 @onready var actionable_finder: Area3D = $Direction/ActionableFinder
 
@@ -60,11 +61,21 @@ func getBlock(location : Vector3) -> int:
 	for mapPath in mazeMaps:
 		var map : GridMap = get_node(mapPath)
 		var mazePosition = location - map.transform.origin
-		mazePosition.y -= 0.5
+		#mazePosition.y -= 0.5
 		var block = map.get_cell_item(mazePosition)
 		if(block >= 0):
 			return block
 	return -1
+	
+func setBlock(location : Vector3, toSet : int):
+	for mapPath in mazeMaps:
+		var map : GridMap = get_node(mapPath)
+		var mazePosition = location - map.transform.origin
+		#mazePosition.y -= 0.5
+		var block = map.get_cell_item(mazePosition)
+		if(block >= 0):
+			map.set_cell_item(mazePosition, toSet)
+			return
 
 func updateMovementClocks(delta: float) -> void:
 	#take time off clocks
@@ -305,6 +316,15 @@ func checkPillars() -> void:
 	if(block == pillarIndex):
 			activatePillar.emit(pos)
 	"""
+
+func removeIce(lampLocation : Vector3, radius : float):
+	for i in range(-radius, radius+1):
+		for j in range(-radius, radius+1):
+			for k in range(-radius, radius+1):
+				if(lampLocation.distance_to(lampLocation + Vector3(i,j,k)) > radius):
+					continue
+				if(getBlock(lampLocation + Vector3(i,j,k)) == iceIndex):
+					setBlock(lampLocation + Vector3(i,j,k), floorIndex);
 
 @warning_ignore("unused_parameter")
 func _on_actionable_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
