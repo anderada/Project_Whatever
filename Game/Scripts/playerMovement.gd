@@ -4,6 +4,8 @@ signal activatePillar(position: Vector3)
 signal deactivatePillar()
 signal startShake(frequency: float, ammount: int)
 
+var inDialogue : bool = false
+
 @export var moveTime : float
 @export var walkCurve : Curve
 @export var slideInCurve : Curve
@@ -47,7 +49,10 @@ func _ready() -> void:
 	previousRotation = rotation_degrees.y
 	moveCurve = walkCurve
 	getNextSpace()
+	
 	Telemetry.set_section("Level 1")
+	DialogueManager.dialogue_started.connect(func dialogue_lock(_dialogue : DialogueResource) : inDialogue = true)
+	DialogueManager.dialogue_ended.connect(func dialogue_unlock(_dialogue : DialogueResource) : inDialogue = false)
 
 func _process(delta: float) -> void:
 	updateMovementClocks(delta)
@@ -295,27 +300,6 @@ func checkPillars() -> void:
 		block = getBlock(pos)
 		if(block == pillarIndex):
 				activatePillar.emit(pos)
-	"""check forward, below
-	for i in range(0,4):
-		pos = position
-		pos += Vector3(nextSpace.x * i, 0, nextSpace.y * i)
-		block = mazeRef.get_cell_item(pos)
-		if(block == pillarIndex):
-				activatePillar.emit(pos)
-	"""
-	"""check sides
-	pos = position
-	pos += Vector3(right.x, 1, right.y)
-	block = mazeRef.get_cell_item(pos)
-	if(block == pillarIndex):
-			activatePillar.emit(pos)
-	
-	pos = position
-	pos += Vector3(left.x, 1, left.y)
-	block = mazeRef.get_cell_item(pos)
-	if(block == pillarIndex):
-			activatePillar.emit(pos)
-	"""
 
 func removeIce(lampLocation : Vector3, radius : float):
 	for i in range(-radius, radius+1):
@@ -326,9 +310,14 @@ func removeIce(lampLocation : Vector3, radius : float):
 				if(getBlock(lampLocation + Vector3(i,j,k)) == iceIndex):
 					setBlock(lampLocation + Vector3(i,j,k), floorIndex);
 
-@warning_ignore("unused_parameter")
-func _on_actionable_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+func _input(event):
+	if(inDialogue):
+		return
 	if (event is InputEventMouseButton):
 		var actionables = actionable_finder.get_overlapping_areas()
 		if (event.button_index == MOUSE_BUTTON_LEFT && event.pressed && actionables.size() > 0):
 				actionables[0].action()
+	if (Input.is_action_pressed("next_action")):
+		var actionables = actionable_finder.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()

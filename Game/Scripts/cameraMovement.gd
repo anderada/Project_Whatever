@@ -15,6 +15,10 @@ var locked = false
 var logEventPoint = Vector2(0,0)
 var logEventThreshold = 400
 
+func _ready() -> void:
+	DialogueManager.dialogue_started.connect(func dialogue_lock(_dialogue : DialogueResource) : locked = true)
+	DialogueManager.dialogue_ended.connect(func dialogue_unlock(_dialogue : DialogueResource) : locked = false)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#get mouse position
@@ -26,7 +30,7 @@ func _process(delta: float) -> void:
 		logEventPoint = mousePos
 	
 	if(locked):
-		mousePos = Vector2(0,0)
+		mousePos = Vector2(get_viewport().get_visible_rect().size.x / 2, get_viewport().get_visible_rect().size.y / 2)
 	
 	if(mousePos == previousMousePos):
 		mouseStillTime += delta
