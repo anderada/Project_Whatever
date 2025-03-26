@@ -7,6 +7,7 @@ var pillarDefaults : Array
 var pillarStates : Array
 var pillarClocks : Array
 var pillarOffsets : Array
+var pillarKeys : Array
 @export var animationTime : float = 0.2
 @export var activateCurve : Curve 
 @export var deactivateCurve : Curve 
@@ -58,7 +59,7 @@ func _on_player_deactivate_pillar() -> void:
 		i += 1
 
 
-func _on_pillars_instanced(mazeOffset : Vector3, pillarArray : Array, pillarDownPoint : float) -> void:
+func _on_pillars_instanced(mazeOffset : Vector3, pillarArray : Array, pillarDownPoint : float, maze : String) -> void:
 	pillars.append_array(pillarArray)
 	for pillar in pillarArray:
 		var location = pillar.transform.origin
@@ -68,3 +69,12 @@ func _on_pillars_instanced(mazeOffset : Vector3, pillarArray : Array, pillarDown
 		pillarStates.append(0)
 		pillarClocks.append(0)
 		pillarOffsets.append(mazeOffset)
+		pillarKeys.append(maze)
+
+func _on_update_offset(mazeOffset : Vector3, maze : String) -> void:
+	var i : int = 0
+	for pillar in pillars:
+		if(pillarKeys[i] == maze):
+			pillarOffsets[i] = mazeOffset
+			pillar.transform.origin = pillarDefaults[i]
+		i += 1

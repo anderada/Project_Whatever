@@ -172,7 +172,7 @@ func move() -> void:
 		stopPlayer(false)
 		#check ice
 		var block = getBlock(position)
-		if(block == iceIndex):
+		if(block == iceIndex || block == pillarIndex):
 			targetPosition.x += lastMove.x
 			targetPosition.z += lastMove.y
 			moveClock = moveTime
@@ -194,7 +194,7 @@ func turn() -> void:
 func stopPlayer(collided : bool) -> void:
 	if(!collided):
 		position = targetPosition
-		if getBlock(position) != iceIndex:
+		if getBlock(position) != iceIndex && getBlock(position) != pillarIndex:
 			SoundManger.playSound(getBlock(position))
 			if(SoundManger.icePlaying()):
 				SoundManger.stopIce()
@@ -229,7 +229,7 @@ func setMoveCurve() -> void:
 	var blockInFront = getBlock(targetPosition)
 	if(blockAtFeet != iceIndex && blockInFront == iceIndex):
 		moveCurve = slideInCurve
-	elif(blockAtFeet == iceIndex && blockInFront == iceIndex):
+	elif((blockAtFeet == iceIndex || blockAtFeet == pillarIndex) && (blockInFront == iceIndex || blockInFront == pillarIndex)):
 		moveCurve = slideCurve
 	elif(blockAtFeet == iceIndex && blockInFront != iceIndex):
 		moveCurve = slideOutCurve
@@ -249,7 +249,7 @@ func checkCollision() -> void:
 	
 	#check feet collision
 	block = getBlock(targetPosition)
-	if(block == -1 || block == pillarIndex):
+	if(block == -1):
 		stopPlayer(true)
 	if(block == stairIndex):
 		startStairs(-1)
@@ -317,7 +317,7 @@ func _input(event):
 		var actionables = actionable_finder.get_overlapping_areas()
 		if (event.button_index == MOUSE_BUTTON_LEFT && event.pressed && actionables.size() > 0):
 				actionables[0].action()
-	if (Input.is_action_pressed("next_action")):
+	if (Input.is_action_just_pressed("next_action")):
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
 			actionables[0].action()

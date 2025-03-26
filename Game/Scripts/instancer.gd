@@ -1,6 +1,7 @@
 extends GridMap
 
 signal pillarsInstanced
+signal updateOffset
 
 @export_group("Lever Settings")
 @export var moveDistance : Vector3
@@ -39,6 +40,7 @@ func _process(delta: float) -> void:
 			position = upPosition
 		else:
 			position = downPosition
+		updateOffset.emit(position, self.name)
 		moveClock = -2
 
 func instancePillars():
@@ -73,7 +75,7 @@ func instancePillars():
 					rot = 0
 			lamp.rotation = Vector3(0,rot * (PI / 2),0)
 			add_child(lamp)
-	pillarsInstanced.emit(position, pillars, pillarDownPoint)
+	pillarsInstanced.emit(position, pillars, pillarDownPoint, self.name)
 
 func move() -> void:
 	up = !up
