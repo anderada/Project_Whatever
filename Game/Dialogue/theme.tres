@@ -1,6 +1,7 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://dddwf6annn1er"]
 
-[ext_resource type="StyleBox" uid="uid://cbkdvey2ym77u" path="res://Assets/UI/dialouge_box.tres" id="1_0lmjo"]
+[ext_resource type="StyleBox" uid="uid://cbkdvey2ym77u" path="res://Assets/UI/Dialouge/dialouge_box.tres" id="1_0lmjo"]
+
 
 [resource]
 default_font_size = 19
