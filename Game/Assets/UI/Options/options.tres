@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bd8bwini8iq2i"]
+
+[ext_resource type="FontFile" uid="uid://pu71q4tkkp0" path="res://Assets/Fonts/Inter Mush.otf" id="1_m4jjf"]
+
+[resource]
+Button/fonts/font = ExtResource("1_m4jjf")
+Label/fonts/font = ExtResource("1_m4jjf")
+TabContainer/fonts/font = ExtResource("1_m4jjf")

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://pu71q4tkkp0"
-path="res://.godot/imported/Inter Mush.otf-aa9a69f8fcf58781b2f84d06a6f74f46.fontdata"
+path="res://.godot/imported/Inter Mush.otf-e2302921e0c050af9d36b523cc498982.fontdata"
 
 [deps]
 
-source_file="res://Assets/UI/Start Menu/Inter Mush.otf"
-dest_files=["res://.godot/imported/Inter Mush.otf-aa9a69f8fcf58781b2f84d06a6f74f46.fontdata"]
+source_file="res://Assets/Fonts/Inter Mush.otf"
+dest_files=["res://.godot/imported/Inter Mush.otf-e2302921e0c050af9d36b523cc498982.fontdata"]
 
 [params]
 

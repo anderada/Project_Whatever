@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqxefqnxol8pq"]
+[gd_scene load_steps=9 format=3 uid="uid://dqxefqnxol8pq"]
 
 [ext_resource type="Script" uid="uid://b5dw36a224kp0" path="res://UI/Menu.gd" id="1_ovslo"]
 [ext_resource type="PackedScene" uid="uid://dt67mu85m4skl" path="res://Scenes/Level1.tscn" id="2_8gori"]
+[ext_resource type="PackedScene" uid="uid://dflvn7vwqqje5" path="res://UI/OptionsMenu.tscn" id="3_fu2ld"]
 [ext_resource type="Texture2D" uid="uid://c6qxxt2jctqo5" path="res://Assets/UI/Start Menu/background.png" id="6_8gori"]
 [ext_resource type="Texture2D" uid="uid://db2bka5sfy8ya" path="res://Assets/UI/Start Menu/title.png" id="7_cyaua"]
 [ext_resource type="Texture2D" uid="uid://ct1adkmwxj1pa" path="res://Assets/UI/Start Menu/TeamInfoButton.png" id="7_fu2ld"]
@@ -27,17 +28,26 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_8gori")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="MainUIElements" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MainUIElements"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.311
-offset_bottom = 0.119965
+offset_right = 3.0
+offset_bottom = -1.87997
 grow_horizontal = 2
 texture = ExtResource("7_cyaua")
 stretch_mode = 5
 
-[node name="TeamInfo" type="HBoxContainer" parent="."]
+[node name="TeamInfo" type="HBoxContainer" parent="MainUIElements"]
 layout_direction = 2
 layout_mode = 1
 anchors_preset = 1
@@ -48,14 +58,14 @@ offset_right = -18.0
 offset_bottom = 108.0
 grow_horizontal = 0
 
-[node name="TeamInfo" type="TextureRect" parent="TeamInfo"]
+[node name="TeamInfo" type="TextureRect" parent="MainUIElements/TeamInfo"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.16
 texture = ExtResource("7_mgr47")
 stretch_mode = 3
 
-[node name="Team" type="Button" parent="TeamInfo"]
+[node name="Team" type="Button" parent="MainUIElements/TeamInfo"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.32
@@ -65,10 +75,10 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Timer" type="Timer" parent="TeamInfo"]
+[node name="Timer" type="Timer" parent="MainUIElements/TeamInfo"]
 wait_time = 5.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainUIElements"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.632
@@ -76,12 +86,12 @@ anchor_right = 0.995
 anchor_bottom = 0.919
 offset_left = -4.0
 offset_top = 0.439941
-offset_right = 9.59985
-offset_bottom = 0.47998
+offset_right = 5.59998
+offset_bottom = -0.52002
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="StartButton" type="Button" parent="MainUIElements/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("10_cyaua")
@@ -89,7 +99,7 @@ theme_override_font_sizes/font_size = 111
 text = "Start"
 flat = true
 
-[node name="OptionButton" type="Button" parent="VBoxContainer"]
+[node name="OptionButton" type="Button" parent="MainUIElements/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("10_cyaua")
@@ -97,6 +107,10 @@ theme_override_font_sizes/font_size = 111
 text = "Options"
 flat = true
 
-[connection signal="button_down" from="TeamInfo/Team" to="." method="_on_team_button_down"]
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
+[node name="OptionsMenu" parent="." instance=ExtResource("3_fu2ld")]
+visible = false
+layout_mode = 1
+
+[connection signal="button_down" from="MainUIElements/TeamInfo/Team" to="." method="_on_team_button_down"]
+[connection signal="pressed" from="MainUIElements/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainUIElements/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]

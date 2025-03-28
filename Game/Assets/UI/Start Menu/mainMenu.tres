@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://wym83aqtb1vp"]
 
-[ext_resource type="FontFile" uid="uid://pu71q4tkkp0" path="res://Assets/UI/Start Menu/Inter Mush.otf" id="1_ajxbn"]
+[ext_resource type="FontFile" uid="uid://pu71q4tkkp0" path="res://Assets/Fonts/Inter Mush.otf" id="1_ajxbn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ajxbn"]
 
