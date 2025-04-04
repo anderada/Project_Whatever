@@ -1,49 +1,31 @@
-[gd_scene load_steps=18 format=4 uid="uid://bhb8v83jxbc41"]
+[gd_scene load_steps=9 format=4 uid="uid://bhb8v83jxbc41"]
 
 [ext_resource type="Script" uid="uid://bldhiwgr2f7v2" path="res://Scripts/lamp.gd" id="1_65iwf"]
-[ext_resource type="Texture2D" uid="uid://c0dlqn73qb78n" path="res://Assets/Meshes/Lantern_Lantern_BaseColor.png" id="2_12ls8"]
-[ext_resource type="Texture2D" uid="uid://u6b8vy6jywbs" path="res://Assets/Meshes/Lantern_Lantern_MetallicGlossMap).png" id="3_bdcag"]
-[ext_resource type="Texture2D" uid="uid://dft2mueflkjo" path="res://Assets/Meshes/Lantern_Lantern_Normal.png" id="4_xe56a"]
-[ext_resource type="Texture2D" uid="uid://dje1dyt7k3ghy" path="res://Assets/Meshes/Lantern_Glass_BaseColor.png" id="5_5ak6s"]
-[ext_resource type="Texture2D" uid="uid://betq7o7kjo6s4" path="res://Assets/Meshes/Lantern_Glass_MetallicGlossMap).png" id="6_2rdly"]
-[ext_resource type="Texture2D" uid="uid://d01g5nwf0mab4" path="res://Assets/Meshes/Lantern_Image.png" id="7_xjjin"]
-[ext_resource type="Texture2D" uid="uid://dnchxx7el0fjd" path="res://Assets/Meshes/Bridge_Floor_BaseColor.png" id="8_djsmp"]
-[ext_resource type="Texture2D" uid="uid://ixa1pt68susw" path="res://Assets/Meshes/Bridge_Floor_MetallicGlossMap.png" id="9_lkbkc"]
-[ext_resource type="Texture2D" uid="uid://bl12jv5fmf6sg" path="res://Assets/Meshes/Bridge_Floor_Normal_OpenGL.png" id="10_pln0v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp86t"]
 resource_name = "Lantern"
 cull_mode = 2
-albedo_texture = ExtResource("2_12ls8")
 metallic = 1.0
-metallic_texture = ExtResource("3_bdcag")
 metallic_texture_channel = 2
 roughness = 0.5
-roughness_texture = ExtResource("3_bdcag")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("4_xe56a")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cy8ap"]
 resource_name = "LanternGlass"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("5_5ak6s")
 metallic = 1.0
-metallic_texture = ExtResource("6_2rdly")
 metallic_texture_channel = 2
 roughness = 0.5
-roughness_texture = ExtResource("6_2rdly")
 roughness_texture_channel = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4sal"]
 resource_name = "Bridge.001"
 cull_mode = 2
 metallic = 1.0
-metallic_texture = ExtResource("7_xjjin")
 metallic_texture_channel = 2
 roughness = 0.5
-roughness_texture = ExtResource("7_xjjin")
 roughness_texture_channel = 1
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ndu80"]
@@ -129,22 +111,15 @@ shadow_mesh = SubResource("ArrayMesh_ndu80")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xq13"]
 transparency = 1
 blend_mode = 1
-albedo_texture = ExtResource("5_5ak6s")
 metallic = 1.0
-metallic_texture = ExtResource("6_2rdly")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("6_2rdly")
 roughness_texture_channel = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_el3xb"]
-albedo_texture = ExtResource("8_djsmp")
 metallic = 1.0
-metallic_texture = ExtResource("9_lkbkc")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("9_lkbkc")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("10_pln0v")
 
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("lamp", "secondaryLamp")]
 script = ExtResource("1_65iwf")
