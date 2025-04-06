@@ -22,7 +22,7 @@ script = ExtResource("1_qkqdy")
 
 [node name="Ice Looping" type="AudioStreamPlayer" parent="Ice"]
 stream = ExtResource("2_60g6b")
-volume_db = -20.0
+volume_db = -30.0
 
 [node name="Pillar" type="Node" parent="."]
 
