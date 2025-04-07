@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://wym83aqtb1vp"]
+
+[ext_resource type="FontFile" uid="uid://pu71q4tkkp0" path="res://Assets/Fonts/Inter Mush.otf" id="1_ajxbn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ajxbn"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.960784, 0.964706, 0.968627, 1)
+Button/fonts/font = ExtResource("1_ajxbn")
+Button/styles/focus = SubResource("StyleBoxEmpty_ajxbn")

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="whatever-maze"
-run/main_scene="res://Scenes/Level1.tscn"
+run/main_scene="uid://dqxefqnxol8pq"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/show_image=false
 boot_splash/fullsize=false
@@ -30,6 +30,8 @@ runtime/balloon_path="res://Dialogue/balloon.tscn"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 mouse_cursor/custom_image="res://Assets/Textures/cursor.png"
 
 [editor_plugins]
