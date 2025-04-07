@@ -10,7 +10,7 @@ load_path = "res://.godot/imported/StoneBrick_MetallicGlossMap.png-5f2f5cc6afb40
 [resource]
 albedo_texture = ExtResource("1_if7gs")
 metallic = 1.0
-metallic_specular = 0.2
+metallic_specular = 0.1
 metallic_texture = ExtResource("2_iow80")
 metallic_texture_channel = 2
 roughness_texture = SubResource("CompressedTexture2D_if7gs")
