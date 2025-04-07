@@ -82,6 +82,7 @@ skeleton = NodePath("")
 
 [node name="Archway" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
 
 [node name="Archway" type="MeshInstance3D" parent="Archway"]
 mesh = SubResource("ArrayMesh_2ulom")
