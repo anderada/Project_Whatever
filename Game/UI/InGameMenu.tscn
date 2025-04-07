@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhmxe7eqqmqje"]
+[gd_scene load_steps=12 format=3 uid="uid://bhmxe7eqqmqje"]
 
 [ext_resource type="Script" uid="uid://n1ny7t4lbdra" path="res://UI/Script/in_game_menu.gd" id="1_860qj"]
 [ext_resource type="Theme" uid="uid://bd8bwini8iq2i" path="res://Assets/UI/Options/options.tres" id="2_860qj"]
 [ext_resource type="Texture2D" uid="uid://cptfdrv2anvtj" path="res://Assets/UI/InGameUI/pause.png" id="2_wcqru"]
+[ext_resource type="Texture2D" uid="uid://dpxnuum7dnu7r" path="res://Assets/UI/InGameUI/Letters/letter1_icon.png" id="4_eefn2"]
+[ext_resource type="Texture2D" uid="uid://dwabklq4puf5l" path="res://Assets/UI/InGameUI/Letters/letter2_icon.png" id="5_s0ark"]
+[ext_resource type="Texture2D" uid="uid://bs25yct21rnjo" path="res://Assets/UI/InGameUI/Letters/letter3_icon.png" id="6_h2juf"]
+[ext_resource type="Texture2D" uid="uid://cuxoe106383lv" path="res://Assets/UI/InGameUI/Letters/letter4_icon.png" id="7_hh5ln"]
+[ext_resource type="Texture2D" uid="uid://crkb0g66txrjt" path="res://Assets/UI/InGameUI/Letters/Letter2.png" id="8_hh5ln"]
+[ext_resource type="Texture2D" uid="uid://dj5owft4co5am" path="res://Assets/UI/InGameUI/Letters/Letter3.png" id="9_rn23e"]
+[ext_resource type="Texture2D" uid="uid://dxtyqgtjsca0a" path="res://Assets/UI/InGameUI/Letters/Letter4.png" id="10_2qrxl"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qvchc"]
+load_path = "res://.godot/imported/Letter1.png-ddab108042c12a486101b5ac985ee7be.ctex"
 
 [node name="InGameMenu" type="Control"]
 layout_mode = 3
@@ -15,15 +25,12 @@ script = ExtResource("1_860qj")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
 theme_override_constants/margin_left = 54
-theme_override_constants/margin_top = 52
+theme_override_constants/margin_top = 33
 theme_override_constants/margin_right = 54
-theme_override_constants/margin_bottom = 52
+theme_override_constants/margin_bottom = 33
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
@@ -58,6 +65,67 @@ size_flags_vertical = 0
 theme = ExtResource("2_860qj")
 theme_override_font_sizes/font_size = 87
 text = "back"
+
+[node name="Letters" type="Control" parent="MarginContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -615.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="letter1" type="Button" parent="MarginContainer/TextureRect/Letters"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 86.0
+offset_top = 105.0
+offset_right = 376.0
+offset_bottom = 425.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("4_eefn2")
+flat = true
+expand_icon = true
+
+[node name="letter2" type="Button" parent="MarginContainer/TextureRect/Letters"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 433.0
+offset_top = 105.0
+offset_right = 723.0
+offset_bottom = 425.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("5_s0ark")
+flat = true
+expand_icon = true
+
+[node name="letter3" type="Button" parent="MarginContainer/TextureRect/Letters"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 764.0
+offset_top = 105.0
+offset_right = 1054.0
+offset_bottom = 425.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("6_h2juf")
+flat = true
+expand_icon = true
+
+[node name="letter4" type="Button" parent="MarginContainer/TextureRect/Letters"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 756.0
+offset_top = 411.0
+offset_right = 1046.0
+offset_bottom = 731.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("7_hh5ln")
+flat = true
+expand_icon = true
 
 [node name="Confirm_Panel" type="Panel" parent="MarginContainer"]
 visible = false
@@ -101,7 +169,70 @@ theme_override_font_sizes/font_size = 52
 text = "No
 "
 
+[node name="Letter_Panel" type="Panel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Letter1" type="TextureRect" parent="MarginContainer/Letter_Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 239.0
+offset_top = -102.0
+offset_right = 2287.0
+offset_bottom = 1946.0
+scale = Vector2(0.63, 0.63)
+texture = SubResource("CompressedTexture2D_qvchc")
+
+[node name="Letter2" type="TextureRect" parent="MarginContainer/Letter_Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 202.0
+offset_top = -137.0
+offset_right = 2250.0
+offset_bottom = 1911.0
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("8_hh5ln")
+
+[node name="Letter3" type="TextureRect" parent="MarginContainer/Letter_Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 234.0
+offset_top = -127.0
+offset_right = 2282.0
+offset_bottom = 1921.0
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("9_rn23e")
+
+[node name="Letter4" type="TextureRect" parent="MarginContainer/Letter_Panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 234.0
+offset_top = -120.0
+offset_right = 2282.0
+offset_bottom = 1928.0
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("10_2qrxl")
+
+[node name="letterClose" type="Button" parent="MarginContainer/Letter_Panel"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1102.0
+offset_top = 36.0
+offset_right = -598.0
+offset_bottom = -912.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("2_860qj")
+theme_override_font_sizes/font_size = 52
+text = "x"
+
 [connection signal="button_up" from="MarginContainer/TextureRect/MarginContainer/main menu" to="." method="_on_main_menu_button_up"]
 [connection signal="button_up" from="MarginContainer/TextureRect/MarginContainer/Back" to="." method="_on_back_button_up"]
 [connection signal="button_up" from="MarginContainer/Confirm_Panel/MarginContainer/HBoxContainer/Yes" to="." method="_on_return_to_main_menu"]
 [connection signal="button_up" from="MarginContainer/Confirm_Panel/MarginContainer/HBoxContainer/No" to="." method="_on_no_button_up"]
+[connection signal="pressed" from="MarginContainer/Letter_Panel/letterClose" to="." method="_on_letter_close_pressed"]
