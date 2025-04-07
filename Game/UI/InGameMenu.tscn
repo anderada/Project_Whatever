@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhmxe7eqqmqje"]
+
+[ext_resource type="Script" uid="uid://n1ny7t4lbdra" path="res://UI/in_game_menu.gd" id="1_860qj"]
+[ext_resource type="Theme" uid="uid://bd8bwini8iq2i" path="res://Assets/UI/Options/options.tres" id="2_860qj"]
+[ext_resource type="Texture2D" uid="uid://cptfdrv2anvtj" path="res://Assets/UI/InGameUI/pause.png" id="2_wcqru"]
+
+[node name="InGameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_860qj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 54
+theme_override_constants/margin_top = 52
+theme_override_constants/margin_right = 54
+theme_override_constants/margin_bottom = 52
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_wcqru")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 55
+theme_override_constants/margin_top = 133
+theme_override_constants/margin_right = 92
+theme_override_constants/margin_bottom = 133
+
+[node name="main menu" type="Button" parent="MarginContainer/TextureRect/MarginContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+theme = ExtResource("2_860qj")
+theme_override_font_sizes/font_size = 87
+text = "Main Menu"
+
+[node name="Back" type="Button" parent="MarginContainer/TextureRect/MarginContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("2_860qj")
+theme_override_font_sizes/font_size = 87
+text = "back"
+
+[connection signal="button_up" from="MarginContainer/TextureRect/MarginContainer/main menu" to="." method="_on_main_menu_button_up"]
+[connection signal="button_up" from="MarginContainer/TextureRect/MarginContainer/Back" to="." method="_on_back_button_up"]

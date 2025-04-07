@@ -34,3 +34,7 @@ func _hide_panel():
 func _on_exit_options_menu() -> void:
 	mainMenu.visible=true
 	optionsMenu.visible=false
+
+
+func _on_exit_button_button_up() -> void:
+	get_tree().quit()

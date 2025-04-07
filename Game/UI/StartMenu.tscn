@@ -99,12 +99,12 @@ theme_override_font_sizes/font_size = 111
 text = "Start"
 flat = true
 
-[node name="OptionButton" type="Button" parent="MainUIElements/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="MainUIElements/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("10_cyaua")
 theme_override_font_sizes/font_size = 111
-text = "Options"
+text = "Exit"
 flat = true
 
 [node name="OptionsMenu" parent="." instance=ExtResource("3_fu2ld")]
@@ -113,4 +113,4 @@ layout_mode = 1
 
 [connection signal="button_down" from="MainUIElements/TeamInfo/Team" to="." method="_on_team_button_down"]
 [connection signal="pressed" from="MainUIElements/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="MainUIElements/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="button_up" from="MainUIElements/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_up"]

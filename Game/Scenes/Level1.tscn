@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://dt67mu85m4skl"]
+[gd_scene load_steps=67 format=4 uid="uid://dt67mu85m4skl"]
 
 [ext_resource type="Script" uid="uid://1h5uj6wgu678" path="res://Scripts/instancer.gd" id="2_26ana"]
 [ext_resource type="PackedScene" uid="uid://cl782vs3tgpgy" path="res://Assets/Prefabs/pillar.tscn" id="3_w0d8i"]
@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://un2e4xgi7gwt" path="res://Assets/Textures/Collectible/DefaultMaterial_MetallicGlossMap.png" id="26_ek3m4"]
 [ext_resource type="Texture2D" uid="uid://dl6qgh413g85k" path="res://Assets/Textures/Collectible/DefaultMaterial_Normal_OpenGL.png" id="27_8tdsi"]
 [ext_resource type="Script" uid="uid://bq758vvyejqca" path="res://Scripts/fps.gd" id="31_qvja8"]
+[ext_resource type="PackedScene" uid="uid://ch30wo5lb22uk" path="res://UI/InGameUI.tscn" id="35_ek3m4"]
 
 [sub_resource type="Curve" id="Curve_x6p1d"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -966,6 +967,8 @@ text = "W S to move, A D to turn, Click or E to talk and interact."
 label_settings = SubResource("LabelSettings_b0yvq")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="InGameUI" parent="UI" instance=ExtResource("35_ek3m4")]
 
 [connection signal="activatePillar" from="Player" to="Maps/pillarAnimator" method="_on_player_activate_pillar"]
 [connection signal="deactivatePillar" from="Player" to="Maps/pillarAnimator" method="_on_player_deactivate_pillar"]
