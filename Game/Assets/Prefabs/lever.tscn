@@ -163,14 +163,14 @@ libraries = {
 }
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.055666, 1.19339, -0.951309)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055666, 1.19339, -0.951309)
 visible = false
 light_color = Color(0.123423, 0.611766, 0.371549, 1)
 shadow_enabled = true
 omni_range = 0.042
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0604433, 1.19339, -0.962117)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0604433, 1.19339, -0.962117)
 light_color = Color(0.869912, 0, 0.041561, 1)
 shadow_enabled = true
 omni_range = 0.042
