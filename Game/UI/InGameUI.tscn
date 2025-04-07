@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ch30wo5lb22uk"]
 
-[ext_resource type="Script" uid="uid://dgsjk208a8tiw" path="res://UI/in_game_ui.gd" id="1_v4w3m"]
+[ext_resource type="Script" uid="uid://dgsjk208a8tiw" path="res://UI/Script/in_game_ui.gd" id="1_v4w3m"]
 [ext_resource type="PackedScene" uid="uid://bhmxe7eqqmqje" path="res://UI/InGameMenu.tscn" id="3_2bndh"]
 
 [node name="InGameUI" type="Control"]
