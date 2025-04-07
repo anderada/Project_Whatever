@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtgwxb3hfkuq5"
-path.s3tc="res://.godot/imported/Lever_BaseColor.png-65e34b4eca1e101a68e8d5662312e6b9.s3tc.ctex"
-path.etc2="res://.godot/imported/Lever_BaseColor.png-65e34b4eca1e101a68e8d5662312e6b9.etc2.ctex"
+uid="uid://bhr1slgwuiy0j"
+path.s3tc="res://.godot/imported/Hedge_MetallicGlossMap.png-46bd446a2db166df3241c94947550af2.s3tc.ctex"
+path.etc2="res://.godot/imported/Hedge_MetallicGlossMap.png-46bd446a2db166df3241c94947550af2.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/Lever/Lever_BaseColor.png"
-dest_files=["res://.godot/imported/Lever_BaseColor.png-65e34b4eca1e101a68e8d5662312e6b9.s3tc.ctex", "res://.godot/imported/Lever_BaseColor.png-65e34b4eca1e101a68e8d5662312e6b9.etc2.ctex"]
+source_file="res://Assets/Textures/Hedge/Hedge_MetallicGlossMap.png"
+dest_files=["res://.godot/imported/Hedge_MetallicGlossMap.png-46bd446a2db166df3241c94947550af2.s3tc.ctex", "res://.godot/imported/Hedge_MetallicGlossMap.png-46bd446a2db166df3241c94947550af2.etc2.ctex"]
 
 [params]
 

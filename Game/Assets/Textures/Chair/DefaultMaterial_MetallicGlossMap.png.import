@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtgwxb3hfkuq5"
-path.s3tc="res://.godot/imported/Lever_BaseColor.png-65e34b4eca1e101a68e8d5662312e6b9.s3tc.ctex"
-path.etc2="res://.godot/imported/Lever_BaseColor.png-65e34b4eca1e101a68e8d5662312e6b9.etc2.ctex"
+uid="uid://h5so2pfn008x"
+path.s3tc="res://.godot/imported/DefaultMaterial_MetallicGlossMap.png-6356a7e5dd2cb61d59509bf6f989c712.s3tc.ctex"
+path.etc2="res://.godot/imported/DefaultMaterial_MetallicGlossMap.png-6356a7e5dd2cb61d59509bf6f989c712.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/Lever/Lever_BaseColor.png"
-dest_files=["res://.godot/imported/Lever_BaseColor.png-65e34b4eca1e101a68e8d5662312e6b9.s3tc.ctex", "res://.godot/imported/Lever_BaseColor.png-65e34b4eca1e101a68e8d5662312e6b9.etc2.ctex"]
+source_file="res://Assets/Textures/Chair/DefaultMaterial_MetallicGlossMap.png"
+dest_files=["res://.godot/imported/DefaultMaterial_MetallicGlossMap.png-6356a7e5dd2cb61d59509bf6f989c712.s3tc.ctex", "res://.godot/imported/DefaultMaterial_MetallicGlossMap.png-6356a7e5dd2cb61d59509bf6f989c712.etc2.ctex"]
 
 [params]
 
