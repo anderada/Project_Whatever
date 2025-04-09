@@ -302,6 +302,7 @@ func checkPillars() -> void:
 				activatePillar.emit(pos)
 
 func removeIce(lampLocation : Vector3, radius : float):
+	var wasIce:bool = false
 	for i in range(-radius, radius+1):
 		for j in range(-radius, radius+1):
 			for k in range(-radius, radius+1):
@@ -309,6 +310,9 @@ func removeIce(lampLocation : Vector3, radius : float):
 					continue
 				if(getBlock(lampLocation + Vector3(i,j,k)) == iceIndex):
 					setBlock(lampLocation + Vector3(i,j,k), floorIndex);
+					wasIce = true
+	if(wasIce):
+		SoundManger.playSound(97)
 
 func _input(event):
 	if(inDialogue):

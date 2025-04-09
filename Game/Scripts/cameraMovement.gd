@@ -29,14 +29,14 @@ func _process(delta: float) -> void:
 		Telemetry.log_event("","Mouse Event","")
 		logEventPoint = mousePos
 	
-	if(locked):
-		mousePos = Vector2(get_viewport().get_visible_rect().size.x / 2, get_viewport().get_visible_rect().size.y / 2)
-	
 	if(mousePos == previousMousePos):
 		mouseStillTime += delta
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		mouseStillTime = 0
+	
+	if(locked):
+		mousePos = Vector2(get_viewport().get_visible_rect().size.x / 2, get_viewport().get_visible_rect().size.y / 2)
 	
 	if(mouseStillTime >= hideMouseTime):
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

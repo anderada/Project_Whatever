@@ -13,6 +13,9 @@ extends Node
 @onready var walk_6: AudioStreamPlayer = $"Wood/Walk 6"
 @onready var walk_7: AudioStreamPlayer = $"Wood/Walk 7"
 @onready var walk_8: AudioStreamPlayer = $"Wood/Walk 8"
+@onready var lever: AudioStreamPlayer = $"Lever"
+@onready var door: AudioStreamPlayer = $"Door"
+@onready var melt: AudioStreamPlayer = $"Melt"
 
 var timeSinceLastSound : float = 0
 @export var minimumTimeBetweenIceSounds : float = 0.4
@@ -41,6 +44,12 @@ func playSound(type : int) -> void:
 				pillar_3.play()
 			4:
 				pillar_4.play()
+	elif(type == 99):
+		door.play()
+	elif(type == 98):
+		lever.play()
+	elif(type == 97):
+		melt.play()
 	else:
 		var dice : int = randi_range(1,8)
 		match dice:

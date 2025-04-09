@@ -9,6 +9,7 @@ func _process(_delta: float) -> void:
 	if(triggered):
 		return
 	if(abs(%Player.position.distance_to(position)) < 1):
+		SoundManger.playSound(99)
 		var state_machine = animator["parameters/playback"]
 		if(state_machine != null):
 			state_machine.travel("Open")

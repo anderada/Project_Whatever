@@ -8,6 +8,7 @@ var up : bool = true
 
 func action() -> void:
 	toMove.move()
+	SoundManger.playSound(98)
 	up = !up
 	if(!up):
 		animator.play("LeverAction")
