@@ -1,7 +1,6 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cbkdvey2ym77u"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_82iin"]
-load_path = "res://.godot/imported/dialouge_box.png-fe09ca0b9952134223ae45af87dd5ba3.ctex"
+[ext_resource type="Texture2D" uid="uid://x0dbcduqtvxf" path="res://Assets/UI/Dialouge/dialouge_box.png" id="1_qr0gf"]
 
 [resource]
-texture = SubResource("CompressedTexture2D_82iin")
+texture = ExtResource("1_qr0gf")
