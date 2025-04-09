@@ -2,7 +2,7 @@ extends Node
 
 @onready var optionsMenu= $InGameMenu
 @onready var mainMenu= $MainUIElements
-@onready var letterPanel=$MarginContainer/Letter_Panel
+@onready var letterPanel=$InGameMenu/MarginContainer/Letter_Panel
 var isopen=false
 
 func _ready() -> void:
