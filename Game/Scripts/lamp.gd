@@ -20,3 +20,4 @@ func _process(delta: float) -> void:
 		secondaryLamp.omni_range = 3
 		triggered = true
 		player.removeIce(position, 2)
+		SoundManger.playSound(96)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dskhd2726otdj"]
+[gd_scene load_steps=19 format=3 uid="uid://dskhd2726otdj"]
 
 [ext_resource type="Script" uid="uid://bblylvo1ehd3o" path="res://Scripts/sound_manger.gd" id="1_qkqdy"]
 [ext_resource type="AudioStream" uid="uid://b00yhdtcwabql" path="res://Assets/Sounds/Ice Sliding/newIceSliding.wav" id="2_60g6b"]
@@ -11,9 +11,10 @@
 [ext_resource type="AudioStream" uid="uid://b614g7coqm3da" path="res://Assets/Sounds/Walking/Walk3.wav" id="12_dbse1"]
 [ext_resource type="AudioStream" uid="uid://dfntc2d68a0wr" path="res://Assets/Sounds/Walking/Walk4.wav" id="13_edgsc"]
 [ext_resource type="AudioStream" uid="uid://b0sf2hyrhxbgn" path="res://Assets/Sounds/Walking/Walk5.wav" id="14_nfeso"]
-[ext_resource type="AudioStream" uid="uid://fntgngpuaoiq" path="res://Assets/Sounds/lever.wav" id="15_abtqv"]
+[ext_resource type="AudioStream" uid="uid://byxplmiqasijl" path="res://Assets/Sounds/leverLatest.wav" id="15_dv5pr"]
 [ext_resource type="AudioStream" uid="uid://dpprbhukl1n8d" path="res://Assets/Sounds/Walking/Walk6.wav" id="15_eooow"]
 [ext_resource type="AudioStream" uid="uid://0detg63cx5iv" path="res://Assets/Sounds/Walking/Walk7.wav" id="16_1adwi"]
+[ext_resource type="AudioStream" uid="uid://cxd5vakqfgt5j" path="res://Assets/Sounds/LanternSound.wav" id="16_dv5pr"]
 [ext_resource type="AudioStream" uid="uid://bxxmpnvl8qmmj" path="res://Assets/Sounds/StoneDoor.wav" id="16_jgb1s"]
 [ext_resource type="AudioStream" uid="uid://dt1bvv6kg1ccs" path="res://Assets/Sounds/melting.wav" id="17_jgb1s"]
 [ext_resource type="AudioStream" uid="uid://d3dij5kqji6bm" path="res://Assets/Sounds/Walking/Walk8.wav" id="17_wxabf"]
@@ -80,8 +81,16 @@ stream = ExtResource("17_wxabf")
 volume_db = -10.0
 
 [node name="Lever" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("15_abtqv")
+stream = ExtResource("15_dv5pr")
 volume_db = -17.0
+
+[node name="Lever2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_dv5pr")
+volume_db = -17.0
+
+[node name="Lamp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_dv5pr")
+volume_db = -10.0
 
 [node name="Door" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_jgb1s")

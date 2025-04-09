@@ -14,6 +14,7 @@ extends Node
 @onready var walk_7: AudioStreamPlayer = $"Wood/Walk 7"
 @onready var walk_8: AudioStreamPlayer = $"Wood/Walk 8"
 @onready var lever: AudioStreamPlayer = $"Lever"
+@onready var lamp: AudioStreamPlayer = $"Lamp"
 @onready var door: AudioStreamPlayer = $"Door"
 @onready var melt: AudioStreamPlayer = $"Melt"
 
@@ -50,6 +51,8 @@ func playSound(type : int) -> void:
 		lever.play()
 	elif(type == 97):
 		melt.play()
+	elif(type == 96):
+		lamp.play()
 	else:
 		var dice : int = randi_range(1,8)
 		match dice:

@@ -21,11 +21,13 @@ func _unhandled_input(event):
 func switch_ui():
 	isopen=!isopen
 	if isopen:
+		%Camera3D.lockCamera(true)
 		mainMenu.visible=false
 		optionsMenu.set_process(true)
 		optionsMenu.visible=true
 		
 	else:
+		%Camera3D.lockCamera(false)
 		mainMenu.visible=true
 		optionsMenu.visible=false
 
